@@ -10,21 +10,22 @@ import UIKit
 
 class MainViewController: UIViewController {
     private var viewModel: MainViewModel!
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        
+        let loginViewController = MainComponent().loginComponent.loginViewController
+        addChild(loginViewController)
+        view.addSubview(loginViewController.view)
+        loginViewController.didMove(toParent: self)
     }
     
-    private func configure() {
-        
-        let testLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Test"
-            return label
-        }()
-        
-        view.backgroundColor = .black
-        view.addSubview(testLabel)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
+

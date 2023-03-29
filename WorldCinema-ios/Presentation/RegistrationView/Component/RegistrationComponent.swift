@@ -8,11 +8,6 @@
 import Foundation
 import NeedleFoundation
 
+protocol RegistrationComponentDependency: Dependency {}
 
-protocol RegistrationComponentDependency: Dependency{
-    
-}
-
-final class RegistrationComponent: Component <RegistrationComponentDependency> {
-    
-}
+final class RegistrationComponent: Component<RegistrationComponentDependency> {}

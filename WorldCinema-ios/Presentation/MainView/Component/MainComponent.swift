@@ -10,19 +10,24 @@ import NeedleFoundation
 import UIKit
 
 final class MainComponent: BootstrapComponent {
-    
     var authorizationComponent: AuthorizationComponent {
         shared {
             AuthorizationComponent(parent: self)
         }
     }
-    
+
     var registrationComponent: RegistrationComponent {
         shared {
             RegistrationComponent(parent: self)
         }
     }
-    
+
+    var loginComponent: LoginComponent {
+        shared {
+            LoginComponent(parent: self)
+        }
+    }
+
     var mainViewController: UIViewController {
         return MainViewController()
     }

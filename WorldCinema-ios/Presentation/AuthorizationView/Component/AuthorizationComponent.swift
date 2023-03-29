@@ -9,10 +9,10 @@ import Foundation
 import NeedleFoundation
 import UIKit
 
-protocol AuthorizationComponentDependency: Dependency {
-    
-}
+protocol AuthorizationComponentDependency: Dependency {}
 
-final class AuthorizationComponent: Component <AuthorizationComponentDependency> {
-    
+final class AuthorizationComponent: Component<AuthorizationComponentDependency> {
+    var authorizationViewController: UIViewController {
+        return AuthorizationViewController()
+    }
 }
