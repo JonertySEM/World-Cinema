@@ -10,7 +10,7 @@ import Foundation
 extension NSError {
     static func createErrorWithLocalizedDescription(_ text: String) -> NSError {
         NSError(
-            domain: Bundle.main.bundleIdentifier ?? "com.hits.WorldCinema",
+            domain: Bundle.main.bundleIdentifier ?? "com.hits.WorldCinema-ios",
             code: 0,
             userInfo: [NSLocalizedDescriptionKey: text]
         )

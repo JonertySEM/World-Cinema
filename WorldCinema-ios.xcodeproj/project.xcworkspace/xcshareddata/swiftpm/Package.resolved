@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "0ea3febb36cfcec2afb5841fd8809a9c0fa545b3"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ecb18d8ce4d88277cc4fb103973352d91e18c535"
+      }
+    },
+    {
       "identity" : "needle",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/uber/needle.git",
@@ -34,6 +52,15 @@
       "state" : {
         "revision" : "f222cbdf325885926566172f6f5f06af95473158",
         "version" : "5.6.0"
+      }
+    },
+    {
+      "identity" : "spalert",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ivanvorobei/SPAlert",
+      "state" : {
+        "revision" : "5fd3e2923d26f0f0b40f0e6c10fca458a61a73c4",
+        "version" : "4.2.0"
       }
     },
     {

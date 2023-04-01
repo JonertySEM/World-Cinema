@@ -22,11 +22,6 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
-    var loginComponent: LoginComponent {
-        shared {
-            LoginComponent(parent: self)
-        }
-    }
 
     var mainViewController: UIViewController {
         return MainViewController()

@@ -7,7 +7,18 @@
 
 import Foundation
 import NeedleFoundation
+import UIKit
 
 protocol RegistrationComponentDependency: Dependency {}
 
-final class RegistrationComponent: Component<RegistrationComponentDependency> {}
+final class RegistrationComponent: Component<RegistrationComponentDependency> {
+    var registrationViewModel: RegistrationViewModel {
+        shared {
+            RegistrationViewModel()
+        }
+    }
+
+    var registrationViewController: UIViewController {
+        return RegistrationViewController()
+    }
+}

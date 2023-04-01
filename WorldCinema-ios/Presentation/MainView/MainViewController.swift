@@ -11,21 +11,13 @@ import UIKit
 class MainViewController: UIViewController {
     private var viewModel: MainViewModel!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loginViewController = MainComponent().loginComponent.loginViewController
-        addChild(loginViewController)
-        view.addSubview(loginViewController.view)
-        loginViewController.didMove(toParent: self)
+        let loginViewController = MainComponent().authorizationComponent.authorizationViewController
+        self.add(loginViewController)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4F21927029D2E4F7001AEB5F /* LoginViewDisplayingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21926F29D2E4F7001AEB5F /* LoginViewDisplayingMode.swift */; };
-		4F21927229D31166001AEB5F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21927129D31166001AEB5F /* LoginViewModel.swift */; };
 		4F21927529D323FA001AEB5F /* AuthorizationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21927429D323FA001AEB5F /* AuthorizationRepository.swift */; };
 		4F21927929D324AF001AEB5F /* RegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21927829D324AF001AEB5F /* RegistrationRequest.swift */; };
 		4F21927B29D324F2001AEB5F /* AuthorizationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21927A29D324F2001AEB5F /* AuthorizationRequest.swift */; };
@@ -27,8 +26,21 @@
 		4F4FC65C29D036FA001BFCA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4FC65B29D036FA001BFCA3 /* Launch Screen.storyboard */; };
 		4F4FC65F29D0612D001BFCA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FC65E29D0612D001BFCA3 /* ViewController.swift */; };
 		4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FC66429D094D8001BFCA3 /* CustomTextField.swift */; };
-		4F5BAA6229D198C400F01368 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BAA6129D198C400F01368 /* LoginViewController.swift */; };
-		4F5BAA6529D198E000F01368 /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BAA6429D198E000F01368 /* LoginComponent.swift */; };
+		4F63C82029D4113A00B06D35 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C81F29D4113A00B06D35 /* RegistrationViewController.swift */; };
+		4F63C82229D4218300B06D35 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C82129D4218300B06D35 /* LoginUseCase.swift */; };
+		4F63C85C29D57FD600B06D35 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F63C85B29D57FD600B06D35 /* IQKeyboardManagerSwift */; };
+		4F63C85F29D5B9B300B06D35 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C85E29D5B9B300B06D35 /* AuthorizationViewModel.swift */; };
+		4F63C86629D7E63800B06D35 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C86529D7E63800B06D35 /* RegistrationViewModel.swift */; };
+		4F63C86929D8092900B06D35 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 4F63C86829D8092900B06D35 /* SPAlert */; };
+		4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C86A29D80B7300B06D35 /* UIButtonExtension.swift */; };
+		4F63C86C29D80D3700B06D35 /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4FC66229D086E8001BFCA3 /* SFProText-Bold.ttf */; };
+		4F63C86F29D80F3D00B06D35 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 4F63C86E29D80F3D00B06D35 /* KeychainAccess */; };
+		4F63C87229D80F7200B06D35 /* KeyChainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C87129D80F7200B06D35 /* KeyChainRepository.swift */; };
+		4F63C87429D80F9800B06D35 /* KeyChainRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C87329D80F9800B06D35 /* KeyChainRepositoryImpl.swift */; };
+		4F63C87629D80FF600B06D35 /* KeyChainRepositoryErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C87529D80FF600B06D35 /* KeyChainRepositoryErrorEnum.swift */; };
+		4F63C87829D8111F00B06D35 /* SaveTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C87729D8111F00B06D35 /* SaveTokenUseCase.swift */; };
+		4F63C87A29D8113A00B06D35 /* GetTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C87929D8113A00B06D35 /* GetTokenUseCase.swift */; };
+		4F63C87F29D811A100B06D35 /* KeyChainTokenTypesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C87E29D811A100B06D35 /* KeyChainTokenTypesEnum.swift */; };
 		4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1FF1929C9716100BD7141 /* AppDelegate.swift */; };
 		4FB1FF1E29C9716100BD7141 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1FF1D29C9716100BD7141 /* MainViewController.swift */; };
 		4FB1FF2329C9716200BD7141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1FF2229C9716200BD7141 /* Assets.xcassets */; };
@@ -42,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		4F21926F29D2E4F7001AEB5F /* LoginViewDisplayingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingMode.swift; sourceTree = "<group>"; };
-		4F21927129D31166001AEB5F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4F21927429D323FA001AEB5F /* AuthorizationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRepository.swift; sourceTree = "<group>"; };
 		4F21927829D324AF001AEB5F /* RegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRequest.swift; sourceTree = "<group>"; };
 		4F21927A29D324F2001AEB5F /* AuthorizationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRequest.swift; sourceTree = "<group>"; };
@@ -59,8 +70,17 @@
 		4F4FC65E29D0612D001BFCA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F4FC66229D086E8001BFCA3 /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		4F4FC66429D094D8001BFCA3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		4F5BAA6129D198C400F01368 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4F5BAA6429D198E000F01368 /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
+		4F63C81F29D4113A00B06D35 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		4F63C82129D4218300B06D35 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		4F63C85E29D5B9B300B06D35 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		4F63C86529D7E63800B06D35 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		4F63C86A29D80B7300B06D35 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4F63C87129D80F7200B06D35 /* KeyChainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainRepository.swift; sourceTree = "<group>"; };
+		4F63C87329D80F9800B06D35 /* KeyChainRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainRepositoryImpl.swift; sourceTree = "<group>"; };
+		4F63C87529D80FF600B06D35 /* KeyChainRepositoryErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainRepositoryErrorEnum.swift; sourceTree = "<group>"; };
+		4F63C87729D8111F00B06D35 /* SaveTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTokenUseCase.swift; sourceTree = "<group>"; };
+		4F63C87929D8113A00B06D35 /* GetTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenUseCase.swift; sourceTree = "<group>"; };
+		4F63C87E29D811A100B06D35 /* KeyChainTokenTypesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTokenTypesEnum.swift; sourceTree = "<group>"; };
 		4FB1FF1629C9716100BD7141 /* WorldCinema-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorldCinema-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB1FF1929C9716100BD7141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB1FF1D29C9716100BD7141 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F63C86929D8092900B06D35 /* SPAlert in Frameworks */,
+				4F63C85C29D57FD600B06D35 /* IQKeyboardManagerSwift in Frameworks */,
+				4F63C86F29D80F3D00B06D35 /* KeychainAccess in Frameworks */,
 				4F38328E29C976B3000A660D /* Alamofire in Frameworks */,
 				4FF0B2F929CC240B00A82AFA /* SnapKit in Frameworks */,
 				4F38329729C9B6B7000A660D /* NeedleFoundation in Frameworks */,
@@ -91,6 +114,8 @@
 		4F21926729D1E42D001AEB5F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C82729D4313800B06D35 /* KeyChainRepository */,
+				4F63C82329D430BC00B06D35 /* AuthRepository */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -98,6 +123,7 @@
 		4F21926829D1E440001AEB5F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C87029D80F5B00B06D35 /* KeyChain */,
 				4F21926929D1E448001AEB5F /* Networking */,
 			);
 			path = Repositories;
@@ -124,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				4F21926C29D1E4A0001AEB5F /* Networking */,
+				4F63C87329D80F9800B06D35 /* KeyChainRepositoryImpl.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -139,8 +166,10 @@
 		4F21926D29D2E4CB001AEB5F /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C87C29D8117600B06D35 /* KeyChain */,
 				4F21928729D32CAD001AEB5F /* Networking */,
 				4F21926E29D2E4DF001AEB5F /* Views */,
+				4F63C87529D80FF600B06D35 /* KeyChainRepositoryErrorEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -151,14 +180,6 @@
 				4F21926F29D2E4F7001AEB5F /* LoginViewDisplayingMode.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		4F21927329D31181001AEB5F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				4F21927129D31166001AEB5F /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F21927629D32474001AEB5F /* Networking */ = {
@@ -212,7 +233,6 @@
 		4F38329429C977B2000A660D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				4F5BAA6029D198A300F01368 /* LoginView */,
 				4F4FC66329D094B7001BFCA3 /* Modifed */,
 				4FCDDD9229CDBC570005782D /* RegistrationView */,
 				4FCDDD9129CDBC4B0005782D /* AuthorizationView */,
@@ -235,6 +255,7 @@
 				4F4FC65E29D0612D001BFCA3 /* ViewController.swift */,
 				4F21928329D32BB2001AEB5F /* AlamofireDataResponse.swift */,
 				4F21928C29D32DF7001AEB5F /* NSErrorExtension.swift */,
+				4F63C86A29D80B7300B06D35 /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +263,8 @@
 		4F4FC66029D086D5001BFCA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F4FC65B29D036FA001BFCA3 /* Launch Screen.storyboard */,
+				4FB1FF2229C9716200BD7141 /* Assets.xcassets */,
 				4F4FC66129D086DD001BFCA3 /* Font */,
 			);
 			path = Resources;
@@ -263,22 +286,53 @@
 			path = Modifed;
 			sourceTree = "<group>";
 		};
-		4F5BAA6029D198A300F01368 /* LoginView */ = {
+		4F63C82329D430BC00B06D35 /* AuthRepository */ = {
 			isa = PBXGroup;
 			children = (
-				4F21927329D31181001AEB5F /* ViewModel */,
-				4F5BAA6329D198C900F01368 /* Component */,
-				4F5BAA6129D198C400F01368 /* LoginViewController.swift */,
+				4F63C82129D4218300B06D35 /* LoginUseCase.swift */,
 			);
-			path = LoginView;
+			path = AuthRepository;
 			sourceTree = "<group>";
 		};
-		4F5BAA6329D198C900F01368 /* Component */ = {
+		4F63C82729D4313800B06D35 /* KeyChainRepository */ = {
 			isa = PBXGroup;
 			children = (
-				4F5BAA6429D198E000F01368 /* LoginComponent.swift */,
+				4F63C87729D8111F00B06D35 /* SaveTokenUseCase.swift */,
+				4F63C87929D8113A00B06D35 /* GetTokenUseCase.swift */,
 			);
-			path = Component;
+			path = KeyChainRepository;
+			sourceTree = "<group>";
+		};
+		4F63C85D29D5B9A000B06D35 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F63C85E29D5B9B300B06D35 /* AuthorizationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F63C86429D7E61A00B06D35 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F63C86529D7E63800B06D35 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F63C87029D80F5B00B06D35 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				4F63C87129D80F7200B06D35 /* KeyChainRepository.swift */,
+			);
+			path = KeyChain;
+			sourceTree = "<group>";
+		};
+		4F63C87C29D8117600B06D35 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				4F63C87E29D811A100B06D35 /* KeyChainTokenTypesEnum.swift */,
+			);
+			path = KeyChain;
 			sourceTree = "<group>";
 		};
 		4FB1FF0D29C9716100BD7141 = {
@@ -306,9 +360,7 @@
 				4F38329429C977B2000A660D /* Presentation */,
 				4FB1FF1929C9716100BD7141 /* AppDelegate.swift */,
 				4FF0B30A29CDAAE400A82AFA /* NeedleGenerated.swift */,
-				4FB1FF2229C9716200BD7141 /* Assets.xcassets */,
 				4FB1FF2729C9716200BD7141 /* Info.plist */,
-				4F4FC65B29D036FA001BFCA3 /* Launch Screen.storyboard */,
 			);
 			path = "WorldCinema-ios";
 			sourceTree = "<group>";
@@ -316,6 +368,7 @@
 		4FCDDD9129CDBC4B0005782D /* AuthorizationView */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C85D29D5B9A000B06D35 /* ViewModel */,
 				4FCDDD9429CDCB8A0005782D /* Component */,
 				4FCDDD9529CDCBC30005782D /* AuthorizationViewController.swift */,
 			);
@@ -325,7 +378,9 @@
 		4FCDDD9229CDBC570005782D /* RegistrationView */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C86429D7E61A00B06D35 /* ViewModel */,
 				4F4FC65829D0146D001BFCA3 /* Component */,
+				4F63C81F29D4113A00B06D35 /* RegistrationViewController.swift */,
 			);
 			path = RegistrationView;
 			sourceTree = "<group>";
@@ -386,6 +441,9 @@
 				4F38329029C97717000A660D /* rswift */,
 				4F38329629C9B6B7000A660D /* NeedleFoundation */,
 				4FF0B2F829CC240B00A82AFA /* SnapKit */,
+				4F63C85B29D57FD600B06D35 /* IQKeyboardManagerSwift */,
+				4F63C86829D8092900B06D35 /* SPAlert */,
+				4F63C86E29D80F3D00B06D35 /* KeychainAccess */,
 			);
 			productName = "WorldCinema-ios";
 			productReference = 4FB1FF1629C9716100BD7141 /* WorldCinema-ios.app */;
@@ -420,6 +478,9 @@
 				4F38328F29C97717000A660D /* XCRemoteSwiftPackageReference "R.swift" */,
 				4F38329529C9B6B7000A660D /* XCRemoteSwiftPackageReference "needle" */,
 				4FF0B2F729CC240B00A82AFA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4F63C85A29D57FD600B06D35 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				4F63C86729D8092900B06D35 /* XCRemoteSwiftPackageReference "SPAlert" */,
+				4F63C86D29D80F3D00B06D35 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 4FB1FF1729C9716100BD7141 /* Products */;
 			projectDirPath = "";
@@ -436,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F4FC65C29D036FA001BFCA3 /* Launch Screen.storyboard in Resources */,
+				4F63C86C29D80D3700B06D35 /* SFProText-Bold.ttf in Resources */,
 				4FB1FF2329C9716200BD7141 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,8 +532,13 @@
 				4FCDDD9629CDCBC30005782D /* AuthorizationViewController.swift in Sources */,
 				4F21927D29D3257B001AEB5F /* RefreshTokenRequest.swift in Sources */,
 				4F21928429D32BB2001AEB5F /* AlamofireDataResponse.swift in Sources */,
+				4F63C87F29D811A100B06D35 /* KeyChainTokenTypesEnum.swift in Sources */,
+				4F63C87229D80F7200B06D35 /* KeyChainRepository.swift in Sources */,
 				4FB1FF1E29C9716100BD7141 /* MainViewController.swift in Sources */,
+				4F63C85F29D5B9B300B06D35 /* AuthorizationViewModel.swift in Sources */,
+				4F63C82029D4113A00B06D35 /* RegistrationViewController.swift in Sources */,
 				4F21928229D32B48001AEB5F /* AuthRepositoryImpl.swift in Sources */,
+				4F63C87429D80F9800B06D35 /* KeyChainRepositoryImpl.swift in Sources */,
 				4F21927029D2E4F7001AEB5F /* LoginViewDisplayingMode.swift in Sources */,
 				4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */,
 				4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */,
@@ -479,19 +546,22 @@
 				4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */,
 				4F21928929D32CC5001AEB5F /* NetworkingEnums.swift in Sources */,
 				4F21928629D32C00001AEB5F /* NetwrokingModel.swift in Sources */,
-				4F21927229D31166001AEB5F /* LoginViewModel.swift in Sources */,
+				4F63C87829D8111F00B06D35 /* SaveTokenUseCase.swift in Sources */,
 				4F21927529D323FA001AEB5F /* AuthorizationRepository.swift in Sources */,
 				4F21927929D324AF001AEB5F /* RegistrationRequest.swift in Sources */,
 				4F21927B29D324F2001AEB5F /* AuthorizationRequest.swift in Sources */,
 				4FCDDD9829CDCBFD0005782D /* AuthorizationComponent.swift in Sources */,
 				4F4FC65A29D0147F001BFCA3 /* RegistrationComponent.swift in Sources */,
+				4F63C87629D80FF600B06D35 /* KeyChainRepositoryErrorEnum.swift in Sources */,
 				4FF0B30B29CDAAE400A82AFA /* NeedleGenerated.swift in Sources */,
 				4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */,
 				4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */,
-				4F5BAA6229D198C400F01368 /* LoginViewController.swift in Sources */,
-				4F5BAA6529D198E000F01368 /* LoginComponent.swift in Sources */,
+				4F63C87A29D8113A00B06D35 /* GetTokenUseCase.swift in Sources */,
 				4F21928B29D32D80001AEB5F /* VoidResponse.swift in Sources */,
+				4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */,
 				4F21928029D3287E001AEB5F /* AuthResponse.swift in Sources */,
+				4F63C86629D7E63800B06D35 /* RegistrationViewModel.swift in Sources */,
+				4F63C82229D4218300B06D35 /* LoginUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +798,30 @@
 				kind = branch;
 			};
 		};
+		4F63C85A29D57FD600B06D35 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		4F63C86729D8092900B06D35 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+		4F63C86D29D80F3D00B06D35 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		4FF0B2F729CC240B00A82AFA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -753,6 +847,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F38329529C9B6B7000A660D /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundation;
+		};
+		4F63C85B29D57FD600B06D35 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F63C85A29D57FD600B06D35 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		4F63C86829D8092900B06D35 /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F63C86729D8092900B06D35 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
+		};
+		4F63C86E29D80F3D00B06D35 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F63C86D29D80F3D00B06D35 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 		4FF0B2F829CC240B00A82AFA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

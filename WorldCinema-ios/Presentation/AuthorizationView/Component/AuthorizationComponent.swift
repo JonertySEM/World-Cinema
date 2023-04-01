@@ -12,7 +12,16 @@ import UIKit
 protocol AuthorizationComponentDependency: Dependency {}
 
 final class AuthorizationComponent: Component<AuthorizationComponentDependency> {
+    
+    
+    
+    var authorizationViewModel: AuthorizationViewModel {
+        shared {
+            AuthorizationViewModel()
+        }
+    }
+    
     var authorizationViewController: UIViewController {
-        return AuthorizationViewController()
+        return AuthorizationViewController(viewModel: authorizationViewModel)
     }
 }

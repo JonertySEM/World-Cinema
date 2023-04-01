@@ -2,7 +2,7 @@
 //  AlamofireDataResponse.swift
 //  WorldCinema-ios
 //
-//  Created by Семён Алимпиев on 28.03.2023.
+//  Created by Семён Алимпиев on 27.03.2023.
 //
 import Alamofire
 import Foundation
@@ -52,7 +52,6 @@ extension AFDataResponse {
             if self.response?.statusCode == NetworkingModel.successStatusCode,
                T.self == VoidResponse.self
             {
-                // swiftlint:disable force_cast
                 completion?(.success(VoidResponse() as! T))
             } else {
                 completion?(.failure(NetworkingEnums.unableToGetData))

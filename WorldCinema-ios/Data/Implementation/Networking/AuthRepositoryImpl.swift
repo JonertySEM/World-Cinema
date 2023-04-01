@@ -20,7 +20,8 @@ class AuthRepositoryImpl: AuthorizationRepository {
     }
 
     func login(authorizationRequest: AuthorizationRequest,
-               completion: ((Result<AuthResponse, Error>) -> Void)?) {
+               completion: ((Result<AuthResponse, Error>) -> Void)?)
+    {
         do {
             let encodedParametrs = try jsonEncoder.encode(authorizationRequest)
             let parametrs = try JSONSerialization.jsonObject(
@@ -45,7 +46,8 @@ class AuthRepositoryImpl: AuthorizationRepository {
     }
 
     func registration(registrationRequest: RegistrationRequest,
-                      completion: ((Result<AuthResponse, Error>) -> Void)?) {
+                      completion: ((Result<AuthResponse, Error>) -> Void)?)
+    {
         do {
             let encodedParametrs = try jsonEncoder.encode(registrationRequest)
             let parametrs = try JSONSerialization.jsonObject(

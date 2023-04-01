@@ -39,17 +39,6 @@ private class AuthorizationComponentDependency01c300e9208281b9a593Provider: Auth
 private func factory36d2db3a630304719354e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return AuthorizationComponentDependency01c300e9208281b9a593Provider()
 }
-private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
-
-
-    init() {
-
-    }
-}
-/// ^->MainComponent->LoginComponent
-private func factory7d788d11c001389505f7e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return LoginComponentDependency09f1bea0f04d764af082Provider()
-}
 
 #else
 extension RegistrationComponent: Registration {
@@ -65,11 +54,6 @@ extension AuthorizationComponent: Registration {
 extension MainComponent: Registration {
     public func registerItems() {
 
-
-    }
-}
-extension LoginComponent: Registration {
-    public func registerItems() {
 
     }
 }
@@ -92,7 +76,6 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a880e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a630304719354e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
-    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }
 #endif
 
