@@ -201,8 +201,14 @@ class RegistrationViewController: UIViewController {
         UITextField.appearance().tintColor = .lightGray
         
         registrationButton.addTarget(self, action: #selector(tapOnRegistrationButton(sender:)), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(tapOnSignIn(sender:)), for: .touchUpInside)
     }
-
+    
+    @objc func tapOnSignIn(sender: UIButton) {
+        sender.startAnimatingPressActions()
+        viewModel.registration()
+    }
+    
     @objc func tapOnRegistrationButton(sender: UIButton) {
         sender.startAnimatingPressActions()
         dismiss(animated: true, completion: nil)

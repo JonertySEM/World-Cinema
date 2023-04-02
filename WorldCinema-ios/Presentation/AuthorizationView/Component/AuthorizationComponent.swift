@@ -19,7 +19,7 @@ final class AuthorizationComponent: Component<AuthorizationComponentDependency> 
             AuthorizationViewModel(loginUseCase: dependency.loginUseCase)
         }
     }
-    
+
     var authorizationViewController: UIViewController {
         return AuthorizationViewController(viewModel: authorizationViewModel)
     }

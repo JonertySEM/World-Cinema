@@ -44,6 +44,16 @@
 		4F63C88729D8221700B06D35 /* CheckValidatonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C88629D8221700B06D35 /* CheckValidatonHelper.swift */; };
 		4F63C88929D8222F00B06D35 /* NetwrokingGetTokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C88829D8222F00B06D35 /* NetwrokingGetTokenHelper.swift */; };
 		4F63C88F29D944B800B06D35 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C88E29D944B800B06D35 /* UITextFieldExtension.swift */; };
+		4F63C89229D9653E00B06D35 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4F63C89129D9653E00B06D35 /* SwiftyUserDefaults */; };
+		4F63C89629D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C89529D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift */; };
+		4F63C89829D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C89729D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift */; };
+		4F63C89A29D9662F00B06D35 /* GetAuthorizationStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C89929D9662F00B06D35 /* GetAuthorizationStatusUseCase.swift */; };
+		4F63C89C29D9667D00B06D35 /* SwiftyUserDefaultsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C89B29D9667D00B06D35 /* SwiftyUserDefaultsEnum.swift */; };
+		4F63C89E29D9682C00B06D35 /* RegistrationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C89D29D9682C00B06D35 /* RegistrationUseCase.swift */; };
+		4F63C8A129D96FD600B06D35 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 4F63C8A029D96FD600B06D35 /* SPAlert */; };
+		4F63C8A329D987F500B06D35 /* NetwrokingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C8A229D987F500B06D35 /* NetwrokingMessage.swift */; };
+		4F63C8A629D9975600B06D35 /* SwiftLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C8A529D9975600B06D35 /* SwiftLoaderView.swift */; };
+		4F63C8A829D9977500B06D35 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C8A729D9977500B06D35 /* LoaderView.swift */; };
 		4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1FF1929C9716100BD7141 /* AppDelegate.swift */; };
 		4FB1FF1E29C9716100BD7141 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1FF1D29C9716100BD7141 /* MainViewController.swift */; };
 		4FB1FF2329C9716200BD7141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1FF2229C9716200BD7141 /* Assets.xcassets */; };
@@ -88,6 +98,14 @@
 		4F63C88629D8221700B06D35 /* CheckValidatonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckValidatonHelper.swift; sourceTree = "<group>"; };
 		4F63C88829D8222F00B06D35 /* NetwrokingGetTokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwrokingGetTokenHelper.swift; sourceTree = "<group>"; };
 		4F63C88E29D944B800B06D35 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		4F63C89529D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAuthorizationStatusUseCase.swift; sourceTree = "<group>"; };
+		4F63C89729D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaultsExtansion.swift; sourceTree = "<group>"; };
+		4F63C89929D9662F00B06D35 /* GetAuthorizationStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthorizationStatusUseCase.swift; sourceTree = "<group>"; };
+		4F63C89B29D9667D00B06D35 /* SwiftyUserDefaultsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaultsEnum.swift; sourceTree = "<group>"; };
+		4F63C89D29D9682C00B06D35 /* RegistrationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUseCase.swift; sourceTree = "<group>"; };
+		4F63C8A229D987F500B06D35 /* NetwrokingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwrokingMessage.swift; sourceTree = "<group>"; };
+		4F63C8A529D9975600B06D35 /* SwiftLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoaderView.swift; sourceTree = "<group>"; };
+		4F63C8A729D9977500B06D35 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		4FB1FF1629C9716100BD7141 /* WorldCinema-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorldCinema-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB1FF1929C9716100BD7141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB1FF1D29C9716100BD7141 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +125,8 @@
 			files = (
 				4F63C85C29D57FD600B06D35 /* IQKeyboardManagerSwift in Frameworks */,
 				4F63C86F29D80F3D00B06D35 /* KeychainAccess in Frameworks */,
+				4F63C8A129D96FD600B06D35 /* SPAlert in Frameworks */,
+				4F63C89229D9653E00B06D35 /* SwiftyUserDefaults in Frameworks */,
 				4F38328E29C976B3000A660D /* Alamofire in Frameworks */,
 				4FF0B2F929CC240B00A82AFA /* SnapKit in Frameworks */,
 				4F38329729C9B6B7000A660D /* NeedleFoundation in Frameworks */,
@@ -120,6 +140,7 @@
 		4F21926729D1E42D001AEB5F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C89329D9656A00B06D35 /* UserDefaults */,
 				4F63C82729D4313800B06D35 /* KeyChainRepository */,
 				4F63C82329D430BC00B06D35 /* AuthRepository */,
 			);
@@ -194,6 +215,7 @@
 				4F21927729D32487001AEB5F /* AuthRequest */,
 				4F21928529D32C00001AEB5F /* NetwrokingModel.swift */,
 				4F21928A29D32D80001AEB5F /* VoidResponse.swift */,
+				4F63C8A229D987F500B06D35 /* NetwrokingMessage.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -213,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				4F21928829D32CC5001AEB5F /* NetworkingEnums.swift */,
+				4F63C89B29D9667D00B06D35 /* SwiftyUserDefaultsEnum.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -240,6 +263,7 @@
 		4F38329429C977B2000A660D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C8A429D9973500B06D35 /* SharedLoaderView */,
 				4F4FC66329D094B7001BFCA3 /* Modifed */,
 				4FCDDD9229CDBC570005782D /* RegistrationView */,
 				4FCDDD9129CDBC4B0005782D /* AuthorizationView */,
@@ -265,6 +289,7 @@
 				4F63C86A29D80B7300B06D35 /* UIButtonExtension.swift */,
 				4F63C88129D8213F00B06D35 /* StringExtension.swift */,
 				4F63C88E29D944B800B06D35 /* UITextFieldExtension.swift */,
+				4F63C89729D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -299,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				4F63C82129D4218300B06D35 /* LoginUseCase.swift */,
+				4F63C89D29D9682C00B06D35 /* RegistrationUseCase.swift */,
 			);
 			path = AuthRepository;
 			sourceTree = "<group>";
@@ -351,6 +377,32 @@
 				4F63C88829D8222F00B06D35 /* NetwrokingGetTokenHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		4F63C89329D9656A00B06D35 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				4F63C89429D9658200B06D35 /* AuthorizationStatus */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		4F63C89429D9658200B06D35 /* AuthorizationStatus */ = {
+			isa = PBXGroup;
+			children = (
+				4F63C89529D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift */,
+				4F63C89929D9662F00B06D35 /* GetAuthorizationStatusUseCase.swift */,
+			);
+			path = AuthorizationStatus;
+			sourceTree = "<group>";
+		};
+		4F63C8A429D9973500B06D35 /* SharedLoaderView */ = {
+			isa = PBXGroup;
+			children = (
+				4F63C8A529D9975600B06D35 /* SwiftLoaderView.swift */,
+				4F63C8A729D9977500B06D35 /* LoaderView.swift */,
+			);
+			path = SharedLoaderView;
 			sourceTree = "<group>";
 		};
 		4FB1FF0D29C9716100BD7141 = {
@@ -461,6 +513,8 @@
 				4FF0B2F829CC240B00A82AFA /* SnapKit */,
 				4F63C85B29D57FD600B06D35 /* IQKeyboardManagerSwift */,
 				4F63C86E29D80F3D00B06D35 /* KeychainAccess */,
+				4F63C89129D9653E00B06D35 /* SwiftyUserDefaults */,
+				4F63C8A029D96FD600B06D35 /* SPAlert */,
 			);
 			productName = "WorldCinema-ios";
 			productReference = 4FB1FF1629C9716100BD7141 /* WorldCinema-ios.app */;
@@ -497,6 +551,8 @@
 				4FF0B2F729CC240B00A82AFA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4F63C85A29D57FD600B06D35 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				4F63C86D29D80F3D00B06D35 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				4F63C89029D9653E00B06D35 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				4F63C89F29D96FD600B06D35 /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = 4FB1FF1729C9716100BD7141 /* Products */;
 			projectDirPath = "";
@@ -549,6 +605,7 @@
 				4F21927D29D3257B001AEB5F /* RefreshTokenRequest.swift in Sources */,
 				4F21928429D32BB2001AEB5F /* AlamofireDataResponse.swift in Sources */,
 				4F63C87F29D811A100B06D35 /* KeyChainTokenTypesEnum.swift in Sources */,
+				4F63C89A29D9662F00B06D35 /* GetAuthorizationStatusUseCase.swift in Sources */,
 				4F63C87229D80F7200B06D35 /* KeyChainRepository.swift in Sources */,
 				4FB1FF1E29C9716100BD7141 /* MainViewController.swift in Sources */,
 				4F63C85F29D5B9B300B06D35 /* AuthorizationViewModel.swift in Sources */,
@@ -559,12 +616,17 @@
 				4F63C87429D80F9800B06D35 /* KeyChainRepositoryImpl.swift in Sources */,
 				4F21927029D2E4F7001AEB5F /* LoginViewDisplayingMode.swift in Sources */,
 				4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */,
+				4F63C8A629D9975600B06D35 /* SwiftLoaderView.swift in Sources */,
+				4F63C89629D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift in Sources */,
+				4F63C8A829D9977500B06D35 /* LoaderView.swift in Sources */,
 				4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */,
 				4F4FC65F29D0612D001BFCA3 /* ViewController.swift in Sources */,
 				4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */,
 				4F21928929D32CC5001AEB5F /* NetworkingEnums.swift in Sources */,
 				4F21928629D32C00001AEB5F /* NetwrokingModel.swift in Sources */,
+				4F63C8A329D987F500B06D35 /* NetwrokingMessage.swift in Sources */,
 				4F63C88729D8221700B06D35 /* CheckValidatonHelper.swift in Sources */,
+				4F63C89C29D9667D00B06D35 /* SwiftyUserDefaultsEnum.swift in Sources */,
 				4F63C87829D8111F00B06D35 /* SaveTokenUseCase.swift in Sources */,
 				4F21927529D323FA001AEB5F /* AuthorizationRepository.swift in Sources */,
 				4F21927929D324AF001AEB5F /* RegistrationRequest.swift in Sources */,
@@ -577,7 +639,9 @@
 				4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */,
 				4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */,
 				4F63C87A29D8113A00B06D35 /* GetTokenUseCase.swift in Sources */,
+				4F63C89E29D9682C00B06D35 /* RegistrationUseCase.swift in Sources */,
 				4F21928B29D32D80001AEB5F /* VoidResponse.swift in Sources */,
+				4F63C89829D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift in Sources */,
 				4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */,
 				4F21928029D3287E001AEB5F /* AuthResponse.swift in Sources */,
 				4F63C86629D7E63800B06D35 /* RegistrationViewModel.swift in Sources */,
@@ -834,6 +898,22 @@
 				kind = branch;
 			};
 		};
+		4F63C89029D9653E00B06D35 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		4F63C89F29D96FD600B06D35 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		4FF0B2F729CC240B00A82AFA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -869,6 +949,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F63C86D29D80F3D00B06D35 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		4F63C89129D9653E00B06D35 /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F63C89029D9653E00B06D35 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
+		};
+		4F63C8A029D96FD600B06D35 /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F63C89F29D96FD600B06D35 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
 		};
 		4FF0B2F829CC240B00A82AFA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -9,12 +9,14 @@ import Foundation
 import NeedleFoundation
 import UIKit
 
-protocol RegistrationComponentDependency: Dependency {}
+protocol RegistrationComponentDependency: Dependency {
+    var registrationUseCase: RegistrationUseCase { get }
+}
 
 final class RegistrationComponent: Component<RegistrationComponentDependency> {
     var registrationViewModel: RegistrationViewModel {
         shared {
-            RegistrationViewModel()
+            RegistrationViewModel(registrationUseCase: dependency.registrationUseCase)
         }
     }
 

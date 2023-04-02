@@ -30,29 +30,14 @@ extension UIViewController {
         addChild(child)
         view.addSubview(child.view)
         child.didMove(toParent: self)
-        
-//        UIView.transition(with: self.view, duration: 0.5, options: .transitionFlipFromLeft, animations: {
-//            self.view.addSubview(child.view)
-//        }, completion: nil)
     }
-    
+
     func remove(content: UIViewController) {
         content.willMove(toParent: nil)
-        
-        
+
         UIView.animate(withDuration: 2.0) {
 //            content.view.removeFromSuperview()
             content.view.alpha = 0
-            
         }
-        
-//
-//        UIView.transition(with: self.view, duration: 0.5, options: .overrideInheritedCurve, animations: {
-//            content.view.removeFromSuperview()
-//        }, completion: nil)
-//        content.view.removeFromSuperview()
-//        content.removeFromParent()
-        
-        
     }
 }

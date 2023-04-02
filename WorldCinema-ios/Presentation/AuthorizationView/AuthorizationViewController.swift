@@ -7,6 +7,7 @@
 
 import Combine
 import SnapKit
+import SPAlert
 import UIKit
 
 class AuthorizationViewController: UIViewController {
@@ -40,6 +41,7 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configure()
         bind()
     }
@@ -188,6 +190,6 @@ class AuthorizationViewController: UIViewController {
     
     @objc func tapOnSignInButton(sender: UIButton) {
         sender.startAnimatingPressActions()
-//        viewModel.login()
+        viewModel.login()
     }
 }

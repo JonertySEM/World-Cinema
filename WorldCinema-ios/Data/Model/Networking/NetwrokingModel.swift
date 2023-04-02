@@ -22,7 +22,9 @@ class NetworkingModel {
 
     static let wrongDataStatusCode = 401
     static let wrongAccessToken = 450
+    static let unacceptableStatusCode = 404
     static let wrongRefreshToken = 451
+    static let wrongEmailValidationErrorStatusCode = 409
     static let userAlreadyExistsStatusCode = 400
     static let successStatusCode = 200
 

@@ -29,17 +29,55 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var keychainRepository: KeychainRepository {
+        shared {
+            KeychainRepositoryImpl()
+        }
+    }
+    
     var authRepository: AuthorizationRepository {
         shared {
             AuthRepositoryImpl(jsonDecoder: jsonDecoder,
                                jsonEncoder: jsonEncoder)
         }
     }
+    var saveAuthStatusUseCase: SaveAuthStatusUseCase {
+        shared {
+            SaveAuthStatusUseCase()
+        }
+    }
 
+    var getAuthStatusUseCase: GetAuthStatusUseCase {
+        shared {
+            GetAuthStatusUseCase()
+        }
+    }
+    
+    var saveTokensUseCase: SaveTokensUseCase {
+        shared {
+            SaveTokensUseCase(keychainRepository: keychainRepository)
+        }
+    }
+
+    var getTokensUseCase: GetTokensUseCase {
+        shared {
+            GetTokensUseCase(keychainRepository: keychainRepository)
+        }
+    }
+
+    var registrationUseCase: RegistrationUseCase {
+        shared {
+            RegistrationUseCase(authorizationRepository: authRepository,
+                                saveTokensUseCase: saveTokensUseCase,
+                                saveAuthStatusUseCase: saveAuthStatusUseCase)
+        }
+    }
     
     var loginUseCase: LoginUseCase {
         shared {
-            LoginUseCase(authRepository: authRepository)
+            LoginUseCase(authorizationRepository: authRepository,
+                         saveTokensUseCase: saveTokensUseCase ,
+                         saveAuthStatusUseCase: saveAuthStatusUseCase)
         }
     }
     

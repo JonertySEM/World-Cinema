@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import SPAlert
 
 class AuthorizationViewModel: ObservableObject {
     @Published var emailFieldText = ""
@@ -17,7 +18,7 @@ class AuthorizationViewModel: ObservableObject {
     @Published private(set) var areTextFieldsValid = false
 
     @Published var isAlertShowing = false
-    @Published private(set) var alertText = ""
+    @Published private(set) var textMessage = ""
     
     private var subscribers: Set<AnyCancellable> = []
     
@@ -83,20 +84,22 @@ class AuthorizationViewModel: ObservableObject {
     }
     
     private func processError(_ error: Error) {
-        alertText = error.localizedDescription
-        isAlertShowing = true
-
-        print(error)
+        textMessage = error.localizedDescription
+        let alertView = SPAlertView(title: textMessage, preset: .error)
+        alertView.duration = 3
+        alertView.present()
     }
     
     func login() {
         if validateFields() {
+            LoaderView.startLoading()
             loginUseCase.execute(
                 authorizationRequest: AuthorizationRequest(
                     email: emailFieldText,
                     password: passwordFieldText
                 )
             ) { [weak self] result in
+                LoaderView.endLoading()
                 
                 if case .failure(let error) = result {
                     self?.processError(error)

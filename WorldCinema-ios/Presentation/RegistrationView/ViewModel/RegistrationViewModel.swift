@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import SPAlert
 
 class RegistrationViewModel: ObservableObject {
     @Published var firstNameFieldText = ""
@@ -14,6 +15,8 @@ class RegistrationViewModel: ObservableObject {
     @Published var emailFieldText = ""
     @Published var passwordFieldText = ""
     @Published var confirmPasswordText = ""
+
+    @Published private(set) var textMessage = ""
 
     @Published private(set) var isFirstNameTextFieldValid = true
     @Published private(set) var isEmailTextFieldValid = true
@@ -28,9 +31,11 @@ class RegistrationViewModel: ObservableObject {
 
     private var subscribers: Set<AnyCancellable> = []
 
-//    private let registrationUseCase:
+    private let registrationUseCase: RegistrationUseCase
 
-    init() {
+    init(registrationUseCase: RegistrationUseCase) {
+        self.registrationUseCase = registrationUseCase
+
         initFieldsObserving()
     }
 
@@ -162,5 +167,31 @@ class RegistrationViewModel: ObservableObject {
         areTextFieldsValid = true
 
         return true
+    }
+
+    private func processError(_ error: Error) {
+        textMessage = error.localizedDescription
+        let alertView = SPAlertView(title: textMessage, preset: .error)
+        alertView.duration = 3
+        alertView.present()
+    }
+
+    func registration() {
+        if validateFields() {
+            LoaderView.startLoading()
+            registrationUseCase.execute(request:
+                RegistrationRequest(
+                    email: emailFieldText,
+                    password: passwordFieldText,
+                    firstName: firstNameFieldText,
+                    lastName: secondNameFieldText
+                )) { [weak self] result in
+                    LoaderView.endLoading()
+                    if case .failure(let error) = result {
+                        // Error
+                        self?.processError(error)
+                    }
+                }
+        }
     }
 }

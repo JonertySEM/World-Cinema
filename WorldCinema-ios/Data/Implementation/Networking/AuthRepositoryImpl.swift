@@ -72,7 +72,9 @@ class AuthRepositoryImpl: AuthorizationRepository {
         }
     }
 
-    func updateRefreshToken(authorizationRequest: RefreshTokenRequest, completion: ((Result<AuthResponse, Error>) -> Void)?) {
+    func updateRefreshToken(authorizationRequest: RefreshTokenRequest,
+                            completion: ((Result<AuthResponse, Error>) -> Void)?)
+    {
         do {
             let encodedParametrs = try jsonEncoder.encode(authorizationRequest)
             let parametrs = try JSONSerialization.jsonObject(
