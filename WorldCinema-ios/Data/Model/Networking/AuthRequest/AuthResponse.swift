@@ -11,5 +11,5 @@ struct AuthResponse: Codable {
     let accessToken: String
     let accessTokenExpiresIn: Int?
     let refreshToken: String
-    let refreshTokenExpiresIn: String
+    let refreshTokenExpiresIn: Int?
 }

@@ -37,6 +37,7 @@ class AuthRepositoryImpl: AuthorizationRepository {
             ) { $0.timeoutInterval = NetworkingModel.timeout }
                 .validate()
                 .response { [self] result in
+                    print(result)
                     result.processResult(jsonDecoder: jsonDecoder,
                                          completion: completion)
                 }

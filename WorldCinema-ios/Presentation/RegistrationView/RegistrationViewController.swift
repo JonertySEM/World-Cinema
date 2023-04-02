@@ -5,31 +5,102 @@
 //  Created by Семён Алимпиев on 29.03.2023.
 //
 
+import Combine
 import UIKit
 
 class RegistrationViewController: UIViewController {
-    private var viewModel = RegistrationViewModel()
+    private var viewModel: RegistrationViewModel
+    var subscribers: Set<AnyCancellable> = []
+    
+    let nameTextField = CustomTextField(placeholder: "Имя")
+    let surNameTextField = CustomTextField(placeholder: "Фамилия")
+    let emailTextField = CustomTextField(placeholder: "E-mail")
+    let passwordTextField = CustomTextField(placeholder: "Пароль")
+    let confrimPasswordTextField = CustomTextField(placeholder: "Повторите пароль")
+    
+    let signInButton: UIButton = {
+        let signInButton = UIButton()
+        signInButton.setTitle("Зарегистрироваться", for: .normal)
+        signInButton.setTitleColor(.white, for: .normal)
+        signInButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15)
+        signInButton.layer.cornerRadius = 4
+        return signInButton
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configure()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        viewModel.cleanFields()
+        
+        viewModel.$firstNameFieldText.sink { [self] text in
+            nameTextField.text = text
+        }.store(in: &subscribers)
+        
+        viewModel.$secondNameFieldText.sink { [self] text in
+            surNameTextField.text = text
+        }.store(in: &subscribers)
+        
+        viewModel.$emailFieldText.sink { [self] text in
+            emailTextField.text = text
+        }.store(in: &subscribers)
+        
+        viewModel.$passwordFieldText.sink { [self] text in
+            passwordTextField.text = text
+        }.store(in: &subscribers)
+        
+        viewModel.$confirmPasswordText.sink { [self] text in
+            confrimPasswordTextField.text = text
+        }.store(in: &subscribers)
+    }
+    
+    init(viewModel: RegistrationViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func bind() {
+        nameTextField.textPublisher
+            .assign(to: \.firstNameFieldText, on: viewModel)
+            .store(in: &subscribers)
+        
+        surNameTextField.textPublisher
+            .assign(to: \.secondNameFieldText, on: viewModel)
+            .store(in: &subscribers)
+        
+        emailTextField.textPublisher
+            .assign(to: \.emailFieldText, on: viewModel)
+            .store(in: &subscribers)
+        
+        passwordTextField.textPublisher
+            .assign(to: \.passwordFieldText, on: viewModel)
+            .store(in: &subscribers)
+        
+        confrimPasswordTextField.textPublisher
+            .assign(to: \.confirmPasswordText, on: viewModel)
+            .store(in: &subscribers)
+        
+        viewModel.$areTextFieldsValid.sink { [self] value in
+            
+            value ? signInButton.buttonActive() : signInButton.buttonEnable()
+        }.store(in: &subscribers)
     }
     
     private func configure() {
         let scrollFieldView = UIScrollView()
         let fieldView = UIView()
-        
-        let nameTextField = CustomTextField(placeholder: "Имя")
-        let surNameTextField = CustomTextField(placeholder: "Фамилия")
-        let emailTextField = CustomTextField(placeholder: "E-mail")
-        let passwortTextField = CustomTextField(placeholder: "Пароль")
-        let confrimPasswordTextField = CustomTextField(placeholder: "Повторите пароль")
         
         let cinemaImageView: UIImageView = {
             let cinemaView = UIImageView()
@@ -53,16 +124,6 @@ class RegistrationViewController: UIViewController {
             return stackView
         }()
         
-        let signInButton: UIButton = {
-            let signInButton = UIButton()
-            signInButton.setTitle("Зарегистрироваться", for: .normal)
-            signInButton.setTitleColor(.white, for: .normal)
-            signInButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15)
-            signInButton.layer.cornerRadius = 4
-            signInButton.backgroundColor = .red
-            return signInButton
-        }()
-        
         let registrationButton: UIButton = {
             let registrationButton = UIButton()
             registrationButton.setTitle("У меня уже есть аккаунт", for: .normal)
@@ -77,17 +138,20 @@ class RegistrationViewController: UIViewController {
         view.backgroundColor = .black
         
         view.addSubview(emailTextField)
-        view.addSubview(passwortTextField)
+        view.addSubview(passwordTextField)
         
         buttonsStackView.addArrangedSubview(signInButton)
         buttonsStackView.addArrangedSubview(registrationButton)
         
         view.addSubview(scrollFieldView)
         
+        passwordTextField.isSecureTextEntry = true
+        confrimPasswordTextField.isSecureTextEntry = true
+        
         textFieldStackView.addArrangedSubview(nameTextField)
         textFieldStackView.addArrangedSubview(surNameTextField)
         textFieldStackView.addArrangedSubview(emailTextField)
-        textFieldStackView.addArrangedSubview(passwortTextField)
+        textFieldStackView.addArrangedSubview(passwordTextField)
         textFieldStackView.addArrangedSubview(confrimPasswordTextField)
         
         scrollFieldView.addSubview(fieldView)
@@ -136,7 +200,7 @@ class RegistrationViewController: UIViewController {
        
         UITextField.appearance().tintColor = .lightGray
         
-        registrationButton.addTarget(self, action: #selector(self.tapOnRegistrationButton(sender:)), for: .touchUpInside)
+        registrationButton.addTarget(self, action: #selector(tapOnRegistrationButton(sender:)), for: .touchUpInside)
     }
 
     @objc func tapOnRegistrationButton(sender: UIButton) {

@@ -5,26 +5,76 @@
 //  Created by Семён Алимпиев on 24.03.2023.
 //
 
+import Combine
 import SnapKit
 import UIKit
 
 class AuthorizationViewController: UIViewController {
-    
-    var viewModel = AuthorizationViewModel()
+    var viewModel: AuthorizationViewModel
     private let rootViewController = MainComponent().registrationComponent.registrationViewController
+    var subscribers: Set<AnyCancellable> = []
+    
+    let emailTextField = CustomTextField(placeholder: "E-mail")
+    let passwordTextField = CustomTextField(placeholder: "Пароль")
+    
+    let signInButton: UIButton = {
+        let signInButton = UIButton()
+        signInButton.setTitle("Войти", for: .normal)
+        signInButton.setTitleColor(.white, for: .normal)
+        signInButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15)
+        signInButton.layer.cornerRadius = 4
+        return signInButton
+    }()
     
     init(viewModel: AuthorizationViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        bind()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.cleanFields()
+        
+        viewModel.$emailFieldText.sink { [self] text in
+            emailTextField.text = text
+        }.store(in: &subscribers)
+        
+        viewModel.$passwordFieldText.sink { [self] text in
+            passwordTextField.text = text
+        }.store(in: &subscribers)
+    }
+    
+    // MARK: Configure button bindings
+    
+    private func bind() {
+        emailTextField.textPublisher
+            .assign(to: \.emailFieldText, on: viewModel)
+            .store(in: &subscribers)
+        
+        passwordTextField.textPublisher
+            .assign(to: \.passwordFieldText, on: viewModel)
+            .store(in: &subscribers)
+        
+        viewModel.$areTextFieldsValid.sink { [self] value in
+            
+            value ? signInButton.buttonActive() : signInButton.buttonEnable()
+        }.store(in: &subscribers)
+    }
+
+    // MARK: Add UI
     
     private func configure() {
         let cinemaImageView: UIImageView = {
@@ -32,9 +82,6 @@ class AuthorizationViewController: UIViewController {
             cinemaView.image = UIImage(named: "LauchScreenLogo")
             return cinemaView
         }()
-        
-        let emailTextField = CustomTextField(placeholder: "E-mail")
-        let passwortTextField = CustomTextField(placeholder: "Пароль")
         
         let textFieldStackView: UIStackView = {
             let stackView = UIStackView()
@@ -55,16 +102,6 @@ class AuthorizationViewController: UIViewController {
         let scrollFieldView = UIScrollView()
         let fieldView = UIView()
         
-        let signInButton: UIButton = {
-            let signInButton = UIButton()
-            signInButton.setTitle("Войти", for: .normal)
-            signInButton.setTitleColor(.white, for: .normal)
-            signInButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15 )
-            signInButton.layer.cornerRadius = 4
-            signInButton.backgroundColor = .red
-            return signInButton
-        }()
-        
         let registrationButton: UIButton = {
             let registrationButton = UIButton()
             registrationButton.setTitle("Регистрация", for: .normal)
@@ -78,8 +115,10 @@ class AuthorizationViewController: UIViewController {
         
         view.backgroundColor = .black
         
+        passwordTextField.isSecureTextEntry = true
+        
         view.addSubview(emailTextField)
-        view.addSubview(passwortTextField)
+        view.addSubview(passwordTextField)
         
         buttonsStackView.addArrangedSubview(signInButton)
         buttonsStackView.addArrangedSubview(registrationButton)
@@ -87,7 +126,7 @@ class AuthorizationViewController: UIViewController {
         view.addSubview(scrollFieldView)
         
         textFieldStackView.addArrangedSubview(emailTextField)
-        textFieldStackView.addArrangedSubview(passwortTextField)
+        textFieldStackView.addArrangedSubview(passwordTextField)
         
         scrollFieldView.addSubview(fieldView)
         fieldView.addSubview(textFieldStackView)
@@ -134,16 +173,21 @@ class AuthorizationViewController: UIViewController {
        
         UITextField.appearance().tintColor = .lightGray
         
-        
-        registrationButton.addTarget(self, action: #selector(self.tapOnRegistrationButton(sender:)), for: .touchUpInside)
+        registrationButton.addTarget(self, action: #selector(tapOnRegistrationButton(sender:)), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(tapOnSignInButton(sender:)), for: .touchUpInside)
     }
     
-    @objc func tapOnRegistrationButton(sender: UIButton){
+    // MARK: Add actions on button
+    
+    @objc func tapOnRegistrationButton(sender: UIButton) {
         sender.startAnimatingPressActions()
         let navigationViewController = UINavigationController(rootViewController: rootViewController)
         navigationViewController.modalPresentationStyle = .fullScreen
         present(navigationViewController, animated: true)
-        
-        
+    }
+    
+    @objc func tapOnSignInButton(sender: UIButton) {
+        sender.startAnimatingPressActions()
+//        viewModel.login()
     }
 }

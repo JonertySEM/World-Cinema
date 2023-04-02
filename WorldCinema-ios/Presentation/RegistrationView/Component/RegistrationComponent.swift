@@ -19,6 +19,6 @@ final class RegistrationComponent: Component<RegistrationComponentDependency> {
     }
 
     var registrationViewController: UIViewController {
-        return RegistrationViewController()
+        return RegistrationViewController(viewModel: registrationViewModel)
     }
 }

@@ -9,15 +9,14 @@ import Foundation
 import NeedleFoundation
 import UIKit
 
-protocol AuthorizationComponentDependency: Dependency {}
+protocol AuthorizationComponentDependency: Dependency {
+    var loginUseCase: LoginUseCase { get }
+}
 
 final class AuthorizationComponent: Component<AuthorizationComponentDependency> {
-    
-    
-    
     var authorizationViewModel: AuthorizationViewModel {
         shared {
-            AuthorizationViewModel()
+            AuthorizationViewModel(loginUseCase: dependency.loginUseCase)
         }
     }
     

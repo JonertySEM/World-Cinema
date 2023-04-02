@@ -34,6 +34,8 @@ extension AFDataResponse {
         jsonDecoder: JSONDecoder,
         completion: ((Result<T, Error>) -> Void)?
     ) {
+        print("STATUS CODE")
+        
         if let underlyingError = error?.asAFError?.underlyingError {
             completion?(.failure(underlyingError))
 
