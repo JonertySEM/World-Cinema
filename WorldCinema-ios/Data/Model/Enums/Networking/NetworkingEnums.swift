@@ -16,24 +16,24 @@ enum NetworkingEnums: Error {
 extension NetworkingEnums: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .invalidUserCredentials: return "Неверная почта или пароль"
-        case .unableToGetData: return "Нельзя получить данные"
-        case .wrongUserCredentials: return "Неверные данные пользователя"
+        case .invalidUserCredentials: return R.string.localizable.invalidUserCredentials()
+        case .unableToGetData: return R.string.localizable.unableToGetData()
+        case .wrongUserCredentials: return R.string.localizable.wrongUserCredentials()
         }
     }
 
     static func getErrorDescription(str: String) -> String {
         switch str {
         case "InvalidUserCredentials":
-            return "Неверная почта или пароль"
+            return R.string.localizable.invalidUserCredentials()
         case "InternalServerError" :
-            return "Проблема на стороне сервера"
+            return R.string.localizable.internalServerError()
         case "unableToGetData" :
-            return "Невозможно получить данные с сервера"
+            return R.string.localizable.unableToGetData()
         case "UserAlreadyExists" :
-            return "Пользователь с такой почтой уже зарегистрирован"
+            return R.string.localizable.userAlreadyExists()
         default:
-            return ""
+            return R.string.localizable.unableToGetData()
         }
     }
 }

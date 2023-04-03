@@ -18,7 +18,6 @@ class AuthRepositoryImpl: AuthorizationRepository {
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
     }
-
     func login(authorizationRequest: AuthorizationRequest,
                completion: ((Result<AuthResponse, Error>) -> Void)?)
     {

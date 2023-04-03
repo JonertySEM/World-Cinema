@@ -12,17 +12,17 @@ class RegistrationViewController: UIViewController {
     private var viewModel: RegistrationViewModel
     var subscribers: Set<AnyCancellable> = []
     
-    let nameTextField = CustomTextField(placeholder: "Имя")
-    let surNameTextField = CustomTextField(placeholder: "Фамилия")
-    let emailTextField = CustomTextField(placeholder: "E-mail")
-    let passwordTextField = CustomTextField(placeholder: "Пароль")
-    let confrimPasswordTextField = CustomTextField(placeholder: "Повторите пароль")
+    let nameTextField = CustomTextField(placeholder: R.string.localizable.firstName())
+    let surNameTextField = CustomTextField(placeholder: R.string.localizable.secondName())
+    let emailTextField = CustomTextField(placeholder: R.string.localizable.email())
+    let passwordTextField = CustomTextField(placeholder: R.string.localizable.password())
+    let confrimPasswordTextField = CustomTextField(placeholder: R.string.localizable.confrimPassword())
     
     let signInButton: UIButton = {
         let signInButton = UIButton()
-        signInButton.setTitle("Зарегистрироваться", for: .normal)
+        signInButton.setTitle(R.string.localizable.pressRegistrationButton(), for: .normal)
         signInButton.setTitleColor(.white, for: .normal)
-        signInButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15)
+        signInButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
         signInButton.layer.cornerRadius = 4
         return signInButton
     }()
@@ -104,7 +104,7 @@ class RegistrationViewController: UIViewController {
         
         let cinemaImageView: UIImageView = {
             let cinemaView = UIImageView()
-            cinemaView.image = UIImage(named: "LauchScreenLogo")
+            cinemaView.image = R.image.lauchScreenLogo()
             return cinemaView
         }()
         
@@ -126,9 +126,9 @@ class RegistrationViewController: UIViewController {
         
         let registrationButton: UIButton = {
             let registrationButton = UIButton()
-            registrationButton.setTitle("У меня уже есть аккаунт", for: .normal)
+            registrationButton.setTitle(R.string.localizable.haveAccount(), for: .normal)
             registrationButton.setTitleColor(.red, for: .normal)
-            registrationButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15)
+            registrationButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
             registrationButton.layer.borderColor = UIColor.lightGray.cgColor
             registrationButton.layer.borderWidth = 1
             registrationButton.layer.cornerRadius = 4

@@ -1,0 +1,29 @@
+/* 
+  Localiztion.strings
+  WorldCinema-ios
+
+  Created by Семён Алимпиев on 02.04.2023.
+  
+*/
+"unableToGetData" = "Unable to get data";
+"wrongUserCredentials" = "Wrong user credentials";
+"invalidUserCredentials" = "Invalid email or password";
+"userAlreadyExists" = "A user with such an email already exists";
+"internalServerError" = "The problem is on the server side";
+
+"loading" = "Loading";
+
+// MARK: AuthorizationView
+
+"email" = "E-mail";
+"password" = "Password";
+"signIn" = "Sign In";
+"registration" = "Registration";
+
+// MARK: RegistrationView
+
+"firstName" = "First name";
+"secondName" = "Second name";
+"confrimPassword" = "Confrim password";
+"pressRegistrationButton" = "Register";
+"haveAccount" = "I already have an account";

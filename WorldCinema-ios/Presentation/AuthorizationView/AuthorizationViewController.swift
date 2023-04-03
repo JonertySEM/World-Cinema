@@ -15,14 +15,14 @@ class AuthorizationViewController: UIViewController {
     private let rootViewController = MainComponent().registrationComponent.registrationViewController
     var subscribers: Set<AnyCancellable> = []
     
-    let emailTextField = CustomTextField(placeholder: "E-mail")
-    let passwordTextField = CustomTextField(placeholder: "Пароль")
+    let emailTextField = CustomTextField(placeholder: R.string.localizable.email())
+    let passwordTextField = CustomTextField(placeholder: R.string.localizable.password())
     
     let signInButton: UIButton = {
         let signInButton = UIButton()
-        signInButton.setTitle("Войти", for: .normal)
+        signInButton.setTitle(R.string.localizable.signIn(), for: .normal)
         signInButton.setTitleColor(.white, for: .normal)
-        signInButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15)
+        signInButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
         signInButton.layer.cornerRadius = 4
         return signInButton
     }()
@@ -81,7 +81,7 @@ class AuthorizationViewController: UIViewController {
     private func configure() {
         let cinemaImageView: UIImageView = {
             let cinemaView = UIImageView()
-            cinemaView.image = UIImage(named: "LauchScreenLogo")
+            cinemaView.image = R.image.lauchScreenLogo()
             return cinemaView
         }()
         
@@ -106,9 +106,9 @@ class AuthorizationViewController: UIViewController {
         
         let registrationButton: UIButton = {
             let registrationButton = UIButton()
-            registrationButton.setTitle("Регистрация", for: .normal)
+            registrationButton.setTitle(R.string.localizable.registration(), for: .normal)
             registrationButton.setTitleColor(.red, for: .normal)
-            registrationButton.titleLabel?.font = UIFont(name: "SFProText-Bold", size: 15)
+            registrationButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
             registrationButton.layer.borderColor = UIColor.lightGray.cgColor
             registrationButton.layer.borderWidth = 1
             registrationButton.layer.cornerRadius = 4
