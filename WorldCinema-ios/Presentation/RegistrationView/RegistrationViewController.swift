@@ -8,7 +8,10 @@
 import Combine
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, FlowController {
+    
+    var completionHandler: ((String?) -> ())?
+    
     private var viewModel: RegistrationViewModel
     var subscribers: Set<AnyCancellable> = []
     
@@ -210,6 +213,8 @@ class RegistrationViewController: UIViewController {
     }
     
     @objc func tapOnRegistrationButton(sender: UIButton) {
+        completionHandler?("")
+        
         sender.startAnimatingPressActions()
         dismiss(animated: true, completion: nil)
     }

@@ -14,9 +14,6 @@ class MainViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let loginViewController = MainComponent().authorizationComponent.authorizationViewController
-        self.add(loginViewController)
     }
     
 }

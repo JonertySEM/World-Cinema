@@ -20,7 +20,6 @@
 		4F21928B29D32D80001AEB5F /* VoidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21928A29D32D80001AEB5F /* VoidResponse.swift */; };
 		4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21928C29D32DF7001AEB5F /* NSErrorExtension.swift */; };
 		4F38328E29C976B3000A660D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4F38328D29C976B3000A660D /* Alamofire */; };
-		4F38329129C97717000A660D /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F38329029C97717000A660D /* rswift */; };
 		4F38329729C9B6B7000A660D /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4F38329629C9B6B7000A660D /* NeedleFoundation */; };
 		4F4FC65A29D0147F001BFCA3 /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FC65929D0147F001BFCA3 /* RegistrationComponent.swift */; };
 		4F4FC65C29D036FA001BFCA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4FC65B29D036FA001BFCA3 /* Launch Screen.storyboard */; };
@@ -54,18 +53,31 @@
 		4F63C8A329D987F500B06D35 /* NetwrokingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C8A229D987F500B06D35 /* NetwrokingMessage.swift */; };
 		4F63C8A629D9975600B06D35 /* SwiftLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C8A529D9975600B06D35 /* SwiftLoaderView.swift */; };
 		4F63C8A829D9977500B06D35 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C8A729D9977500B06D35 /* LoaderView.swift */; };
+		4F6B725D29DAB91D00F48DE0 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B725C29DAB91D00F48DE0 /* R.generated.swift */; };
+		4FAEC24529D9D939004D04D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FAEC24729D9D939004D04D5 /* Localizable.strings */; };
 		4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1FF1929C9716100BD7141 /* AppDelegate.swift */; };
 		4FB1FF1E29C9716100BD7141 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1FF1D29C9716100BD7141 /* MainViewController.swift */; };
 		4FB1FF2329C9716200BD7141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1FF2229C9716200BD7141 /* Assets.xcassets */; };
 		4FCDDD9629CDCBC30005782D /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD9529CDCBC30005782D /* AuthorizationViewController.swift */; };
 		4FCDDD9829CDCBFD0005782D /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD9729CDCBFD0005782D /* AuthorizationComponent.swift */; };
+		4FE851FD29DADC98002CCD6A /* CoordinatorMainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE851FC29DADC98002CCD6A /* CoordinatorMainRepository.swift */; };
+		4FE851FF29DAE3AE002CCD6A /* CoordinatorCinemaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE851FE29DAE3AE002CCD6A /* CoordinatorCinemaRepository.swift */; };
+		4FE8520229DAEB82002CCD6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8520129DAEB82002CCD6A /* HomeViewController.swift */; };
+		4FE8520529DAEBD0002CCD6A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8520429DAEBCF002CCD6A /* ProfileViewController.swift */; };
+		4FE8520A29DB28A3002CCD6A /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8520929DB28A3002CCD6A /* LoginCoordinator.swift */; };
+		4FE8520D29DB2963002CCD6A /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8520C29DB2963002CCD6A /* ModuleFactory.swift */; };
+		4FE8520F29DB2A72002CCD6A /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8520E29DB2A72002CCD6A /* FlowController.swift */; };
+		4FE8521129DB2DB2002CCD6A /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8521029DB2DB2002CCD6A /* CoordinatorFactory.swift */; };
+		4FE8521429DB2ED2002CCD6A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8521329DB2ED2002CCD6A /* AppCoordinator.swift */; };
 		4FF0B2F929CC240B00A82AFA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF0B2F829CC240B00A82AFA /* SnapKit */; };
 		4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */; };
 		4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30529CD8F5900A82AFA /* MainComponent.swift */; };
 		4FF0B30B29CDAAE400A82AFA /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30A29CDAAE400A82AFA /* NeedleGenerated.swift */; };
+		8112FD6E0F6C79EFB03F978C /* Pods_WorldCinema_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18115F9AA1C683A04A38F103 /* Pods_WorldCinema_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18115F9AA1C683A04A38F103 /* Pods_WorldCinema_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldCinema_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F21926F29D2E4F7001AEB5F /* LoginViewDisplayingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingMode.swift; sourceTree = "<group>"; };
 		4F21927429D323FA001AEB5F /* AuthorizationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRepository.swift; sourceTree = "<group>"; };
 		4F21927829D324AF001AEB5F /* RegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRequest.swift; sourceTree = "<group>"; };
@@ -106,6 +118,9 @@
 		4F63C8A229D987F500B06D35 /* NetwrokingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwrokingMessage.swift; sourceTree = "<group>"; };
 		4F63C8A529D9975600B06D35 /* SwiftLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoaderView.swift; sourceTree = "<group>"; };
 		4F63C8A729D9977500B06D35 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		4F6B725C29DAB91D00F48DE0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		4FAEC24629D9D939004D04D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FAEC24829D9D96A004D04D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4FB1FF1629C9716100BD7141 /* WorldCinema-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorldCinema-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB1FF1929C9716100BD7141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB1FF1D29C9716100BD7141 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -113,9 +128,20 @@
 		4FB1FF2729C9716200BD7141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/sema_alimpiev/Documents/projects.nosync/Mobile-Cinema-Lab1/WorldCinema-ios/Info.plist"; sourceTree = "<absolute>"; };
 		4FCDDD9529CDCBC30005782D /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		4FCDDD9729CDCBFD0005782D /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
+		4FE851FC29DADC98002CCD6A /* CoordinatorMainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMainRepository.swift; sourceTree = "<group>"; };
+		4FE851FE29DAE3AE002CCD6A /* CoordinatorCinemaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorCinemaRepository.swift; sourceTree = "<group>"; };
+		4FE8520129DAEB82002CCD6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4FE8520429DAEBCF002CCD6A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4FE8520929DB28A3002CCD6A /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		4FE8520C29DB2963002CCD6A /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
+		4FE8520E29DB2A72002CCD6A /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		4FE8521029DB2DB2002CCD6A /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		4FE8521329DB2ED2002CCD6A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4FF0B30529CD8F5900A82AFA /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		4FF0B30A29CDAAE400A82AFA /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		DED5753D413B7C64696F11A8 /* Pods-WorldCinema-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldCinema-ios.debug.xcconfig"; path = "Target Support Files/Pods-WorldCinema-ios/Pods-WorldCinema-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		EB513AC45784A428333AB56E /* Pods-WorldCinema-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldCinema-ios.release.xcconfig"; path = "Target Support Files/Pods-WorldCinema-ios/Pods-WorldCinema-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,13 +156,22 @@
 				4F38328E29C976B3000A660D /* Alamofire in Frameworks */,
 				4FF0B2F929CC240B00A82AFA /* SnapKit in Frameworks */,
 				4F38329729C9B6B7000A660D /* NeedleFoundation in Frameworks */,
-				4F38329129C97717000A660D /* rswift in Frameworks */,
+				8112FD6E0F6C79EFB03F978C /* Pods_WorldCinema_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EFEABAD5AFBA995EACFB280 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DED5753D413B7C64696F11A8 /* Pods-WorldCinema-ios.debug.xcconfig */,
+				EB513AC45784A428333AB56E /* Pods-WorldCinema-ios.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4F21926729D1E42D001AEB5F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +185,7 @@
 		4F21926829D1E440001AEB5F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				4FE851FB29DADC7F002CCD6A /* Coordinators */,
 				4F63C87029D80F5B00B06D35 /* KeyChain */,
 				4F21926929D1E448001AEB5F /* Networking */,
 			);
@@ -252,6 +288,7 @@
 		4F38329329C977A5000A660D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				4FE8520B29DB294A002CCD6A /* Factories */,
 				4F63C88529D8220800B06D35 /* Helper */,
 				4F21926829D1E440001AEB5F /* Repositories */,
 				4F21926729D1E42D001AEB5F /* UseCases */,
@@ -263,8 +300,11 @@
 		4F38329429C977B2000A660D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4FE851FA29DADC5B002CCD6A /* Navigation */,
 				4F63C8A429D9973500B06D35 /* SharedLoaderView */,
 				4F4FC66329D094B7001BFCA3 /* Modifed */,
+				4FE8520329DAEBB3002CCD6A /* ProfileView */,
+				4FE8520029DAEB54002CCD6A /* HomeView */,
 				4FCDDD9229CDBC570005782D /* RegistrationView */,
 				4FCDDD9129CDBC4B0005782D /* AuthorizationView */,
 				4FF0B2FC29CD8BF600A82AFA /* MainView */,
@@ -297,6 +337,7 @@
 		4F4FC66029D086D5001BFCA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C8A929D99E5600B06D35 /* Localizable */,
 				4F4FC65B29D036FA001BFCA3 /* Launch Screen.storyboard */,
 				4FB1FF2229C9716200BD7141 /* Assets.xcassets */,
 				4F4FC66129D086DD001BFCA3 /* Font */,
@@ -405,11 +446,21 @@
 			path = SharedLoaderView;
 			sourceTree = "<group>";
 		};
+		4F63C8A929D99E5600B06D35 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				4FAEC24729D9D939004D04D5 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 		4FB1FF0D29C9716100BD7141 = {
 			isa = PBXGroup;
 			children = (
 				4FB1FF1829C9716100BD7141 /* WorldCinema-ios */,
 				4FB1FF1729C9716100BD7141 /* Products */,
+				2EFEABAD5AFBA995EACFB280 /* Pods */,
+				806C9273E8A1C8AC449EF981 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -424,6 +475,7 @@
 		4FB1FF1829C9716100BD7141 /* WorldCinema-ios */ = {
 			isa = PBXGroup;
 			children = (
+				4F6B725C29DAB91D00F48DE0 /* R.generated.swift */,
 				4F4FC66029D086D5001BFCA3 /* Resources */,
 				4F38329229C97798000A660D /* Data */,
 				4F38329329C977A5000A660D /* Domain */,
@@ -463,6 +515,66 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		4FE851FA29DADC5B002CCD6A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4FE8521529DB348C002CCD6A /* HomeMoviewCoordinator */,
+				4FE8520629DB2878002CCD6A /* LoginCoordinator */,
+				4FE8521329DB2ED2002CCD6A /* AppCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4FE851FB29DADC7F002CCD6A /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4FE851FC29DADC98002CCD6A /* CoordinatorMainRepository.swift */,
+				4FE851FE29DAE3AE002CCD6A /* CoordinatorCinemaRepository.swift */,
+				4FE8520E29DB2A72002CCD6A /* FlowController.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4FE8520029DAEB54002CCD6A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				4FE8520129DAEB82002CCD6A /* HomeViewController.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		4FE8520329DAEBB3002CCD6A /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				4FE8520429DAEBCF002CCD6A /* ProfileViewController.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		4FE8520629DB2878002CCD6A /* LoginCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4FE8520929DB28A3002CCD6A /* LoginCoordinator.swift */,
+			);
+			path = LoginCoordinator;
+			sourceTree = "<group>";
+		};
+		4FE8520B29DB294A002CCD6A /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				4FE8520C29DB2963002CCD6A /* ModuleFactory.swift */,
+				4FE8521029DB2DB2002CCD6A /* CoordinatorFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		4FE8521529DB348C002CCD6A /* HomeMoviewCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeMoviewCoordinator;
+			sourceTree = "<group>";
+		};
 		4FF0B2FC29CD8BF600A82AFA /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +601,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		806C9273E8A1C8AC449EF981 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18115F9AA1C683A04A38F103 /* Pods_WorldCinema_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -496,10 +616,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FB1FF2A29C9716200BD7141 /* Build configuration list for PBXNativeTarget "WorldCinema-ios" */;
 			buildPhases = (
+				BCD3FF6F4F3932FEE245C0CE /* [CP] Check Pods Manifest.lock */,
+				4F47BA4A29DAAFCC00DF7203 /* ShellScript */,
 				4FB1FF1229C9716100BD7141 /* Sources */,
 				4FB1FF1329C9716100BD7141 /* Frameworks */,
 				4FB1FF1429C9716100BD7141 /* Resources */,
-				4FCDDD9329CDC77F0005782D /* ShellScript */,
+				4FCDDD9329CDC77F0005782D /* Run Script */,
+				701045781E7F7CF9D0D9CACB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -508,7 +631,6 @@
 			name = "WorldCinema-ios";
 			packageProductDependencies = (
 				4F38328D29C976B3000A660D /* Alamofire */,
-				4F38329029C97717000A660D /* rswift */,
 				4F38329629C9B6B7000A660D /* NeedleFoundation */,
 				4FF0B2F829CC240B00A82AFA /* SnapKit */,
 				4F63C85B29D57FD600B06D35 /* IQKeyboardManagerSwift */,
@@ -542,11 +664,11 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 4FB1FF0D29C9716100BD7141;
 			packageReferences = (
 				4F38328C29C976B3000A660D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				4F38328F29C97717000A660D /* XCRemoteSwiftPackageReference "R.swift" */,
 				4F38329529C9B6B7000A660D /* XCRemoteSwiftPackageReference "needle" */,
 				4FF0B2F729CC240B00A82AFA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4F63C85A29D57FD600B06D35 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
@@ -571,14 +693,16 @@
 				4F4FC65C29D036FA001BFCA3 /* Launch Screen.storyboard in Resources */,
 				4F63C86C29D80D3700B06D35 /* SFProText-Bold.ttf in Resources */,
 				4FB1FF2329C9716200BD7141 /* Assets.xcassets in Resources */,
+				4FAEC24529D9D939004D04D5 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4FCDDD9329CDC77F0005782D /* ShellScript */ = {
+		4F47BA4A29DAAFCC00DF7203 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 12;
 			files = (
 			);
@@ -589,10 +713,70 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FCDDD9329CDC77F0005782D /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "needle generate WorldCinema-ios/NeedleGenerated.swift WorldCinema-ios/\n";
+		};
+		701045781E7F7CF9D0D9CACB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorldCinema-ios/Pods-WorldCinema-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorldCinema-ios/Pods-WorldCinema-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldCinema-ios/Pods-WorldCinema-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCD3FF6F4F3932FEE245C0CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WorldCinema-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -604,10 +788,13 @@
 				4FCDDD9629CDCBC30005782D /* AuthorizationViewController.swift in Sources */,
 				4F21927D29D3257B001AEB5F /* RefreshTokenRequest.swift in Sources */,
 				4F21928429D32BB2001AEB5F /* AlamofireDataResponse.swift in Sources */,
+				4FE8520D29DB2963002CCD6A /* ModuleFactory.swift in Sources */,
 				4F63C87F29D811A100B06D35 /* KeyChainTokenTypesEnum.swift in Sources */,
 				4F63C89A29D9662F00B06D35 /* GetAuthorizationStatusUseCase.swift in Sources */,
 				4F63C87229D80F7200B06D35 /* KeyChainRepository.swift in Sources */,
 				4FB1FF1E29C9716100BD7141 /* MainViewController.swift in Sources */,
+				4FE851FD29DADC98002CCD6A /* CoordinatorMainRepository.swift in Sources */,
+				4FE8521129DB2DB2002CCD6A /* CoordinatorFactory.swift in Sources */,
 				4F63C85F29D5B9B300B06D35 /* AuthorizationViewModel.swift in Sources */,
 				4F63C88929D8222F00B06D35 /* NetwrokingGetTokenHelper.swift in Sources */,
 				4F63C82029D4113A00B06D35 /* RegistrationViewController.swift in Sources */,
@@ -618,14 +805,17 @@
 				4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */,
 				4F63C8A629D9975600B06D35 /* SwiftLoaderView.swift in Sources */,
 				4F63C89629D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift in Sources */,
+				4FE8521429DB2ED2002CCD6A /* AppCoordinator.swift in Sources */,
 				4F63C8A829D9977500B06D35 /* LoaderView.swift in Sources */,
 				4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */,
 				4F4FC65F29D0612D001BFCA3 /* ViewController.swift in Sources */,
 				4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */,
+				4FE8520529DAEBD0002CCD6A /* ProfileViewController.swift in Sources */,
 				4F21928929D32CC5001AEB5F /* NetworkingEnums.swift in Sources */,
 				4F21928629D32C00001AEB5F /* NetwrokingModel.swift in Sources */,
 				4F63C8A329D987F500B06D35 /* NetwrokingMessage.swift in Sources */,
 				4F63C88729D8221700B06D35 /* CheckValidatonHelper.swift in Sources */,
+				4FE8520F29DB2A72002CCD6A /* FlowController.swift in Sources */,
 				4F63C89C29D9667D00B06D35 /* SwiftyUserDefaultsEnum.swift in Sources */,
 				4F63C87829D8111F00B06D35 /* SaveTokenUseCase.swift in Sources */,
 				4F21927529D323FA001AEB5F /* AuthorizationRepository.swift in Sources */,
@@ -636,11 +826,15 @@
 				4F4FC65A29D0147F001BFCA3 /* RegistrationComponent.swift in Sources */,
 				4F63C87629D80FF600B06D35 /* KeyChainRepositoryErrorEnum.swift in Sources */,
 				4FF0B30B29CDAAE400A82AFA /* NeedleGenerated.swift in Sources */,
+				4F6B725D29DAB91D00F48DE0 /* R.generated.swift in Sources */,
 				4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */,
 				4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */,
+				4FE851FF29DAE3AE002CCD6A /* CoordinatorCinemaRepository.swift in Sources */,
+				4FE8520229DAEB82002CCD6A /* HomeViewController.swift in Sources */,
 				4F63C87A29D8113A00B06D35 /* GetTokenUseCase.swift in Sources */,
 				4F63C89E29D9682C00B06D35 /* RegistrationUseCase.swift in Sources */,
 				4F21928B29D32D80001AEB5F /* VoidResponse.swift in Sources */,
+				4FE8520A29DB28A3002CCD6A /* LoginCoordinator.swift in Sources */,
 				4F63C89829D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift in Sources */,
 				4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */,
 				4F21928029D3287E001AEB5F /* AuthResponse.swift in Sources */,
@@ -651,11 +845,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		4FAEC24729D9D939004D04D5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FAEC24629D9D939004D04D5 /* en */,
+				4FAEC24829D9D96A004D04D5 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		4FB1FF2829C9716200BD7141 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -688,6 +896,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -709,13 +918,16 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
 		4FB1FF2929C9716200BD7141 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -748,6 +960,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -768,12 +981,14 @@
 		};
 		4FB1FF2B29C9716200BD7141 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DED5753D413B7C64696F11A8 /* Pods-WorldCinema-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2NL7VK2NYX;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WorldCinema-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "World Cinema";
@@ -789,6 +1004,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "jonertyS.WorldCinema-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -802,12 +1018,14 @@
 		};
 		4FB1FF2C29C9716200BD7141 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB513AC45784A428333AB56E /* Pods-WorldCinema-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2NL7VK2NYX;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WorldCinema-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "World Cinema";
@@ -823,6 +1041,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "jonertyS.WorldCinema-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -866,20 +1085,12 @@
 				minimumVersion = 5.6.4;
 			};
 		};
-		4F38328F29C97717000A660D /* XCRemoteSwiftPackageReference "R.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.3.0;
-			};
-		};
 		4F38329529C9B6B7000A660D /* XCRemoteSwiftPackageReference "needle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uber/needle.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.22.0;
 			};
 		};
 		4F63C85A29D57FD600B06D35 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
@@ -929,11 +1140,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F38328C29C976B3000A660D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		4F38329029C97717000A660D /* rswift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F38328F29C97717000A660D /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = rswift;
 		};
 		4F38329629C9B6B7000A660D /* NeedleFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
