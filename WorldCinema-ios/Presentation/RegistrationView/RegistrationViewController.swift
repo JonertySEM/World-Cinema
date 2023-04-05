@@ -8,9 +8,7 @@
 import Combine
 import UIKit
 
-class RegistrationViewController: UIViewController{
-    
-    
+class RegistrationViewController: UIViewController {
     var viewModel: RegistrationViewModel
     var subscribers: Set<AnyCancellable> = []
     
@@ -20,8 +18,8 @@ class RegistrationViewController: UIViewController{
     let passwordTextField = CustomTextField(placeholder: R.string.localizable.password())
     let confrimPasswordTextField = CustomTextField(placeholder: R.string.localizable.confrimPassword())
     
-    let signInButton: UIButton = {
-        let signInButton = UIButton()
+    let signInButton: CustomButton = {
+        let signInButton = CustomButton()
         signInButton.setTitle(R.string.localizable.pressRegistrationButton(), for: .normal)
         signInButton.setTitleColor(.white, for: .normal)
         signInButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
@@ -126,8 +124,8 @@ class RegistrationViewController: UIViewController{
             return stackView
         }()
         
-        let registrationButton: UIButton = {
-            let registrationButton = UIButton()
+        let registrationButton: CustomButton = {
+            let registrationButton = CustomButton()
             registrationButton.setTitle(R.string.localizable.haveAccount(), for: .normal)
             registrationButton.setTitleColor(.red, for: .normal)
             registrationButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
@@ -202,19 +200,15 @@ class RegistrationViewController: UIViewController{
        
         UITextField.appearance().tintColor = .lightGray
         
-        registrationButton.addTarget(self, action: #selector(tapOnRegistrationButton(sender:)), for: .touchUpInside)
-        signInButton.addTarget(self, action: #selector(tapOnSignIn(sender:)), for: .touchUpInside)
+        registrationButton.addTarget(self, action: #selector(tapOnRegistrationButton), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(tapOnSignIn), for: .touchUpInside)
     }
     
-    @objc func tapOnSignIn(sender: UIButton) {
-        sender.startAnimatingPressActions()
+    @objc func tapOnSignIn() {
         viewModel.registration()
     }
     
-    @objc func tapOnRegistrationButton(sender: UIButton) {
-        
-        sender.startAnimatingPressActions()
+    @objc func tapOnRegistrationButton() {
         viewModel.changeView()
-//        dismiss(animated: true, completion: nil)
     }
 }

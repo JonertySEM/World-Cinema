@@ -5,12 +5,10 @@
 //  Created by Семён Алимпиев on 04.04.2023.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 class MovieRepositoryImpl: MovieRepository {
-    
-    
     private static let url = NetworkingModel.baseUrl
     
     private let jsonDecoder: JSONDecoder
@@ -24,7 +22,6 @@ class MovieRepositoryImpl: MovieRepository {
     func getNewMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
         let parametr: Parameters = [
             "filter": "new"
-        
         ]
         AF.request(
             Self.url + NetworkingModel.movieLine,
@@ -45,7 +42,6 @@ class MovieRepositoryImpl: MovieRepository {
     func getInTrendMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
         let parametr: Parameters = [
             "filter": "inTrend"
-        
         ]
         AF.request(
             Self.url + NetworkingModel.movieLine,
@@ -66,7 +62,6 @@ class MovieRepositoryImpl: MovieRepository {
     func getForMeMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
         let parametr: Parameters = [
             "filter": "forMe"
-        
         ]
         AF.request(
             Self.url + NetworkingModel.movieLine,
@@ -87,7 +82,6 @@ class MovieRepositoryImpl: MovieRepository {
     func getLastViewMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
         let parametr: Parameters = [
             "filter": "lastView"
-        
         ]
         AF.request(
             Self.url + NetworkingModel.movieLine,
@@ -108,7 +102,6 @@ class MovieRepositoryImpl: MovieRepository {
     func getCompilationMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
         let parametr: Parameters = [
             "filter": "compilation"
-        
         ]
         AF.request(
             Self.url + NetworkingModel.movieLine,

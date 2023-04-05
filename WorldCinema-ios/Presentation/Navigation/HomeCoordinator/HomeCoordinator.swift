@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class HomeCoordinator: CoordinatorMainRepository {
     var navigationController: UINavigationController
     
@@ -20,7 +19,6 @@ class HomeCoordinator: CoordinatorMainRepository {
         self.navigationController = navigationController
     }
     
-    
     func start() {
         showHomeMovieModule()
     }
@@ -30,6 +28,4 @@ class HomeCoordinator: CoordinatorMainRepository {
         
         navigationController.pushViewController(controller, animated: true)
     }
-    
-    
 }

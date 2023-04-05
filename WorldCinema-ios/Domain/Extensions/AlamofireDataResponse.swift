@@ -39,38 +39,12 @@ extension AFDataResponse {
 
             return
         }
-        
-        print(self.response?.statusCode)
-        
+
+        // print(self.response?.statusCode)
+
         if self.response?.statusCode == NetworkingModel.wrongDataStatusCode ||
             self.response?.statusCode == NetworkingModel.userAlreadyExistsStatusCode
         {
-//            do {
-//                let decodedError = try jsonDecoder.decode(NetworkingMessage.self, from: data?)
-//
-//                if let errorTitle = decodedError.code {
-//                    print()
-//                    completion?(.failure(
-//                        NSError.createErrorWithLocalizedDescription(NetworkingEnums.getErrorDescription(str: errorTitle))
-//                    ))
-//
-//                    return
-//                }
-//
-//                if let errorMessage = decodedError.message {
-//                    print(errorMessage)
-//                    completion?(.failure(
-//                        NSError.createErrorWithLocalizedDescription(errorMessage)
-//                    ))
-//
-//                    return
-//                }
-//            } catch {
-//                completion?(.failure(NetworkingEnums.invalidUserCredentials))
-//            }
-            
-            
-
             completion?(.failure(processError()))
 
             return

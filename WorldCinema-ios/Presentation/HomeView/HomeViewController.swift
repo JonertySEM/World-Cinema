@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import SnapKit
 
 class HomeViewController: UIViewController {
-    
     var viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
@@ -23,11 +23,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
         
         
         viewModel.getCoverInView()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +33,41 @@ class HomeViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-
     
-
+    private func createView() {
+        
+        var scrollView = UIScrollView()
+        var homeView = UIView()
+        
+        var cinemaCard = UIImage()
+        var perimetrSceneCard = UIImage()
+        var imagesCard = UIImageView()
+        
+        
+        view.addSubview(scrollView)
+        
+        imagesCard.image = cinemaCard
+        
+        homeView.addSubview(imagesCard)
+        
+        
+        
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.leading.equalTo(super.view.snp.leading)
+            make.bottom.top.equalTo(super.view.snp.bottom)
+            make.height.equalTo(super.view.snp.height).multipliedBy(0.7)
+        }
+        
+        homeView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.width.equalTo(super.view.snp.width)
+            make.top.equalTo(scrollView.snp.top)
+            make.bottom.equalTo(scrollView.snp.bottom)
+            //make.height.equalTo(super.view.snp.height).multipliedBy(0.68).inset(-20)
+        }
+        
+        
+        
+    }
 }

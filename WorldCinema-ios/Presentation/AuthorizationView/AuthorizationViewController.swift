@@ -10,10 +10,7 @@ import SnapKit
 import SPAlert
 import UIKit
 
-class AuthorizationViewController: UIViewController{
-    
-    
-    
+class AuthorizationViewController: UIViewController {
     var viewModel: AuthorizationViewModel
     private let rootViewController = MainComponent().registrationComponent.registrationViewController
     var subscribers: Set<AnyCancellable> = []
@@ -21,8 +18,8 @@ class AuthorizationViewController: UIViewController{
     let emailTextField = CustomTextField(placeholder: R.string.localizable.email())
     let passwordTextField = CustomTextField(placeholder: R.string.localizable.password())
     
-    let signInButton: UIButton = {
-        let signInButton = UIButton()
+    let signInButton: CustomButton = {
+        let signInButton = CustomButton()
         signInButton.setTitle(R.string.localizable.signIn(), for: .normal)
         signInButton.setTitleColor(.white, for: .normal)
         signInButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
@@ -107,8 +104,8 @@ class AuthorizationViewController: UIViewController{
         let scrollFieldView = UIScrollView()
         let fieldView = UIView()
         
-        let registrationButton: UIButton = {
-            let registrationButton = UIButton()
+        let registrationButton: CustomButton = {
+            let registrationButton = CustomButton()
             registrationButton.setTitle(R.string.localizable.registration(), for: .normal)
             registrationButton.setTitleColor(.red, for: .normal)
             registrationButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
@@ -178,28 +175,20 @@ class AuthorizationViewController: UIViewController{
        
         UITextField.appearance().tintColor = .lightGray
         
-        registrationButton.addTarget(self, action: #selector(tapOnRegistrationButton(sender:)), for: .touchUpInside)
-        signInButton.addTarget(self, action: #selector(tapOnSignInButton(sender:)), for: .touchUpInside)
+        registrationButton.addTarget(self, action: #selector(tapOnRegistrationButton), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(tapOnSignInButton), for: .touchUpInside)
     }
     
     // MARK: Add actions on button
     
-    @objc func tapOnRegistrationButton(sender: UIButton) {
-        sender.startAnimatingPressActions()
-        
-//        let navigationViewController = UINavigationController(rootViewController: rootViewController)
-        
-//        navigationViewController.modalPresentationStyle = .fullScreen
-        
+    @objc func tapOnRegistrationButton() {
+       
         viewModel.changeView()
         
-//            present(navigationViewController, animated: true)
-
-       
     }
     
-    @objc func tapOnSignInButton(sender: UIButton) {
-        sender.startAnimatingPressActions()
+    @objc func tapOnSignInButton() {
+
         viewModel.login()
     }
 }

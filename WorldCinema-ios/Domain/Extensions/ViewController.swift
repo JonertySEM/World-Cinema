@@ -20,7 +20,7 @@ extension UIViewController {
 
         func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
     }
-    
+
     @available(iOS 13, *)
     func showPreview() -> some View {
         Preview(viewController: self)

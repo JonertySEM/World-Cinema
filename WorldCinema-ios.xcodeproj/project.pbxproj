@@ -26,6 +26,7 @@
 		4F4FC65C29D036FA001BFCA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4FC65B29D036FA001BFCA3 /* Launch Screen.storyboard */; };
 		4F4FC65F29D0612D001BFCA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FC65E29D0612D001BFCA3 /* ViewController.swift */; };
 		4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FC66429D094D8001BFCA3 /* CustomTextField.swift */; };
+		4F53C5DF29DD7CEA00B94D6A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53C5DE29DD7CEA00B94D6A /* CustomButton.swift */; };
 		4F63C82029D4113A00B06D35 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C81F29D4113A00B06D35 /* RegistrationViewController.swift */; };
 		4F63C82229D4218300B06D35 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C82129D4218300B06D35 /* LoginUseCase.swift */; };
 		4F63C85C29D57FD600B06D35 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F63C85B29D57FD600B06D35 /* IQKeyboardManagerSwift */; };
@@ -111,6 +112,7 @@
 		4F4FC65E29D0612D001BFCA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F4FC66229D086E8001BFCA3 /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		4F4FC66429D094D8001BFCA3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4F53C5DE29DD7CEA00B94D6A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		4F63C81F29D4113A00B06D35 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		4F63C82129D4218300B06D35 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		4F63C85E29D5B9B300B06D35 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				4F4FC66429D094D8001BFCA3 /* CustomTextField.swift */,
+				4F53C5DE29DD7CEA00B94D6A /* CustomButton.swift */,
 			);
 			path = Modifed;
 			sourceTree = "<group>";
@@ -870,6 +873,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F53C5DF29DD7CEA00B94D6A /* CustomButton.swift in Sources */,
 				4FCDDD9629CDCBC30005782D /* AuthorizationViewController.swift in Sources */,
 				4FD9281129DD1E99007EA8FE /* HomeViewModel.swift in Sources */,
 				4F21927D29D3257B001AEB5F /* RefreshTokenRequest.swift in Sources */,

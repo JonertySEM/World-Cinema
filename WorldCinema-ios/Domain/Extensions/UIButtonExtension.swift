@@ -8,19 +8,8 @@
 import Foundation
 import UIKit
 
+
 extension UIButton {
-    func startAnimatingPressActions() {
-        addTarget(self, action: #selector(self.animateDown(sender:)), for: [.touchDown, .touchDragEnter, .touchUpInside])
-        addTarget(self, action: #selector(self.animateUp(sender:)), for: [.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
-    }
-    
-    @objc private func animateDown(sender: UIButton) {
-        self.animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95))
-    }
-    
-    @objc private func animateUp(sender: UIButton) {
-        self.animate(sender, transform: .identity)
-    }
     
     func buttonActive() {
         self.isEnabled = true
@@ -35,16 +24,6 @@ extension UIButton {
         self.layer.cornerRadius = 4
     }
     
-    private func animate(_ button: UIButton, transform: CGAffineTransform) {
-        UIView.animate(withDuration: 0.4,
-                       delay: 0,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 3,
-                       options: [.curveEaseInOut],
-                       animations: {
-                           button.transform = transform
-                       }, completion: nil)
-    }
     
     private func changeButton(button: UIButton, color: UIColor) {
         UIView.animate(withDuration: 1.0) {

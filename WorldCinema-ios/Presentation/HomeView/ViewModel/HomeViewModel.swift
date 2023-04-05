@@ -11,7 +11,7 @@ import Foundation
 class HomeViewModel: ObservableObject {
     private let getCoverHomeViewUseCase: GetCoverHomeViewUseCase
     private let getTokensUseCase: GetTokensUseCase
-    
+
     init(
         getCoverHomeViewUseCase: GetCoverHomeViewUseCase,
         getTokensUseCase: GetTokensUseCase
@@ -19,7 +19,7 @@ class HomeViewModel: ObservableObject {
         self.getCoverHomeViewUseCase = getCoverHomeViewUseCase
         self.getTokensUseCase = getTokensUseCase
     }
-    
+
     func getCoverInView() {
         getTokensUseCase.execute(tokenType: .auth) { [self] result in
             switch result {

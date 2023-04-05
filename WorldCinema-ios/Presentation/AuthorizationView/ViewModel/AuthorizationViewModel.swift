@@ -10,7 +10,6 @@ import Foundation
 import SPAlert
 
 class AuthorizationViewModel: ObservableObject, FlowController {
-    
     var completionHandlerButton: ((String?) -> ())?
     var completionHandler: ((String?) -> ())?
     @Published var emailFieldText = ""
@@ -81,8 +80,8 @@ class AuthorizationViewModel: ObservableObject, FlowController {
             return false
         }
         areTextFieldsValid = true
-        print("areFieldsValid \(areTextFieldsValid)")
-        print("fields are valid")
+//        print("areFieldsValid \(areTextFieldsValid)")
+//        print("fields are valid")
         return true
     }
     
@@ -104,15 +103,12 @@ class AuthorizationViewModel: ObservableObject, FlowController {
             ) { [weak self] result in
                 LoaderView.endLoading()
         
-                
                 if case .failure(let error) = result {
                     self?.processError(error)
                 } else {
                     print("Hello")
                     self?.completionHandler?("")
                 }
-                
-                
             }
         }
     }

@@ -52,7 +52,6 @@ class LoginCoordinator: CoordinatorMainRepository {
         
         controller.viewModel.completionHandlerButton = { [weak self] _ in
             self?.showAuthModule()
-            
         }
         
         navigationController.pushViewController(controller, animated: true)

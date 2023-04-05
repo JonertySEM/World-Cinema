@@ -18,7 +18,8 @@ class GetCoverRepositoryImpl: GetHomeCoverRepository {
     
     init(jsonDecoder: JSONDecoder,
          jsonEncoder: JSONEncoder,
-         requestInterceptor: RequestInterceptor) {
+         requestInterceptor: RequestInterceptor)
+    {
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
         self.requestInterceptor = requestInterceptor

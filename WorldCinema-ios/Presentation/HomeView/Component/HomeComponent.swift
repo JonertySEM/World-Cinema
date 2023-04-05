@@ -12,18 +12,15 @@ import UIKit
 protocol HomeComponentDependency: Dependency {
     var getCoverHomeViewUseCase: GetCoverHomeViewUseCase { get }
     var getTokensUseCase: GetTokensUseCase { get }
-    
 }
 
 final class HomeComponent: Component<HomeComponentDependency> {
-    
     var homeViewModel: HomeViewModel {
         shared {
             HomeViewModel(getCoverHomeViewUseCase: dependency.getCoverHomeViewUseCase,
                           getTokensUseCase: dependency.getTokensUseCase)
         }
     }
-
 
     var homeViewController: UIViewController {
         return HomeViewController(viewModel: homeViewModel)

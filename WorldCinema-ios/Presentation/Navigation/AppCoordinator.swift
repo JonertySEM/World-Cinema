@@ -54,7 +54,8 @@ class AppCoordinator: CoordinatorMainRepository {
     private func observeAuthStatus() {
         authStatusObserver = Defaults.observe(\.isAuthorized) { [self] update in
             if let isAuthorized = update.newValue,
-               let isAuthorizedUnwrapped = isAuthorized {
+               let isAuthorizedUnwrapped = isAuthorized
+            {
                 changeViewWithAuthStatus(authStatus: isAuthorizedUnwrapped)
             }
         }
