@@ -9,7 +9,11 @@ import Combine
 import Foundation
 import SPAlert
 
-class RegistrationViewModel: ObservableObject {
+class RegistrationViewModel: ObservableObject, FlowController {
+    
+    var completionHandlerButton: ((String?) -> ())?
+    
+    var completionHandler: ((String?) -> ())?
     @Published var firstNameFieldText = ""
     @Published var secondNameFieldText = ""
     @Published var emailFieldText = ""
@@ -187,11 +191,20 @@ class RegistrationViewModel: ObservableObject {
                     lastName: secondNameFieldText
                 )) { [weak self] result in
                     LoaderView.endLoading()
+                    
                     if case .failure(let error) = result {
                         // Error
                         self?.processError(error)
+                    }else {
+                        print("hi")
+                        print("user is registered")
+                        self?.completionHandler?("")
                     }
                 }
         }
+    }
+    
+    func changeView() {
+        completionHandlerButton?("")
     }
 }

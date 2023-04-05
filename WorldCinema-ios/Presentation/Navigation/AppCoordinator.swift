@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 import UIKit
 
 class AppCoordinator: CoordinatorMainRepository {
     var navigationController: UINavigationController
+    private var authStatusObserver: DefaultsDisposable?
+    
+    private var getAuthStatusUseCase = GetAuthStatusUseCase()
     
     private var childCoordinators: [CoordinatorMainRepository] = []
     
@@ -20,10 +24,40 @@ class AppCoordinator: CoordinatorMainRepository {
     }
     
     func start() {
-        
-        // Check Login/Register user or not
-        
-        showLoginFlow()
+        getAuthStatus()
+        observeAuthStatus()
+    }
+    
+    private func getAuthStatus() {
+        getAuthStatusUseCase.execute { [weak self] result in
+            
+            switch result {
+                case .success(let isAuthorized):
+                    self?.changeViewWithAuthStatus(authStatus: isAuthorized)
+                   
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    
+    private func changeViewWithAuthStatus(authStatus: Bool) {
+        if authStatus {
+            print("user is authorized isAuthorized = \(authStatus)")
+            showHomeFlow()
+        } else {
+            print("user is not authorized")
+            showLoginFlow()
+        }
+    }
+    
+    private func observeAuthStatus() {
+        authStatusObserver = Defaults.observe(\.isAuthorized) { [self] update in
+            if let isAuthorized = update.newValue,
+               let isAuthorizedUnwrapped = isAuthorized {
+                changeViewWithAuthStatus(authStatus: isAuthorizedUnwrapped)
+            }
+        }
     }
     
     private func showLoginFlow() {
@@ -33,4 +67,9 @@ class AppCoordinator: CoordinatorMainRepository {
         authCoordinator.start()
     }
     
+    private func showHomeFlow() {
+        let homeCoordinator = CoordinatorFactory().createHomeCoordinator(navigationController: navigationController)
+        childCoordinators.append(homeCoordinator)
+        homeCoordinator.start()
+    }
 }

@@ -10,9 +10,9 @@ import SnapKit
 import SPAlert
 import UIKit
 
-class AuthorizationViewController: UIViewController, FlowController {
+class AuthorizationViewController: UIViewController{
     
-    var completionHandler: ((String?) -> ())?
+    
     
     var viewModel: AuthorizationViewModel
     private let rootViewController = MainComponent().registrationComponent.registrationViewController
@@ -187,7 +187,15 @@ class AuthorizationViewController: UIViewController, FlowController {
     @objc func tapOnRegistrationButton(sender: UIButton) {
         sender.startAnimatingPressActions()
         
-        completionHandler?("")
+//        let navigationViewController = UINavigationController(rootViewController: rootViewController)
+        
+//        navigationViewController.modalPresentationStyle = .fullScreen
+        
+        viewModel.changeView()
+        
+//            present(navigationViewController, animated: true)
+
+       
     }
     
     @objc func tapOnSignInButton(sender: UIButton) {

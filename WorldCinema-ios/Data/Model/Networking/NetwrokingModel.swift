@@ -14,6 +14,8 @@ class NetworkingModel {
     static let login = "/auth/login"
     static let registration = "/auth/register"
     static let refreshToken = "/auth/refresh"
+    static let coverLine = "/cover"
+    static let movieLine = "/movies"
 
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",
@@ -21,6 +23,7 @@ class NetworkingModel {
     ]
 
     static let wrongDataStatusCode = 401
+    static let unauthorizedStatusCode = 401
     static let wrongAccessToken = 450
     static let unacceptableStatusCode = 404
     static let wrongRefreshToken = 451

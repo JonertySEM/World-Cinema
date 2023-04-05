@@ -26,18 +26,36 @@ class LoginCoordinator: CoordinatorMainRepository {
     private func showAuthModule() {
         let controller = moduleFactory.createAuthModule()
         
-        controller.completionHandler = { [weak self] _ in
+        controller.viewModel.completionHandler = { [weak self] _ in
+            self?.showHomeMovieModule()
+        }
+        
+        controller.viewModel.completionHandlerButton = { [weak self] _ in
             self?.showRegistrationModule()
         }
         
         navigationController.pushViewController(controller, animated: true)
     }
     
-    private func showRegistrationModule() {
-        let controller = moduleFactory.createRegistrationModule()
-        navigationController.present(controller, animated: true)
+    private func showHomeMovieModule() {
+        let controller = moduleFactory.createHomeModule()
+        
+        navigationController.pushViewController(controller, animated: true)
     }
     
+    private func showRegistrationModule() {
+        let controller = moduleFactory.createRegistrationModule()
+        
+        controller.viewModel.completionHandler = { [weak self] _ in
+            self?.showHomeMovieModule()
+        }
+        
+        controller.viewModel.completionHandlerButton = { [weak self] _ in
+            self?.showAuthModule()
+            
+        }
+        
+        navigationController.pushViewController(controller, animated: true)
+    }
 }
     
-

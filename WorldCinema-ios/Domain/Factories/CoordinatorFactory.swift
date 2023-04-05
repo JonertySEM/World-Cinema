@@ -18,4 +18,8 @@ class CoordinatorFactory {
         LoginCoordinator(navigationController: navigationController)
     }
     
+    func createHomeCoordinator(navigationController: UINavigationController) -> HomeCoordinator {
+        HomeCoordinator(navigationController: navigationController)
+    }
+    
 }

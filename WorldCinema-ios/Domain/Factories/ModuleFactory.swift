@@ -16,4 +16,8 @@ class ModuleFactory {
     func createRegistrationModule() -> RegistrationViewController {
         MainComponent().registrationComponent.registrationViewController as! RegistrationViewController
     }
+    
+    func createHomeModule() -> HomeViewController {
+        MainComponent().homeComponent.homeViewController as! HomeViewController
+    }
 }

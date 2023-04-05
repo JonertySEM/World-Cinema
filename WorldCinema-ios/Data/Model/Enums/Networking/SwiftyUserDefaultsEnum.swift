@@ -14,7 +14,7 @@ enum SwiftyUserDefualtsErrorsEnum: Error {
 extension SwiftyUserDefualtsErrorsEnum: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .unableToGetData: return "Невозможно получить данные"
+        case .unableToGetData: return R.string.localizable.unableToGetData()
         }
     }
 }

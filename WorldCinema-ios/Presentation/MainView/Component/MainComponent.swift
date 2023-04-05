@@ -29,6 +29,17 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var requestInterceptor: RequestInterceptor {
+        shared {
+            RequestInterceptor(
+                saveTokensUseCase: saveTokensUseCase,
+                getTokensUseCase: getTokensUseCase,
+                refreshTokenUseCase: refreshTokenUseCase,
+                logoutUseCase: logOutUseCase
+            )
+        }
+    }
+    
     var keychainRepository: KeychainRepository {
         shared {
             KeychainRepositoryImpl()
@@ -41,6 +52,15 @@ final class MainComponent: BootstrapComponent {
                                jsonEncoder: jsonEncoder)
         }
     }
+    
+    var getHomeCoverRepository: GetHomeCoverRepository {
+        shared {
+            GetCoverRepositoryImpl(jsonDecoder: jsonDecoder,
+                                   jsonEncoder: jsonEncoder,
+                                   requestInterceptor: requestInterceptor )
+        }
+    }
+    
     var saveAuthStatusUseCase: SaveAuthStatusUseCase {
         shared {
             SaveAuthStatusUseCase()
@@ -81,6 +101,24 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var logOutUseCase: LogOutUseCase {
+        shared {
+            LogOutUseCase()
+        }
+    }
+    
+    var refreshTokenUseCase: RefreshTokenUseCase {
+        shared {
+            RefreshTokenUseCase(authRepository: authRepository)
+        }
+    }
+    
+    var getCoverHomeViewUseCase: GetCoverHomeViewUseCase {
+        shared {
+            GetCoverHomeViewUseCase(getHomeCoverRepository: getHomeCoverRepository)
+        }
+    }
+    
     
     var authorizationComponent: AuthorizationComponent {
         shared {
@@ -91,6 +129,12 @@ final class MainComponent: BootstrapComponent {
     var registrationComponent: RegistrationComponent {
         shared {
             RegistrationComponent(parent: self)
+        }
+    }
+    
+    var homeComponent: HomeComponent {
+        shared {
+            HomeComponent(parent: self)
         }
     }
 

@@ -9,7 +9,10 @@ import Combine
 import Foundation
 import SPAlert
 
-class AuthorizationViewModel: ObservableObject {
+class AuthorizationViewModel: ObservableObject, FlowController {
+    
+    var completionHandlerButton: ((String?) -> ())?
+    var completionHandler: ((String?) -> ())?
     @Published var emailFieldText = ""
     @Published var passwordFieldText = ""
     
@@ -100,14 +103,21 @@ class AuthorizationViewModel: ObservableObject {
                 )
             ) { [weak self] result in
                 LoaderView.endLoading()
+        
                 
                 if case .failure(let error) = result {
                     self?.processError(error)
+                } else {
+                    print("Hello")
+                    self?.completionHandler?("")
                 }
+                
+                
             }
         }
-        else {
-            print("invalid")
-        }
+    }
+    
+    func changeView() {
+        completionHandlerButton?("")
     }
 }

@@ -8,11 +8,10 @@
 import Combine
 import UIKit
 
-class RegistrationViewController: UIViewController, FlowController {
+class RegistrationViewController: UIViewController{
     
-    var completionHandler: ((String?) -> ())?
     
-    private var viewModel: RegistrationViewModel
+    var viewModel: RegistrationViewModel
     var subscribers: Set<AnyCancellable> = []
     
     let nameTextField = CustomTextField(placeholder: R.string.localizable.firstName())
@@ -213,9 +212,9 @@ class RegistrationViewController: UIViewController, FlowController {
     }
     
     @objc func tapOnRegistrationButton(sender: UIButton) {
-        completionHandler?("")
         
         sender.startAnimatingPressActions()
-        dismiss(animated: true, completion: nil)
+        viewModel.changeView()
+//        dismiss(animated: true, completion: nil)
     }
 }
