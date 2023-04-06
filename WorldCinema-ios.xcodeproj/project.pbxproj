@@ -20,6 +20,7 @@
 		4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21928C29D32DF7001AEB5F /* NSErrorExtension.swift */; };
 		4F38328E29C976B3000A660D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4F38328D29C976B3000A660D /* Alamofire */; };
 		4F38329729C9B6B7000A660D /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4F38329629C9B6B7000A660D /* NeedleFoundation */; };
+		4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42708929DEC5F600A1FC80 /* UIImageView.swift */; };
 		4F48AD1A29DC01BF009450CC /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48AD1929DC01BF009450CC /* HomeCoordinator.swift */; };
 		4F48AD1D29DC02FC009450CC /* HomeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48AD1C29DC02FC009450CC /* HomeComponent.swift */; };
 		4F4FC65A29D0147F001BFCA3 /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FC65929D0147F001BFCA3 /* RegistrationComponent.swift */; };
@@ -105,6 +106,7 @@
 		4F21928829D32CC5001AEB5F /* NetworkingEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
 		4F21928A29D32D80001AEB5F /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
 		4F21928C29D32DF7001AEB5F /* NSErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExtension.swift; sourceTree = "<group>"; };
+		4F42708929DEC5F600A1FC80 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		4F48AD1929DC01BF009450CC /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		4F48AD1C29DC02FC009450CC /* HomeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponent.swift; sourceTree = "<group>"; };
 		4F4FC65929D0147F001BFCA3 /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
@@ -343,6 +345,13 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		4F42708829DEA6F300A1FC80 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		4F48AD1B29DC02EF009450CC /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +378,7 @@
 				4F63C88129D8213F00B06D35 /* StringExtension.swift */,
 				4F63C88E29D944B800B06D35 /* UITextFieldExtension.swift */,
 				4F63C89729D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift */,
+				4F42708929DEC5F600A1FC80 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -623,6 +633,7 @@
 		4FE8520029DAEB54002CCD6A /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				4F42708829DEA6F300A1FC80 /* CustomCell */,
 				4FD9280F29DD1E88007EA8FE /* ViewModel */,
 				4F48AD1B29DC02EF009450CC /* Component */,
 				4FE8520129DAEB82002CCD6A /* HomeViewController.swift */,
@@ -937,6 +948,7 @@
 				4F48AD1D29DC02FC009450CC /* HomeComponent.swift in Sources */,
 				4F21928B29D32D80001AEB5F /* VoidResponse.swift in Sources */,
 				4FE8520A29DB28A3002CCD6A /* LoginCoordinator.swift in Sources */,
+				4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */,
 				4F63C89829D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift in Sources */,
 				4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */,
 				4FD9281629DD20B2007EA8FE /* LogOutUseCase.swift in Sources */,

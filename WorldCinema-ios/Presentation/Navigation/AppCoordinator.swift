@@ -25,7 +25,7 @@ class AppCoordinator: CoordinatorMainRepository {
     
     func start() {
         getAuthStatus()
-        observeAuthStatus()
+        //observeAuthStatus()
     }
     
     private func getAuthStatus() {

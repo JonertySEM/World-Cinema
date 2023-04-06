@@ -186,12 +186,18 @@ struct _R {
     var lauchScreenBackground: RswiftResources.ColorResource { .init(name: "LauchScreenBackground", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 1 images.
+  /// This `_R.image` struct is generated, and contains static references to 3 images.
   struct image {
     let bundle: Foundation.Bundle
 
     /// Image `LauchScreenLogo`.
     var lauchScreenLogo: RswiftResources.ImageResource { .init(name: "LauchScreenLogo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `cover`.
+    var cover: RswiftResources.ImageResource { .init(name: "cover", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `shadow`.
+    var shadow: RswiftResources.ImageResource { .init(name: "shadow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.font` struct is generated, and contains static references to 1 fonts.
