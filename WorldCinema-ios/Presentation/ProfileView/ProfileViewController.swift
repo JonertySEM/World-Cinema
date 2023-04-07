@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        super.view.backgroundColor = .green
         // Do any additional setup after loading the view.
     }
 }

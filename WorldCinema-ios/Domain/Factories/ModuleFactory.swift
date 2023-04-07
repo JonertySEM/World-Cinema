@@ -20,4 +20,16 @@ class ModuleFactory {
     func createHomeModule() -> HomeViewController {
         MainComponent().homeComponent.homeViewController as! HomeViewController
     }
+    
+    func createCompilationModule() -> CompilationViewController {
+        MainComponent().compilationComponent.compilationViewController 
+    }
+    
+    func createColectionModule() -> CollectionViewController {
+        MainComponent().collectionComponent.collectionViewController 
+    }
+    
+    func createProfileModule() -> ProfileViewController {
+        MainComponent().profileComponent.profileViewController 
+    }
 }

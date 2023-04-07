@@ -8,14 +8,18 @@
 import Foundation
 import UIKit
 
-class LoginCoordinator: CoordinatorMainRepository {
+class LoginCoordinator: Coordinator {
+    var finishDelegate: CoordinatorFinishDelegate?
+    
+    var childCoordinators = [Coordinator]()
+    
     var navigationController: UINavigationController
     
     var flowCompletionHendler: CoordinatorHendler?
     
     private let moduleFactory = ModuleFactory()
     
-    init(navigationController: UINavigationController) {
+    required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
@@ -27,6 +31,7 @@ class LoginCoordinator: CoordinatorMainRepository {
         let controller = moduleFactory.createAuthModule()
         
         controller.viewModel.completionHandler = { [weak self] _ in
+            self?.finish()
             self?.showHomeMovieModule()
         }
         
@@ -47,6 +52,7 @@ class LoginCoordinator: CoordinatorMainRepository {
         let controller = moduleFactory.createRegistrationModule()
         
         controller.viewModel.completionHandler = { [weak self] _ in
+            self?.finish()
             self?.showHomeMovieModule()
         }
         

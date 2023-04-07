@@ -34,13 +34,13 @@ class HomeViewController: UIViewController {
     }
     
     private func createView() {
-        var scrollView = UIScrollView()
-        var homeView = UIView()
+        let scrollView = UIScrollView()
+        let homeView = UIView()
         
-        var coverSceneCard = UIImage(named: "cover")
-        var shadowSceneCard = UIImage(named: "shadow")
+        let coverSceneCard = UIImage(named: "cover")
+        let shadowSceneCard = UIImage(named: "shadow")
         let imagesCoverCard = UIImageView()
-        var imagesShadowCard = UIImageView()
+        let imagesShadowCard = UIImageView()
         
         let tapWatchFilm: CustomButton = {
             let button = CustomButton()
@@ -138,6 +138,7 @@ class HomeViewController: UIViewController {
         homeView.addSubview(filmsForYouCollectionView)
         homeView.addSubview(tapYourFavorites)
         homeView.addSubview(imagesCoverCard)
+        homeView.addSubview(imagesShadowCard)
         homeView.addSubview(tapWatchFilm)
         
         homeView.backgroundColor = .black
@@ -170,7 +171,7 @@ class HomeViewController: UIViewController {
             make.leading.equalTo(homeView.snp.leading)
             make.trailing.equalTo(homeView.snp.trailing)
             make.top.equalTo(homeView.snp.top)
-            make.height.equalTo(super.view.snp.height).multipliedBy(0.5)
+            make.height.greaterThanOrEqualTo(super.view.snp.height).multipliedBy(0.5)
         }
         
         tapWatchFilm.snp.makeConstraints { make in

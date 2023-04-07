@@ -13,4 +13,10 @@ protocol CoordinatorCinemaRepository: AnyObject {
     var tabBarNavigationController: UITabBarController { get set }
     
     func start()
+    
+    func selectPage(_ page: TabBarEnum)
+    
+    func setSelectedIndex(_ index: Int)
+    
+    func currentPage() -> TabBarEnum?
 }

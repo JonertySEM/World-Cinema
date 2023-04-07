@@ -27,3 +27,29 @@
 "confrimPassword" = "Confrim password";
 "pressRegistrationButton" = "Register";
 "haveAccount" = "I already have an account";
+
+// MARK: HomeView
+
+"watch" = "Смотреть";
+"addPrefers" = "Указать интересы";
+"inTrends" = "В тренде";
+"youWatched" = "Вы смотрели";
+"newFilms" = "Новое";
+"forYou" = "Для вас";
+
+// MARK: ProfileView
+
+
+// MARK: CollectionView
+
+
+// MARK: CompilationView
+
+// MARK: TabBar
+
+"homePage" = "Main";
+"compilation" = "Compilation";
+"collectionPage" = "Collection";
+"profile" = "Profile";
+
+

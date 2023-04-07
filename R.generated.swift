@@ -64,9 +64,30 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 15 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 25 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: Указать интересы
+      ///
+      /// Key: addPrefers
+      ///
+      /// Locales: en, ru
+      var addPrefers: RswiftResources.StringResource { .init(key: "addPrefers", tableName: "Localizable", source: source, developmentValue: "Указать интересы", comment: nil) }
+
+      /// en translation: Collection
+      ///
+      /// Key: collectionPage
+      ///
+      /// Locales: en, ru
+      var collectionPage: RswiftResources.StringResource { .init(key: "collectionPage", tableName: "Localizable", source: source, developmentValue: "Collection", comment: nil) }
+
+      /// en translation: Compilation
+      ///
+      /// Key: compilation
+      ///
+      /// Locales: en, ru
+      var compilation: RswiftResources.StringResource { .init(key: "compilation", tableName: "Localizable", source: source, developmentValue: "Compilation", comment: nil) }
 
       /// en translation: Confrim password
       ///
@@ -89,12 +110,33 @@ struct _R {
       /// Locales: en, ru
       var firstName: RswiftResources.StringResource { .init(key: "firstName", tableName: "Localizable", source: source, developmentValue: "First name", comment: nil) }
 
+      /// en translation: Для вас
+      ///
+      /// Key: forYou
+      ///
+      /// Locales: en, ru
+      var forYou: RswiftResources.StringResource { .init(key: "forYou", tableName: "Localizable", source: source, developmentValue: "Для вас", comment: nil) }
+
       /// en translation: I already have an account
       ///
       /// Key: haveAccount
       ///
       /// Locales: en, ru
       var haveAccount: RswiftResources.StringResource { .init(key: "haveAccount", tableName: "Localizable", source: source, developmentValue: "I already have an account", comment: nil) }
+
+      /// en translation: Main
+      ///
+      /// Key: homePage
+      ///
+      /// Locales: en, ru
+      var homePage: RswiftResources.StringResource { .init(key: "homePage", tableName: "Localizable", source: source, developmentValue: "Main", comment: nil) }
+
+      /// en translation: В тренде
+      ///
+      /// Key: inTrends
+      ///
+      /// Locales: en, ru
+      var inTrends: RswiftResources.StringResource { .init(key: "inTrends", tableName: "Localizable", source: source, developmentValue: "В тренде", comment: nil) }
 
       /// en translation: The problem is on the server side
       ///
@@ -117,6 +159,13 @@ struct _R {
       /// Locales: en, ru
       var loading: RswiftResources.StringResource { .init(key: "loading", tableName: "Localizable", source: source, developmentValue: "Loading", comment: nil) }
 
+      /// en translation: Новое
+      ///
+      /// Key: newFilms
+      ///
+      /// Locales: en, ru
+      var newFilms: RswiftResources.StringResource { .init(key: "newFilms", tableName: "Localizable", source: source, developmentValue: "Новое", comment: nil) }
+
       /// en translation: Password
       ///
       /// Key: password
@@ -130,6 +179,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var pressRegistrationButton: RswiftResources.StringResource { .init(key: "pressRegistrationButton", tableName: "Localizable", source: source, developmentValue: "Register", comment: nil) }
+
+      /// en translation: Profile
+      ///
+      /// Key: profile
+      ///
+      /// Locales: en, ru
+      var profile: RswiftResources.StringResource { .init(key: "profile", tableName: "Localizable", source: source, developmentValue: "Profile", comment: nil) }
 
       /// en translation: Registration
       ///
@@ -166,12 +222,26 @@ struct _R {
       /// Locales: en, ru
       var userAlreadyExists: RswiftResources.StringResource { .init(key: "userAlreadyExists", tableName: "Localizable", source: source, developmentValue: "A user with such an email already exists", comment: nil) }
 
+      /// en translation: Смотреть
+      ///
+      /// Key: watch
+      ///
+      /// Locales: en, ru
+      var watch: RswiftResources.StringResource { .init(key: "watch", tableName: "Localizable", source: source, developmentValue: "Смотреть", comment: nil) }
+
       /// en translation: Wrong user credentials
       ///
       /// Key: wrongUserCredentials
       ///
       /// Locales: en, ru
       var wrongUserCredentials: RswiftResources.StringResource { .init(key: "wrongUserCredentials", tableName: "Localizable", source: source, developmentValue: "Wrong user credentials", comment: nil) }
+
+      /// en translation: Вы смотрели
+      ///
+      /// Key: youWatched
+      ///
+      /// Locales: en, ru
+      var youWatched: RswiftResources.StringResource { .init(key: "youWatched", tableName: "Localizable", source: source, developmentValue: "Вы смотрели", comment: nil) }
     }
   }
 
@@ -186,7 +256,7 @@ struct _R {
     var lauchScreenBackground: RswiftResources.ColorResource { .init(name: "LauchScreenBackground", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 3 images.
+  /// This `_R.image` struct is generated, and contains static references to 5 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -198,6 +268,12 @@ struct _R {
 
     /// Image `shadow`.
     var shadow: RswiftResources.ImageResource { .init(name: "shadow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `stackMovie`.
+    var stackMovie: RswiftResources.ImageResource { .init(name: "stackMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tiviMovie`.
+    var tiviMovie: RswiftResources.ImageResource { .init(name: "tiviMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.font` struct is generated, and contains static references to 1 fonts.

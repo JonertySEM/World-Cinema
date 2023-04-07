@@ -16,6 +16,7 @@ class NetworkingModel {
     static let refreshToken = "/auth/refresh"
     static let coverLine = "/cover"
     static let movieLine = "/movies"
+    static let collectionLine = "/collections"
 
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",

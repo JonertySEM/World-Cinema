@@ -8,14 +8,12 @@
 import Foundation
 import UIKit
 
-
 extension UIButton {
-    
     func buttonActive() {
         self.isEnabled = true
         self.changeButton(button: self, color: .red)
     }
-    
+
     func buttonEnable() {
         self.isEnabled = false
         self.changeButton(button: self, color: .black)
@@ -23,8 +21,7 @@ extension UIButton {
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 4
     }
-    
-    
+
     private func changeButton(button: UIButton, color: UIColor) {
         UIView.animate(withDuration: 1.0) {
             button.backgroundColor = color

@@ -30,3 +30,28 @@
 "pressRegistrationButton" = "Зарегистрироваться";
 "haveAccount" = "У меня уже есть аккаунт";
 
+// MARK: HomeView
+
+"watch" = "Watch";
+"addPrefers" = "Add prefers";
+"inTrends" = "In trends";
+"youWatched" = "You watched";
+"newFilms" = "New films";
+"forYou" = "For you";
+
+// MARK: ProfileView
+
+
+// MARK: CollectionView
+
+
+// MARK: CompilationView
+
+
+// MARK: TabBar
+
+"homePage" = "Главное";
+"compilation" = "Подборка";
+"collectionPage" = "Коллекция";
+"profile" = "Профиль";
+

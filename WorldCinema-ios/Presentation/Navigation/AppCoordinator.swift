@@ -9,23 +9,28 @@ import Foundation
 import SwiftyUserDefaults
 import UIKit
 
-class AppCoordinator: CoordinatorMainRepository {
+class AppCoordinator: Coordinator {
+    var finishDelegate: CoordinatorFinishDelegate?
+    
     var navigationController: UINavigationController
     private var authStatusObserver: DefaultsDisposable?
     
     private var getAuthStatusUseCase = GetAuthStatusUseCase()
     
-    private var childCoordinators: [CoordinatorMainRepository] = []
+    var childCoordinators = [Coordinator]()
     
     var flowCompletionHendler: CoordinatorHendler?
     
-    init(navigationController: UINavigationController) {
+    required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        navigationController.setNavigationBarHidden(true, animated: true)
+        
+        observeAuthStatus()
     }
     
     func start() {
         getAuthStatus()
-        //observeAuthStatus()
+        // observeAuthStatus()
     }
     
     private func getAuthStatus() {
@@ -63,14 +68,19 @@ class AppCoordinator: CoordinatorMainRepository {
     
     private func showLoginFlow() {
         let authCoordinator = CoordinatorFactory().createAuthorizationCoordinator(navigationController: navigationController)
-        
+        authCoordinator.finishDelegate = self
         childCoordinators.append(authCoordinator)
         authCoordinator.start()
     }
     
     private func showHomeFlow() {
         let homeCoordinator = CoordinatorFactory().createHomeCoordinator(navigationController: navigationController)
+        homeCoordinator.finishDelegate = self
         childCoordinators.append(homeCoordinator)
         homeCoordinator.start()
     }
+}
+
+extension AppCoordinator: CoordinatorFinishDelegate {
+    func coordinatorDidFinish(childCoordinator: Coordinator) {}
 }

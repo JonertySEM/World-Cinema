@@ -80,8 +80,6 @@ class AuthorizationViewModel: ObservableObject, FlowController {
             return false
         }
         areTextFieldsValid = true
-//        print("areFieldsValid \(areTextFieldsValid)")
-//        print("fields are valid")
         return true
     }
     
@@ -106,7 +104,6 @@ class AuthorizationViewModel: ObservableObject, FlowController {
                 if case .failure(let error) = result {
                     self?.processError(error)
                 } else {
-                    print("Hello")
                     self?.completionHandler?("")
                 }
             }

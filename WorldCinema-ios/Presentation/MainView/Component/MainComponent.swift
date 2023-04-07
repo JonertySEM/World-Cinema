@@ -10,7 +10,6 @@ import NeedleFoundation
 import UIKit
 
 final class MainComponent: BootstrapComponent {
-    
     var jsonDecoder: JSONDecoder {
         shared {
             let decoder = JSONDecoder()
@@ -57,7 +56,7 @@ final class MainComponent: BootstrapComponent {
         shared {
             GetCoverRepositoryImpl(jsonDecoder: jsonDecoder,
                                    jsonEncoder: jsonEncoder,
-                                   requestInterceptor: requestInterceptor )
+                                   requestInterceptor: requestInterceptor)
         }
     }
     
@@ -96,7 +95,7 @@ final class MainComponent: BootstrapComponent {
     var loginUseCase: LoginUseCase {
         shared {
             LoginUseCase(authorizationRepository: authRepository,
-                         saveTokensUseCase: saveTokensUseCase ,
+                         saveTokensUseCase: saveTokensUseCase,
                          saveAuthStatusUseCase: saveAuthStatusUseCase)
         }
     }
@@ -119,7 +118,6 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
-    
     var authorizationComponent: AuthorizationComponent {
         shared {
             AuthorizationComponent(parent: self)
@@ -132,12 +130,29 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var compilationComponent: CompilationComponent {
+        shared {
+            CompilationComponent(parent: self)
+        }
+    }
+    
+    var collectionComponent: CollectionComponent {
+        shared {
+            CollectionComponent(parent: self)
+        }
+    }
+    
+    var profileComponent: ProfileComponent {
+        shared {
+            ProfileComponent(parent: self)
+        }
+    }
+    
     var homeComponent: HomeComponent {
         shared {
             HomeComponent(parent: self)
         }
     }
-
 
     var mainViewController: UIViewController {
         return MainViewController()
