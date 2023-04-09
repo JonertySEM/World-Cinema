@@ -60,6 +60,14 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var profileRepository: ProfileRepository {
+        shared {
+            ProfileRepositoryImpl(jsonDecoder: jsonDecoder,
+                                  jsonEncoder: jsonEncoder,
+                                  requestInterceptor: requestInterceptor)
+        }
+    }
+    
     var saveAuthStatusUseCase: SaveAuthStatusUseCase {
         shared {
             SaveAuthStatusUseCase()
@@ -115,6 +123,12 @@ final class MainComponent: BootstrapComponent {
     var getCoverHomeViewUseCase: GetCoverHomeViewUseCase {
         shared {
             GetCoverHomeViewUseCase(getHomeCoverRepository: getHomeCoverRepository)
+        }
+    }
+    
+    var getProfileDataUseCase: GetProfileDataUseCase {
+        shared {
+            GetProfileDataUseCase(profileRepository: profileRepository)
         }
     }
     

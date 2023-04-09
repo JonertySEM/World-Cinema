@@ -37,14 +37,14 @@ class HomeViewController: UIViewController {
         let scrollView = UIScrollView()
         let homeView = UIView()
         
-        let coverSceneCard = UIImage(named: "cover")
-        let shadowSceneCard = UIImage(named: "shadow")
+        let coverSceneCard = R.image.cover()
+        let shadowSceneCard =  R.image.shadow()
         let imagesCoverCard = UIImageView()
         let imagesShadowCard = UIImageView()
         
         let tapWatchFilm: CustomButton = {
             let button = CustomButton()
-            button.setTitle("Смотреть", for: .normal)
+            button.setTitle(R.string.localizable.watch(), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.titleLabel?.font = R.font.sfProTextBold(size: 15)
             button.backgroundColor = .red
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
         
         let tapYourFavorites: CustomButton = {
             let button = CustomButton()
-            button.setTitle("Указать интересы", for: .normal)
+            button.setTitle(R.string.localizable.addPrefers(), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.titleLabel?.font = R.font.sfProTextBold(size: 15)
             button.backgroundColor = .red
@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
         
         let labelInTrend: UILabel = {
             let label = UILabel()
-            label.text = "В тренде"
+            label.text = R.string.localizable.inTrends()
             label.font = R.font.sfProTextBold(size: 24)
             label.textColor = .red
             return label
@@ -72,7 +72,7 @@ class HomeViewController: UIViewController {
         
         let labelYouWatched: UILabel = {
             let label = UILabel()
-            label.text = "Вы смотрели"
+            label.text = R.string.localizable.youWatched()
             label.font = R.font.sfProTextBold(size: 24)
             label.textColor = .red
             return label
@@ -80,7 +80,7 @@ class HomeViewController: UIViewController {
         
         let labelNewFilms: UILabel = {
             let label = UILabel()
-            label.text = "Новое"
+            label.text = R.string.localizable.newFilms()
             label.font = R.font.sfProTextBold(size: 24)
             label.textColor = .red
             return label
@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
         
         let labelForYouFilms: UILabel = {
             let label = UILabel()
-            label.text = "Для вас"
+            label.text = R.string.localizable.forYou()
             label.font = R.font.sfProTextBold(size: 24)
             label.textColor = .red
             return label
@@ -164,7 +164,7 @@ class HomeViewController: UIViewController {
             make.leading.equalTo(homeView.snp.leading)
             make.trailing.equalTo(homeView.snp.trailing)
             make.top.equalTo(homeView.snp.top)
-            make.height.equalTo(super.view.snp.height).multipliedBy(0.5)
+            make.height.greaterThanOrEqualTo(super.view.snp.height).multipliedBy(0.5)
         }
         
         imagesCoverCard.snp.makeConstraints { make in
@@ -185,7 +185,6 @@ class HomeViewController: UIViewController {
         labelInTrend.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
             make.top.equalTo(imagesShadowCard.snp.bottom).inset(-32)
-            make.trailing.equalTo(homeView.snp.trailing).inset(247)
         }
         
         trendCollectionView.snp.makeConstraints { make in
@@ -197,7 +196,7 @@ class HomeViewController: UIViewController {
         labelYouWatched.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
             make.top.equalTo(trendCollectionView.snp.bottom).inset(-32)
-            make.trailing.equalTo(homeView.snp.trailing).inset(196)
+            //make.trailing.lessThanOrEqualTo(homeView.snp.trailing).inset(196)
         }
         
         filmWitchYouWatched.snp.makeConstraints { make in
@@ -209,7 +208,7 @@ class HomeViewController: UIViewController {
         labelNewFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
             make.top.equalTo(filmWitchYouWatched.snp.bottom).inset(-32)
-            make.trailing.equalTo(homeView.snp.trailing).inset(282)
+            
         }
         
         newFilmsCollectionView.snp.makeConstraints { make in
@@ -221,7 +220,7 @@ class HomeViewController: UIViewController {
         labelForYouFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
             make.top.equalTo(newFilmsCollectionView.snp.bottom).inset(-32)
-            make.trailing.equalTo(homeView.snp.trailing).inset(262)
+            
         }
         
         filmsForYouCollectionView.snp.makeConstraints { make in

@@ -68,12 +68,12 @@ struct _R {
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
-      /// en translation: Указать интересы
+      /// en translation: Add prefers
       ///
       /// Key: addPrefers
       ///
       /// Locales: en, ru
-      var addPrefers: RswiftResources.StringResource { .init(key: "addPrefers", tableName: "Localizable", source: source, developmentValue: "Указать интересы", comment: nil) }
+      var addPrefers: RswiftResources.StringResource { .init(key: "addPrefers", tableName: "Localizable", source: source, developmentValue: "Add prefers", comment: nil) }
 
       /// en translation: Collection
       ///
@@ -110,12 +110,12 @@ struct _R {
       /// Locales: en, ru
       var firstName: RswiftResources.StringResource { .init(key: "firstName", tableName: "Localizable", source: source, developmentValue: "First name", comment: nil) }
 
-      /// en translation: Для вас
+      /// en translation: For you
       ///
       /// Key: forYou
       ///
       /// Locales: en, ru
-      var forYou: RswiftResources.StringResource { .init(key: "forYou", tableName: "Localizable", source: source, developmentValue: "Для вас", comment: nil) }
+      var forYou: RswiftResources.StringResource { .init(key: "forYou", tableName: "Localizable", source: source, developmentValue: "For you", comment: nil) }
 
       /// en translation: I already have an account
       ///
@@ -131,12 +131,12 @@ struct _R {
       /// Locales: en, ru
       var homePage: RswiftResources.StringResource { .init(key: "homePage", tableName: "Localizable", source: source, developmentValue: "Main", comment: nil) }
 
-      /// en translation: В тренде
+      /// en translation: In trends
       ///
       /// Key: inTrends
       ///
       /// Locales: en, ru
-      var inTrends: RswiftResources.StringResource { .init(key: "inTrends", tableName: "Localizable", source: source, developmentValue: "В тренде", comment: nil) }
+      var inTrends: RswiftResources.StringResource { .init(key: "inTrends", tableName: "Localizable", source: source, developmentValue: "In trends", comment: nil) }
 
       /// en translation: The problem is on the server side
       ///
@@ -159,12 +159,12 @@ struct _R {
       /// Locales: en, ru
       var loading: RswiftResources.StringResource { .init(key: "loading", tableName: "Localizable", source: source, developmentValue: "Loading", comment: nil) }
 
-      /// en translation: Новое
+      /// en translation: New films
       ///
       /// Key: newFilms
       ///
       /// Locales: en, ru
-      var newFilms: RswiftResources.StringResource { .init(key: "newFilms", tableName: "Localizable", source: source, developmentValue: "Новое", comment: nil) }
+      var newFilms: RswiftResources.StringResource { .init(key: "newFilms", tableName: "Localizable", source: source, developmentValue: "New films", comment: nil) }
 
       /// en translation: Password
       ///
@@ -222,12 +222,12 @@ struct _R {
       /// Locales: en, ru
       var userAlreadyExists: RswiftResources.StringResource { .init(key: "userAlreadyExists", tableName: "Localizable", source: source, developmentValue: "A user with such an email already exists", comment: nil) }
 
-      /// en translation: Смотреть
+      /// en translation: Watch
       ///
       /// Key: watch
       ///
       /// Locales: en, ru
-      var watch: RswiftResources.StringResource { .init(key: "watch", tableName: "Localizable", source: source, developmentValue: "Смотреть", comment: nil) }
+      var watch: RswiftResources.StringResource { .init(key: "watch", tableName: "Localizable", source: source, developmentValue: "Watch", comment: nil) }
 
       /// en translation: Wrong user credentials
       ///
@@ -236,12 +236,12 @@ struct _R {
       /// Locales: en, ru
       var wrongUserCredentials: RswiftResources.StringResource { .init(key: "wrongUserCredentials", tableName: "Localizable", source: source, developmentValue: "Wrong user credentials", comment: nil) }
 
-      /// en translation: Вы смотрели
+      /// en translation: You watched
       ///
       /// Key: youWatched
       ///
       /// Locales: en, ru
-      var youWatched: RswiftResources.StringResource { .init(key: "youWatched", tableName: "Localizable", source: source, developmentValue: "Вы смотрели", comment: nil) }
+      var youWatched: RswiftResources.StringResource { .init(key: "youWatched", tableName: "Localizable", source: source, developmentValue: "You watched", comment: nil) }
     }
   }
 
@@ -256,7 +256,7 @@ struct _R {
     var lauchScreenBackground: RswiftResources.ColorResource { .init(name: "LauchScreenBackground", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 5 images.
+  /// This `_R.image` struct is generated, and contains static references to 9 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -266,11 +266,23 @@ struct _R {
     /// Image `cover`.
     var cover: RswiftResources.ImageResource { .init(name: "cover", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `messageMovieProfile`.
+    var messageMovieProfile: RswiftResources.ImageResource { .init(name: "messageMovieProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `sadTV`.
+    var sadTV: RswiftResources.ImageResource { .init(name: "sadTV", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `settingMovieProfile`.
+    var settingMovieProfile: RswiftResources.ImageResource { .init(name: "settingMovieProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `shadow`.
     var shadow: RswiftResources.ImageResource { .init(name: "shadow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `stackMovie`.
     var stackMovie: RswiftResources.ImageResource { .init(name: "stackMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `timeMovieProfile`.
+    var timeMovieProfile: RswiftResources.ImageResource { .init(name: "timeMovieProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `tiviMovie`.
     var tiviMovie: RswiftResources.ImageResource { .init(name: "tiviMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

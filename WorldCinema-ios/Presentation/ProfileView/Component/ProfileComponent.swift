@@ -9,13 +9,21 @@ import Foundation
 import NeedleFoundation
 
 protocol ProfileComponentDependency: Dependency {
-    
+    var getProfileDataUseCase: GetProfileDataUseCase { get }
+    var getTokensUseCase: GetTokensUseCase { get }
 }
 
 
 final class ProfileComponent: Component <ProfileComponentDependency> {
     
+    var profileViewModel: ProfileViewModel {
+        shared {
+            ProfileViewModel(getProfileDataUseCase: dependency.getProfileDataUseCase,
+                             getTokensUseCase: dependency.getTokensUseCase)
+        }
+    }
+    
     var profileViewController: ProfileViewController {
-        return ProfileViewController()
+        return ProfileViewController(viewModel: profileViewModel)
     }
 }

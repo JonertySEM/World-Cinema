@@ -30,6 +30,11 @@
 		4F42709D29E05A3F00A1FC80 /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42709C29E05A3F00A1FC80 /* CollectionRepository.swift */; };
 		4F4270A029E05AD500A1FC80 /* CollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42709F29E05AD500A1FC80 /* CollectionResponse.swift */; };
 		4F4270A229E05F0D00A1FC80 /* CollectionRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4270A129E05F0D00A1FC80 /* CollectionRepositoryImpl.swift */; };
+		4F4270A429E300E500A1FC80 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4270A329E300E500A1FC80 /* ProfileRepository.swift */; };
+		4F4270A729E301FE00A1FC80 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4270A629E301FE00A1FC80 /* ProfileResponse.swift */; };
+		4F4270A929E3026200A1FC80 /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4270A829E3026200A1FC80 /* ProfileRepositoryImpl.swift */; };
+		4F4270AC29E302E000A1FC80 /* GetProfileDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4270AB29E302E000A1FC80 /* GetProfileDataUseCase.swift */; };
+		4F4270AF29E3058700A1FC80 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4270AE29E3058700A1FC80 /* ProfileViewModel.swift */; };
 		4F48AD1A29DC01BF009450CC /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48AD1929DC01BF009450CC /* HomeCoordinator.swift */; };
 		4F48AD1D29DC02FC009450CC /* HomeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48AD1C29DC02FC009450CC /* HomeComponent.swift */; };
 		4F4FC65A29D0147F001BFCA3 /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FC65929D0147F001BFCA3 /* RegistrationComponent.swift */; };
@@ -124,6 +129,11 @@
 		4F42709C29E05A3F00A1FC80 /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepository.swift; sourceTree = "<group>"; };
 		4F42709F29E05AD500A1FC80 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
 		4F4270A129E05F0D00A1FC80 /* CollectionRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepositoryImpl.swift; sourceTree = "<group>"; };
+		4F4270A329E300E500A1FC80 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		4F4270A629E301FE00A1FC80 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
+		4F4270A829E3026200A1FC80 /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
+		4F4270AB29E302E000A1FC80 /* GetProfileDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileDataUseCase.swift; sourceTree = "<group>"; };
+		4F4270AE29E3058700A1FC80 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4F48AD1929DC01BF009450CC /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		4F48AD1C29DC02FC009450CC /* HomeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponent.swift; sourceTree = "<group>"; };
 		4F4FC65929D0147F001BFCA3 /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
@@ -225,6 +235,7 @@
 		4F21926729D1E42D001AEB5F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				4F4270AA29E302D300A1FC80 /* Profile */,
 				4FD9281229DD1EE5007EA8FE /* HomeViewRepository */,
 				4F63C89329D9656A00B06D35 /* UserDefaults */,
 				4F63C82729D4313800B06D35 /* KeyChainRepository */,
@@ -250,6 +261,7 @@
 				4FD927FD29DC7C7A007EA8FE /* GetHomeCoverRepository.swift */,
 				4FD9280B29DC8280007EA8FE /* MovieRepository.swift */,
 				4F42709C29E05A3F00A1FC80 /* CollectionRepository.swift */,
+				4F4270A329E300E500A1FC80 /* ProfileRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -279,6 +291,7 @@
 				4FD9280229DC7DCA007EA8FE /* GetCoverRepositoryImpl.swift */,
 				4FD9280D29DC8364007EA8FE /* MovieRepositoryImpl.swift */,
 				4F4270A129E05F0D00A1FC80 /* CollectionRepositoryImpl.swift */,
+				4F4270A829E3026200A1FC80 /* ProfileRepositoryImpl.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -421,6 +434,30 @@
 				4F42709F29E05AD500A1FC80 /* CollectionResponse.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		4F4270A529E301F100A1FC80 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4F4270A629E301FE00A1FC80 /* ProfileResponse.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4F4270AA29E302D300A1FC80 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4F4270AB29E302E000A1FC80 /* GetProfileDataUseCase.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4F4270AD29E3057500A1FC80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F4270AE29E3058700A1FC80 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F48AD1B29DC02EF009450CC /* Component */ = {
@@ -641,6 +678,7 @@
 		4FD927FF29DC7D00007EA8FE /* HomeRequest */ = {
 			isa = PBXGroup;
 			children = (
+				4F4270A529E301F100A1FC80 /* Profile */,
 				4F42709E29E05AB200A1FC80 /* Collection */,
 				4FD9280429DC808E007EA8FE /* Movie */,
 				4FD9280029DC7D44007EA8FE /* CoverResponse.swift */,
@@ -715,6 +753,7 @@
 		4FE8520329DAEBB3002CCD6A /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				4F4270AD29E3057500A1FC80 /* ViewModel */,
 				4F42709729DEE2B900A1FC80 /* Component */,
 				4FE8520429DAEBCF002CCD6A /* ProfileViewController.swift */,
 			);
@@ -989,6 +1028,8 @@
 				4FE8520529DAEBD0002CCD6A /* ProfileViewController.swift in Sources */,
 				4F21928929D32CC5001AEB5F /* NetworkingEnums.swift in Sources */,
 				4FD9280629DC80AA007EA8FE /* MovieResponse.swift in Sources */,
+				4F4270A429E300E500A1FC80 /* ProfileRepository.swift in Sources */,
+				4F4270AC29E302E000A1FC80 /* GetProfileDataUseCase.swift in Sources */,
 				4F21928629D32C00001AEB5F /* NetwrokingModel.swift in Sources */,
 				4F63C8A329D987F500B06D35 /* NetwrokingMessage.swift in Sources */,
 				4FD9280A29DC81F4007EA8FE /* ChatInfoResponse.swift in Sources */,
@@ -1018,6 +1059,7 @@
 				4F4270A029E05AD500A1FC80 /* CollectionResponse.swift in Sources */,
 				4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */,
 				4FD9280C29DC8280007EA8FE /* MovieRepository.swift in Sources */,
+				4F4270AF29E3058700A1FC80 /* ProfileViewModel.swift in Sources */,
 				4FD9280829DC8144007EA8FE /* TagResponse.swift in Sources */,
 				4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */,
 				4FE8520229DAEB82002CCD6A /* HomeViewController.swift in Sources */,
@@ -1027,8 +1069,10 @@
 				4F48AD1D29DC02FC009450CC /* HomeComponent.swift in Sources */,
 				4F21928B29D32D80001AEB5F /* VoidResponse.swift in Sources */,
 				4FE8520A29DB28A3002CCD6A /* LoginCoordinator.swift in Sources */,
+				4F4270A929E3026200A1FC80 /* ProfileRepositoryImpl.swift in Sources */,
 				4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */,
 				4F42709029DEE1EC00A1FC80 /* CollectionViewController.swift in Sources */,
+				4F4270A729E301FE00A1FC80 /* ProfileResponse.swift in Sources */,
 				4F63C89829D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift in Sources */,
 				4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */,
 				4FD9281629DD20B2007EA8FE /* LogOutUseCase.swift in Sources */,

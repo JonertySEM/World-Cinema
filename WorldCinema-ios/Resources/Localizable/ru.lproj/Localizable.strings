@@ -32,12 +32,12 @@
 
 // MARK: HomeView
 
-"watch" = "Watch";
-"addPrefers" = "Add prefers";
-"inTrends" = "In trends";
-"youWatched" = "You watched";
-"newFilms" = "New films";
-"forYou" = "For you";
+"watch" = "Смотреть";
+"addPrefers" = "Указать интересы";
+"inTrends" = "В тренде";
+"youWatched" = "Вы смотрели";
+"newFilms" = "Новое";
+"forYou" = "Для вас";
 
 // MARK: ProfileView
 

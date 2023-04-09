@@ -55,15 +55,20 @@ private func factoryfc00ae1c9aa628ca4995e3b0c44298fc1c149afb(_ component: Needle
     return CollectionComponentDependency3d427c8b4e1d924f27ebProvider()
 }
 private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileComponentDependency {
-
-
-    init() {
-
+    var getProfileDataUseCase: GetProfileDataUseCase {
+        return mainComponent.getProfileDataUseCase
+    }
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->ProfileComponent
-private func factory85f38151f9d92062292ce3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return ProfileComponentDependency919001f509df49c9c523Provider()
+private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class CompilationComponentDependency373fbd2b277d76ee0a2bProvider: CompilationComponentDependency {
 
@@ -111,7 +116,8 @@ extension CollectionComponent: Registration {
 }
 extension ProfileComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\ProfileComponentDependency.getProfileDataUseCase] = "getProfileDataUseCase-GetProfileDataUseCase"
+        keyPathToName[\ProfileComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
     }
 }
 extension CompilationComponent: Registration {
@@ -150,7 +156,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a8800ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->CollectionComponent", factoryfc00ae1c9aa628ca4995e3b0c44298fc1c149afb)
-    registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292ce3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->CompilationComponent", factorya1836deb0193bacd38b4e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
