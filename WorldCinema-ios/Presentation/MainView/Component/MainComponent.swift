@@ -108,15 +108,15 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
-    var logOutUseCase: LogOutUseCase {
-        shared {
-            LogOutUseCase()
-        }
-    }
-    
     var refreshTokenUseCase: RefreshTokenUseCase {
         shared {
             RefreshTokenUseCase(authRepository: authRepository)
+        }
+    }
+    
+    var logOutUseCase: LogOutUseCase {
+        shared {
+            LogOutUseCase(saveTokensUseCase: saveTokensUseCase)
         }
     }
     
@@ -129,6 +129,12 @@ final class MainComponent: BootstrapComponent {
     var getProfileDataUseCase: GetProfileDataUseCase {
         shared {
             GetProfileDataUseCase(profileRepository: profileRepository)
+        }
+    }
+    
+    var uploadProfileDataUseCase: UploadProfileDataUseCase {
+        shared {
+            UploadProfileDataUseCase(profileRepository: profileRepository)
         }
     }
     

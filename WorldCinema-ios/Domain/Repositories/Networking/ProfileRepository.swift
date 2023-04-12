@@ -14,4 +14,10 @@ protocol ProfileRepository {
         token: String,
         completion: ((Result<ProfileResponse, Error>) -> Void)?
     )
+    
+    func uploadAvatarPhoto(
+        token: String,
+        imageData: Data?,
+        completion: ((Result<VoidResponse, Error>) -> Void)?
+    )
 }

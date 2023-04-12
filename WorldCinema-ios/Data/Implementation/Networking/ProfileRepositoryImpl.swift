@@ -5,13 +5,12 @@
 //  Created by Семён Алимпиев on 09.04.2023.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 class ProfileRepositoryImpl: ProfileRepository {
-    
     private let requestInterceptor: RequestInterceptor
-    
+
     private static let url = NetworkingModel.baseUrl
 
     private let jsonDecoder: JSONDecoder
@@ -19,12 +18,13 @@ class ProfileRepositoryImpl: ProfileRepository {
 
     init(jsonDecoder: JSONDecoder,
          jsonEncoder: JSONEncoder,
-         requestInterceptor: RequestInterceptor) {
+         requestInterceptor: RequestInterceptor)
+    {
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
         self.requestInterceptor = requestInterceptor
     }
-    
+
     func getProfileData(token: String, completion: ((Result<ProfileResponse, Error>) -> Void)?) {
         AF.request(
             Self.url + NetworkingModel.profile,
@@ -41,5 +41,25 @@ class ProfileRepositoryImpl: ProfileRepository {
                 )
             }
     }
-    
+
+    func uploadAvatarPhoto(token: String, imageData: Data?, completion: ((Result<VoidResponse, Error>) -> Void)?) {
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data",
+            "Authorization": "Bearer \(token)"
+        ]
+        AF.upload(multipartFormData: { multiplaformData in
+                      if let data = imageData {
+                          multiplaformData.append(data, withName: "imagename", fileName: "imagename.jpg", mimeType: "image/jpeg")
+                      }
+                  },
+                  to: Self.url + NetworkingModel.profile + NetworkingModel.avatar,
+                  headers: headers)
+            .validate()
+            .response { [self] result in
+                result.processResult(
+                    jsonDecoder: jsonDecoder,
+                    completion: completion
+                )
+            }
+    }
 }

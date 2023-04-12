@@ -18,10 +18,11 @@ class NetworkingModel {
     static let movieLine = "/movies"
     static let collectionLine = "/collections"
     static let profile = "/profile"
+    static let avatar = "/avatar"
 
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",
-        "accept": "application/json"
+        "accept": "*/*"
     ]
 
     static let wrongDataStatusCode = 401

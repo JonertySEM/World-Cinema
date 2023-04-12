@@ -37,6 +37,9 @@ class LoginUseCase {
                 completion?(result)
 
                 if case .success(let loginResponse) = result {
+                    print("--------------TOKENS")
+                    print(loginResponse.accessToken)
+                    print(loginResponse.refreshToken)
                     self?.saveTokensUseCase.execute(
                         authToken: loginResponse.accessToken,
                         refreshToken: loginResponse.refreshToken,

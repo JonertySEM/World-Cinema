@@ -12,6 +12,8 @@ import UIKit
 class AppCoordinator: Coordinator {
     var finishDelegate: CoordinatorFinishDelegate?
     
+    private var authMode = ScreenModelTypeEnums.authType
+    
     var navigationController: UINavigationController
     private var authStatusObserver: DefaultsDisposable?
     
@@ -25,13 +27,25 @@ class AppCoordinator: Coordinator {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: true)
         
+        getAuthStatus()
+        
         observeAuthStatus()
+        
+        
     }
     
     func start() {
-        getAuthStatus()
-        // observeAuthStatus()
+       
+        switch authMode {
+        case .authType:
+            showLoginFlow()
+        case .homeType:
+            showHomeFlow()
+        }
+        
     }
+    
+    
     
     private func getAuthStatus() {
         getAuthStatusUseCase.execute { [weak self] result in
@@ -49,10 +63,11 @@ class AppCoordinator: Coordinator {
     private func changeViewWithAuthStatus(authStatus: Bool) {
         if authStatus {
             print("user is authorized isAuthorized = \(authStatus)")
-            showHomeFlow()
+            authMode = .homeType
         } else {
             print("user is not authorized")
-            showLoginFlow()
+            authMode = .authType
+            
         }
     }
     

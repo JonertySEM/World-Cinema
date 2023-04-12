@@ -42,6 +42,7 @@ class RequestInterceptor: Alamofire.RequestInterceptor {
                 switch result {
                 case .success(let token):
                     var adaptedRequest = urlRequest
+                    print(adaptedRequest.headers)
                     adaptedRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
                     completion(.success(adaptedRequest))
                 case .failure(let error):
@@ -67,6 +68,8 @@ class RequestInterceptor: Alamofire.RequestInterceptor {
                     self?.refreshTokenUseCase.execute(
                         refreshTokenRequest: .init(refreshToken: refreshToken)
                     ) { result in
+                        print("---------------")
+                        print(result)
                         switch result {
                         case .success(let response):
                             self?.saveTokensUseCase.execute(

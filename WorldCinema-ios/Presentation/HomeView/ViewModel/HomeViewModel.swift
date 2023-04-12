@@ -7,10 +7,16 @@
 
 import Combine
 import Foundation
+import SPAlert
 
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ObservableObject, FlowController {
+    var completionHandlerButton: ((String?) -> ())?
+    var completionHandler: ((String?) -> ())?
+
     private let getCoverHomeViewUseCase: GetCoverHomeViewUseCase
     private let getTokensUseCase: GetTokensUseCase
+
+    @Published private(set) var textMessage = ""
 
     init(
         getCoverHomeViewUseCase: GetCoverHomeViewUseCase,
@@ -18,6 +24,13 @@ class HomeViewModel: ObservableObject {
     ) {
         self.getCoverHomeViewUseCase = getCoverHomeViewUseCase
         self.getTokensUseCase = getTokensUseCase
+    }
+
+    private func processError(_ error: Error) {
+        textMessage = error.localizedDescription
+        let alertView = SPAlertView(title: textMessage, preset: .error)
+        alertView.duration = 3
+        alertView.present()
     }
 
     func getCoverInView() {
@@ -29,11 +42,12 @@ class HomeViewModel: ObservableObject {
                             case .success(let cover):
                                 print("this is cover url \(cover)")
                             case .failure(let error):
-                                print(error)
+                                self.processError(error)
+                                self.completionHandler?("")
                         }
                     }
                 case .failure(let error):
-                    print(error)
+                    self.processError(error)
             }
         }
     }

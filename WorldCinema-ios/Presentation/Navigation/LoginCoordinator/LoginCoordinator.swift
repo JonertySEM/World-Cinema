@@ -43,9 +43,13 @@ class LoginCoordinator: Coordinator {
     }
     
     private func showHomeMovieModule() {
-        let controller = moduleFactory.createHomeModule()
+//        let controller = moduleFactory.createHomeModule()
+//
+//        navigationController.pushViewController(controller, animated: true)
         
-        navigationController.pushViewController(controller, animated: true)
+        let homeCoordinator = CoordinatorFactory().createHomeCoordinator(navigationController: navigationController)
+        childCoordinators.append(homeCoordinator)
+        homeCoordinator.start()
     }
     
     private func showRegistrationModule() {

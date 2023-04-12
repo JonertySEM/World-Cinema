@@ -5,12 +5,14 @@
 //  Created by Семён Алимпиев on 03.04.2023.
 //
 
+import Combine
 import SnapKit
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
-    private let viewModel: ProfileViewModel
+    var viewModel: ProfileViewModel
+    private let avatarAllert = CustomAlert()
+    var subscribers: Set<AnyCancellable> = []
     
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
@@ -24,13 +26,40 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        LoaderView.startLoading()
         viewModel.getProfileData()
-        createProfile()
+        
+        viewModel.$isProgressProfileShowing.sink { [self] result in
+            if result {
+                LoaderView.endLoading()
+                createProfile()
+            }
+        }.store(in: &subscribers)
+        
+        viewModel.$avatar.sink { [self] url in
+            guard let imageUrl = URL(string: url) else { return }
+            LoadFileHelper.loadImge(withUrl: imageUrl, view: userAvatar)
+        }.store(in: &subscribers)
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.$userName.sink { [self] name in
+            userName.text = name
+        }.store(in: &subscribers)
+        
+        viewModel.$userEmail.sink { [self] email in
+            userEmail.text = email
+        }.store(in: &subscribers)
+        
     }
     
     let userName: UILabel = {
         let label = UILabel()
-        label.text = "Тандзиро Комадо"
+        label.text = "Тандзиро Камадо"
         label.font = R.font.sfProTextBold(size: 24)
         label.adjustsFontSizeToFitWidth = true
         label.textColor = .white
@@ -54,9 +83,46 @@ class ProfileViewController: UIViewController {
         return userAvatar
     }()
     
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        sender.view?.showAnimation {
+            self.avatarAllert.showAlert(on: self)
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.uploadImageInGallery))
+            self.avatarAllert.addAvatarInGalery.isUserInteractionEnabled = true
+            self.avatarAllert.addAvatarInGalery.addGestureRecognizer(tapGesture)
+            
+            let tapGestureCamera = UITapGestureRecognizer(target: self, action: #selector(self.uploadImageInCamera))
+            self.avatarAllert.addAvatarInCamera.isUserInteractionEnabled = true
+            self.avatarAllert.addAvatarInCamera.addGestureRecognizer(tapGestureCamera)
+        }
+    }
+    
+    @objc func uploadImageInGallery(_ sender: UITapGestureRecognizer) {
+        sender.view?.showAnimation {
+            let viewController = UIImagePickerController()
+            viewController.allowsEditing = true
+            viewController.sourceType = .photoLibrary
+            viewController.delegate = self
+            viewController.allowsEditing = true
+            
+            self.present(viewController, animated: true)
+        }
+    }
+    
+    @objc func uploadImageInCamera(_ sender: UITapGestureRecognizer) {
+        sender.view?.showAnimation {
+            let viewController = UIImagePickerController()
+            viewController.sourceType = .camera
+            viewController.delegate = self
+            viewController.allowsEditing = true
+            
+            self.present(viewController, animated: true)
+        }
+    }
+    
     let changeAvatar: UILabel = {
         let label = UILabel()
         label.text = "Изменить"
+        
         label.font = R.font.sfProTextBold(size: 15)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
@@ -238,8 +304,6 @@ class ProfileViewController: UIViewController {
             return image
         }()
         
-        
-        
         view.addSubview(userInfo)
         userInfo.addArrangedSubview(userAvatar)
         userInfo.addArrangedSubview(userData)
@@ -269,10 +333,9 @@ class ProfileViewController: UIViewController {
         
         view.addSubview(buttonExit)
         
-        
         userAvatar.snp.makeConstraints { make in
+            make.height.equalTo(super.view.snp.height).multipliedBy(0.12)
             make.height.equalTo(userAvatar.snp.width).multipliedBy(1.0 / 1.0)
-            make.height.equalTo(super.view.snp.height).multipliedBy(0.1)
         }
         
         userInfo.snp.makeConstraints { make in
@@ -335,5 +398,33 @@ class ProfileViewController: UIViewController {
             make.height.equalTo(super.view.snp.height).multipliedBy(0.06)
             make.top.equalTo(buttonStack.snp.bottom).inset(-54)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        changeAvatar.isUserInteractionEnabled = true
+        changeAvatar.addGestureRecognizer(tapGesture)
+        
+        buttonExit.addTarget(self, action: #selector(pressExitButton), for: .touchUpInside)
+    }
+    
+    @objc func pressExitButton() {
+        viewModel.pressExit()
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            userAvatar.image = image
+            userAvatar.layer.cornerRadius = userAvatar.frame.size.width / 2
+            
+            userAvatar.clipsToBounds = true
+            
+            viewModel.uploadAvatar(data: userAvatar.image!.jpegData(compressionQuality: 1.0))
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

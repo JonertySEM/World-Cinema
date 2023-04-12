@@ -11,6 +11,8 @@ import NeedleFoundation
 protocol ProfileComponentDependency: Dependency {
     var getProfileDataUseCase: GetProfileDataUseCase { get }
     var getTokensUseCase: GetTokensUseCase { get }
+    var logOutUseCase: LogOutUseCase { get }
+    var uploadProfileDataUseCase: UploadProfileDataUseCase { get }
 }
 
 
@@ -19,7 +21,8 @@ final class ProfileComponent: Component <ProfileComponentDependency> {
     var profileViewModel: ProfileViewModel {
         shared {
             ProfileViewModel(getProfileDataUseCase: dependency.getProfileDataUseCase,
-                             getTokensUseCase: dependency.getTokensUseCase)
+                             getTokensUseCase: dependency.getTokensUseCase, logOutUseCase: dependency.logOutUseCase,
+                             uploadProfileDataUseCase: dependency.uploadProfileDataUseCase)
         }
     }
     

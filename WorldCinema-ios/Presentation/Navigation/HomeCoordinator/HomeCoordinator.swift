@@ -91,6 +91,12 @@ class HomeCoordinator: NSObject, Coordinator {
         case .homeView:
             let controller = moduleFactory.createHomeModule()
             
+            controller.viewModel.completionHandler = { [weak self] _ in
+                self?.finish()
+                self?.showLoginFlow()
+
+            }
+            
             navController.pushViewController(controller, animated: true)
            
         case .compilationView:
@@ -103,6 +109,15 @@ class HomeCoordinator: NSObject, Coordinator {
             navController.pushViewController(controller, animated: true)
         case .profileView:
             let controller = moduleFactory.createProfileModule()
+            
+            
+            
+            controller.viewModel.completionHandler = { [weak self] _ in
+                self?.finish()
+                self?.showLoginFlow()
+
+            }
+            
             
              navController.pushViewController(controller, animated: true)
         }
@@ -123,7 +138,11 @@ class HomeCoordinator: NSObject, Coordinator {
         tabBarNavigationController.selectedIndex = page.pageOrderNumber()
     }
     
-    
+    private func showLoginFlow() {
+        let authCoordinator = CoordinatorFactory().createAuthorizationCoordinator(navigationController: navigationController)
+        childCoordinators.append(authCoordinator)
+        authCoordinator.start()
+    }
     
 }
 

@@ -2,6 +2,7 @@
 
 import Foundation
 import NeedleFoundation
+import SwiftyUserDefaults
 import UIKit
 
 // swiftlint:disable unused_declaration
@@ -61,6 +62,12 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
     var getTokensUseCase: GetTokensUseCase {
         return mainComponent.getTokensUseCase
     }
+    var logOutUseCase: LogOutUseCase {
+        return mainComponent.logOutUseCase
+    }
+    var uploadProfileDataUseCase: UploadProfileDataUseCase {
+        return mainComponent.uploadProfileDataUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -118,6 +125,8 @@ extension ProfileComponent: Registration {
     public func registerItems() {
         keyPathToName[\ProfileComponentDependency.getProfileDataUseCase] = "getProfileDataUseCase-GetProfileDataUseCase"
         keyPathToName[\ProfileComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
+        keyPathToName[\ProfileComponentDependency.logOutUseCase] = "logOutUseCase-LogOutUseCase"
+        keyPathToName[\ProfileComponentDependency.uploadProfileDataUseCase] = "uploadProfileDataUseCase-UploadProfileDataUseCase"
     }
 }
 extension CompilationComponent: Registration {
