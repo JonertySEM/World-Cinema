@@ -81,6 +81,8 @@
 		4FB1FF2329C9716200BD7141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1FF2229C9716200BD7141 /* Assets.xcassets */; };
 		4FC8349D29E65A7200792651 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8349C29E65A7200792651 /* DispatchQueueExtension.swift */; };
 		4FC834A129E6709400792651 /* LoadFileHelpler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC834A029E6709400792651 /* LoadFileHelpler.swift */; };
+		4FC834A329E6814300792651 /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC834A229E6814300792651 /* CustomCellView.swift */; };
+		4FC834A629E6829E00792651 /* CustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC834A529E6829E00792651 /* CustomCellViewModel.swift */; };
 		4FCDDD9629CDCBC30005782D /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD9529CDCBC30005782D /* AuthorizationViewController.swift */; };
 		4FCDDD9829CDCBFD0005782D /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD9729CDCBFD0005782D /* AuthorizationComponent.swift */; };
 		4FD927FE29DC7C7A007EA8FE /* GetHomeCoverRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD927FD29DC7C7A007EA8FE /* GetHomeCoverRepository.swift */; };
@@ -185,6 +187,8 @@
 		4FB1FF2729C9716200BD7141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/sema_alimpiev/Documents/projects.nosync/Mobile-Cinema-Lab1/WorldCinema-ios/Info.plist"; sourceTree = "<absolute>"; };
 		4FC8349C29E65A7200792651 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 		4FC834A029E6709400792651 /* LoadFileHelpler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFileHelpler.swift; sourceTree = "<group>"; };
+		4FC834A229E6814300792651 /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
+		4FC834A529E6829E00792651 /* CustomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewModel.swift; sourceTree = "<group>"; };
 		4FCDDD9529CDCBC30005782D /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		4FCDDD9729CDCBFD0005782D /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
 		4FD927FD29DC7C7A007EA8FE /* GetHomeCoverRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomeCoverRepository.swift; sourceTree = "<group>"; };
@@ -395,6 +399,8 @@
 		4F42708829DEA6F300A1FC80 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				4FC834A429E6828C00792651 /* ViewModel */,
+				4FC834A229E6814300792651 /* CustomCellView.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -670,6 +676,14 @@
 				4FB1FF2729C9716200BD7141 /* Info.plist */,
 			);
 			path = "WorldCinema-ios";
+			sourceTree = "<group>";
+		};
+		4FC834A429E6828C00792651 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FC834A529E6829E00792651 /* CustomCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4FCDDD9129CDBC4B0005782D /* AuthorizationView */ = {
@@ -1046,6 +1060,7 @@
 				4F21928229D32B48001AEB5F /* AuthRepositoryImpl.swift in Sources */,
 				4F63C87429D80F9800B06D35 /* KeyChainRepositoryImpl.swift in Sources */,
 				4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */,
+				4FC834A329E6814300792651 /* CustomCellView.swift in Sources */,
 				4F63C8A629D9975600B06D35 /* SwiftLoaderView.swift in Sources */,
 				4F4270B329E3F54900A1FC80 /* UIViewExtension.swift in Sources */,
 				4F63C89629D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift in Sources */,
@@ -1057,6 +1072,7 @@
 				4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */,
 				4FE8520529DAEBD0002CCD6A /* ProfileViewController.swift in Sources */,
 				4F21928929D32CC5001AEB5F /* NetworkingEnums.swift in Sources */,
+				4FC834A629E6829E00792651 /* CustomCellViewModel.swift in Sources */,
 				4FD9280629DC80AA007EA8FE /* MovieResponse.swift in Sources */,
 				4F4270A429E300E500A1FC80 /* ProfileRepository.swift in Sources */,
 				4F4270AC29E302E000A1FC80 /* GetProfileDataUseCase.swift in Sources */,

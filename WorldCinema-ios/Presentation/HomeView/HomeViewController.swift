@@ -24,6 +24,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        trendCollectionView.delegate = self
+        trendCollectionView.dataSource = self
+        
         createView()
         viewModel.getCoverInView()
     }
@@ -32,6 +35,31 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    
+    let trendCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionFilmsView.backgroundColor = .black    
+        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
+        collectionFilmsView.register(CustomCellView.self, forCellWithReuseIdentifier: "cell")
+        return collectionFilmsView
+    }()
+    
+    let newFilmsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionFilmsView
+    }()
+    
+    let filmsForYouCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionFilmsView
+    }()
     
     private func createView() {
         let scrollView = UIScrollView()
@@ -99,26 +127,7 @@ class HomeViewController: UIViewController {
             return viewFilm
         }()
         
-        let trendCollectionView: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-            return collectionFilmsView
-        }()
         
-        let newFilmsCollectionView: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-            return collectionFilmsView
-        }()
-        
-        let filmsForYouCollectionView: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-            return collectionFilmsView
-        }()
         
         view.addSubview(scrollView)
         scrollView.addSubview(homeView)
@@ -237,4 +246,24 @@ class HomeViewController: UIViewController {
             make.height.equalTo(super.view.snp.height).multipliedBy(0.05)
         }
     }
+}
+
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCellView
+        cell.backgroundColor = .red
+        return cell
+    }
+    
+    
 }
