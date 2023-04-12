@@ -36,7 +36,6 @@ extension UIViewController {
         content.willMove(toParent: nil)
 
         UIView.animate(withDuration: 2.0) {
-//            content.view.removeFromSuperview()
             content.view.alpha = 0
         }
     }

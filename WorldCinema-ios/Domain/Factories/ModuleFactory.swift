@@ -8,7 +8,6 @@
 import Foundation
 
 class ModuleFactory {
-    
     func createAuthModule() -> AuthorizationViewController {
         MainComponent().authorizationComponent.authorizationViewController as! AuthorizationViewController
     }
@@ -22,14 +21,14 @@ class ModuleFactory {
     }
     
     func createCompilationModule() -> CompilationViewController {
-        MainComponent().compilationComponent.compilationViewController 
+        MainComponent().compilationComponent.compilationViewController
     }
     
     func createColectionModule() -> CollectionViewController {
-        MainComponent().collectionComponent.collectionViewController 
+        MainComponent().collectionComponent.collectionViewController
     }
     
     func createProfileModule() -> ProfileViewController {
-        MainComponent().profileComponent.profileViewController 
+        MainComponent().profileComponent.profileViewController
     }
 }

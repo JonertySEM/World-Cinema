@@ -9,24 +9,24 @@ import Foundation
 protocol MovieRepository {
     func getNewMovie(
         token: String,
-        completion: ((Result<MovieResponse, Error>) -> Void)?
+        completion: ((Result<[MovieResponse], Error>) -> Void)?
     )
 
     func getInTrendMovie(
         token: String,
-        completion: ((Result<MovieResponse, Error>) -> Void)?
+        completion: ((Result<[MovieResponse], Error>) -> Void)?
     )
 
     func getForMeMovie(
         token: String,
         completion: ((Result<MovieResponse, Error>) -> Void)?
     )
-    
+
     func getLastViewMovie(
         token: String,
         completion: ((Result<MovieResponse, Error>) -> Void)?
     )
-    
+
     func getCompilationMovie(
         token: String,
         completion: ((Result<MovieResponse, Error>) -> Void)?

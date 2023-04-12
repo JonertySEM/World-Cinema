@@ -27,42 +27,36 @@ class HomeCoordinator: NSObject, Coordinator {
     }
     
     func start() {
-        
-       let pages: [TabBarEnum] = [.homeView, .compilationView, .collectionView, .profileView]
-           .sorted(by: { $0.pageOrderNumber() < $1.pageOrderNumber() })
+        let pages: [TabBarEnum] = [.homeView, .compilationView, .collectionView, .profileView]
+            .sorted(by: { $0.pageOrderNumber() < $1.pageOrderNumber() })
 
-        let controllers: [UINavigationController] = pages.map({ getTabController($0) })
+        let controllers: [UINavigationController] = pages.map { getTabController($0) }
 
         prepareTabBarController(withTabControllers: controllers)
-        
-        //showHomeMovieModule()
     }
     
     deinit {
         print("TabCoordinator deinit")
     }
     
-    
     private func prepareTabBarController(withTabControllers tabControllers: [UIViewController]) {
         tabBarNavigationController.delegate = self
         
-
         tabBarNavigationController.setViewControllers(tabControllers, animated: true)
         
         tabBarNavigationController.selectedIndex = TabBarEnum.homeView.pageOrderNumber()
        
-        let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
             
-            let barTintColor: UIColor = .black
-            tabBarAppearance.backgroundColor = barTintColor
+        let barTintColor: UIColor = .black
+        tabBarAppearance.backgroundColor = barTintColor
             
-            updateTabBarItemAppearance(appearance: tabBarAppearance.compactInlineLayoutAppearance)
-            updateTabBarItemAppearance(appearance: tabBarAppearance.inlineLayoutAppearance)
-            updateTabBarItemAppearance(appearance: tabBarAppearance.stackedLayoutAppearance)
+        updateTabBarItemAppearance(appearance: tabBarAppearance.compactInlineLayoutAppearance)
+        updateTabBarItemAppearance(appearance: tabBarAppearance.inlineLayoutAppearance)
+        updateTabBarItemAppearance(appearance: tabBarAppearance.stackedLayoutAppearance)
             
         UITabBar.appearance().standardAppearance = tabBarAppearance
-        
         
         UITabBar.appearance().tintColor = .red
 
@@ -83,9 +77,9 @@ class HomeCoordinator: NSObject, Coordinator {
         let navController = UINavigationController()
         navController.setNavigationBarHidden(false, animated: false)
 
-        navController.tabBarItem = UITabBarItem.init(title: page.pageTitleValue(),
-                                                     image: page.addIconInTabBar(),
-                                                     tag: page.pageOrderNumber())
+        navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(),
+                                                image: page.addIconInTabBar(),
+                                                tag: page.pageOrderNumber())
 
         switch page {
         case .homeView:
@@ -94,7 +88,6 @@ class HomeCoordinator: NSObject, Coordinator {
             controller.viewModel.completionHandler = { [weak self] _ in
                 self?.finish()
                 self?.showLoginFlow()
-
             }
             
             navController.pushViewController(controller, animated: true)
@@ -110,30 +103,25 @@ class HomeCoordinator: NSObject, Coordinator {
         case .profileView:
             let controller = moduleFactory.createProfileModule()
             
-            
-            
             controller.viewModel.completionHandler = { [weak self] _ in
                 self?.finish()
                 self?.showLoginFlow()
-
             }
             
-            
-             navController.pushViewController(controller, animated: true)
+            navController.pushViewController(controller, animated: true)
         }
-        
         
         return navController
     }
     
-    func currentPage() -> TabBarEnum? { TabBarEnum.init(index: tabBarNavigationController.selectedIndex) }
+    func currentPage() -> TabBarEnum? { TabBarEnum(index: tabBarNavigationController.selectedIndex) }
 
     func selectPage(_ page: TabBarEnum) {
         tabBarNavigationController.selectedIndex = page.pageOrderNumber()
     }
     
     func setSelectedIndex(_ index: Int) {
-        guard let page = TabBarEnum.init(index: index) else { return }
+        guard let page = TabBarEnum(index: index) else { return }
         
         tabBarNavigationController.selectedIndex = page.pageOrderNumber()
     }
@@ -143,13 +131,9 @@ class HomeCoordinator: NSObject, Coordinator {
         childCoordinators.append(authCoordinator)
         authCoordinator.start()
     }
-    
 }
-
 
 extension HomeCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
-                          didSelect viewController: UIViewController) {
-        
-    }
+                          didSelect viewController: UIViewController) {}
 }

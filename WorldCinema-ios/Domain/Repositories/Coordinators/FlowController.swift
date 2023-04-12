@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 protocol FlowController {
-    
     associatedtype T
     var completionHandler: ((T) -> ())? { get set }
     var completionHandlerButton: ((T) -> ())? { get set }

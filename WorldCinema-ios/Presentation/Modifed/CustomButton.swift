@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 class CustomButton: UIButton {
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -19,7 +17,6 @@ class CustomButton: UIButton {
         super.init(coder: coder)
     }
     
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         animateUp()
@@ -30,32 +27,27 @@ class CustomButton: UIButton {
         animateDown()
     }
     
-
+    private func animateDown() {
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 3,
+                       options: [.allowUserInteraction, .curveEaseInOut],
+                       animations: {
+                           self.transform = .identity
+                       }, completion: nil)
+    }
         
-         private func animateDown() {
-             UIView.animate(withDuration: 0.4,
-                            delay: 0,
-                            usingSpringWithDamping: 0.5,
-                            initialSpringVelocity: 3,
-                            options: [.allowUserInteraction,.curveEaseInOut],
-                            animations: {
-                                self.transform = .identity
-                            }, completion: nil)
-            
-        }
-        
-         private func animateUp() {
-             UIView.animate(withDuration: 0.4,
-                            delay: 0,
-                            usingSpringWithDamping: 0.5,
-                            initialSpringVelocity: 3,
-                            options: [.allowUserInteraction, .curveEaseIn],
-                            animations: {
-                            self.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
-                            }, completion: nil)
-            
-        }
-    
+    private func animateUp() {
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 3,
+                       options: [.allowUserInteraction, .curveEaseIn],
+                       animations: {
+                           self.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+                       }, completion: nil)
+    }
     
     private func animate(transform: CGAffineTransform) {
         UIView.animate(withDuration: 0.4,
@@ -67,5 +59,4 @@ class CustomButton: UIButton {
                            self.transform = transform
                        }, completion: nil)
     }
-    
 }

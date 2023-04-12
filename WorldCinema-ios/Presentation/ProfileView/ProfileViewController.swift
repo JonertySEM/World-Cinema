@@ -41,7 +41,6 @@ class ProfileViewController: UIViewController {
             guard let imageUrl = URL(string: url) else { return }
             LoadFileHelper.loadImge(withUrl: imageUrl, view: userAvatar)
         }.store(in: &subscribers)
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +53,6 @@ class ProfileViewController: UIViewController {
         viewModel.$userEmail.sink { [self] email in
             userEmail.text = email
         }.store(in: &subscribers)
-        
     }
     
     let userName: UILabel = {

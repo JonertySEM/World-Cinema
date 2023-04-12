@@ -15,9 +15,7 @@ protocol ProfileComponentDependency: Dependency {
     var uploadProfileDataUseCase: UploadProfileDataUseCase { get }
 }
 
-
-final class ProfileComponent: Component <ProfileComponentDependency> {
-    
+final class ProfileComponent: Component<ProfileComponentDependency> {
     var profileViewModel: ProfileViewModel {
         shared {
             ProfileViewModel(getProfileDataUseCase: dependency.getProfileDataUseCase,
@@ -25,7 +23,7 @@ final class ProfileComponent: Component <ProfileComponentDependency> {
                              uploadProfileDataUseCase: dependency.uploadProfileDataUseCase)
         }
     }
-    
+
     var profileViewController: ProfileViewController {
         return ProfileViewController(viewModel: profileViewModel)
     }

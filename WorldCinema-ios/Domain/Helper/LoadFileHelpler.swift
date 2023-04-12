@@ -10,7 +10,7 @@ import UIKit
 
 class LoadFileHelper {
     static func loadImge(withUrl url: URL, view: UIImageView) {
-        DispatchQueue.global().async { 
+        DispatchQueue.global().async {
             if let imageData = try? Data(contentsOf: url) {
                 if let image = UIImage(data: imageData) {
                     DispatchQueue.main.async {

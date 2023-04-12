@@ -8,7 +8,6 @@
 import Foundation
 
 protocol GetHomeCoverRepository {
-    
     func getCover(
         token: String,
         completion: ((Result<CoverResponse, Error>) -> Void)?

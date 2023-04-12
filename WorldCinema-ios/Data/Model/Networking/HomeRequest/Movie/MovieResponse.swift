@@ -12,7 +12,7 @@ struct MovieResponse: Codable {
     let name: String
     let description: String
     let age: String
-    let chatInfo: [ChatInfoResponse]
+    let chatInfo: ChatInfoResponse
     let imageUrls: [String]
     let poster: String
     let tags: [TagResponse]

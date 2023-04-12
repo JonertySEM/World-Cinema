@@ -44,7 +44,7 @@ protocol CollectionRepository {
         completion: ((Result<VoidResponse, Error>) -> Void)?
     )
     
-    func deleteMovieInCollection (
+    func deleteMovieInCollection(
         token: String,
         collectionId: String,
         movieId: String,

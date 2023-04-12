@@ -11,14 +11,14 @@ import UIKit
 extension UIImageView {
     func setImageFromStringrURL(stringUrl: String) {
         if let url = URL(string: stringUrl) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-          
-          guard let imageData = data else { return }
+            URLSession.shared.dataTask(with: url) { data, _, _ in
 
-          DispatchQueue.main.async {
-            self.image = UIImage(data: imageData)
-          }
-        }.resume()
-      }
+                guard let imageData = data else { return }
+
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: imageData)
+                }
+            }.resume()
+        }
     }
 }

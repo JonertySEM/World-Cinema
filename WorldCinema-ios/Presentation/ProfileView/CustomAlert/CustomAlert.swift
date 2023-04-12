@@ -10,9 +10,6 @@ import SnapKit
 import UIKit
 
 class CustomAlert {
-    
-    
-    
     private var backgroudView: UIView = {
         let background = UIView()
         background.backgroundColor = .black
@@ -43,7 +40,7 @@ class CustomAlert {
         return stack
     }()
     
-     let addAvatarInGalery: UILabel = {
+    let addAvatarInGalery: UILabel = {
         let label = UILabel()
         label.text = "Добавить фото с галереи"
         label.textAlignment = .center
@@ -54,7 +51,7 @@ class CustomAlert {
         return label
     }()
 
-     let addAvatarInCamera: UILabel = {
+    let addAvatarInCamera: UILabel = {
         let label = UILabel()
         label.text = "Добавить фото с камеры"
         label.textAlignment = .center
@@ -107,12 +104,9 @@ class CustomAlert {
                 }
             }
         }
-        
     }
     
-
-    
-    @objc func closeAlert( sender: UITapGestureRecognizer) {
+    @objc func closeAlert(sender: UITapGestureRecognizer) {
         guard let currentView = myCurrentView else { return }
         
         UIView.animate(withDuration: 0.5) {
@@ -137,4 +131,3 @@ class CustomAlert {
         }
     }
 }
-

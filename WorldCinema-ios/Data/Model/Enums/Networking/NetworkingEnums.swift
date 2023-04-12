@@ -26,11 +26,11 @@ extension NetworkingEnums: LocalizedError {
         switch str {
         case "InvalidUserCredentials":
             return R.string.localizable.invalidUserCredentials()
-        case "InternalServerError" :
+        case "InternalServerError":
             return R.string.localizable.internalServerError()
-        case "unableToGetData" :
+        case "unableToGetData":
             return R.string.localizable.unableToGetData()
-        case "UserAlreadyExists" :
+        case "UserAlreadyExists":
             return R.string.localizable.userAlreadyExists()
         default:
             return R.string.localizable.unableToGetData()

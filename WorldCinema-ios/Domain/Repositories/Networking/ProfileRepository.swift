@@ -7,14 +7,12 @@
 
 import Foundation
 
-
 protocol ProfileRepository {
-    
     func getProfileData(
         token: String,
         completion: ((Result<ProfileResponse, Error>) -> Void)?
     )
-    
+
     func uploadAvatarPhoto(
         token: String,
         imageData: Data?,

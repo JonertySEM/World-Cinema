@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class CoordinatorFactory {
-    
     func createAppCoordinator(navigationController: UINavigationController) -> AppCoordinator {
         AppCoordinator(navigationController)
     }
@@ -21,5 +20,4 @@ class CoordinatorFactory {
     func createHomeCoordinator(navigationController: UINavigationController) -> HomeCoordinator {
         HomeCoordinator(navigationController)
     }
-    
 }

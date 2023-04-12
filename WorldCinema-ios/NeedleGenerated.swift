@@ -95,6 +95,12 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
     var getTokensUseCase: GetTokensUseCase {
         return mainComponent.getTokensUseCase
     }
+    var getInTrendMovieUseCase: GetInTrendMovieUseCase {
+        return mainComponent.getInTrendMovieUseCase
+    }
+    var getNewMovieUseCase: GetNewMovieUseCase {
+        return mainComponent.getNewMovieUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -138,6 +144,8 @@ extension HomeComponent: Registration {
     public func registerItems() {
         keyPathToName[\HomeComponentDependency.getCoverHomeViewUseCase] = "getCoverHomeViewUseCase-GetCoverHomeViewUseCase"
         keyPathToName[\HomeComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
+        keyPathToName[\HomeComponentDependency.getInTrendMovieUseCase] = "getInTrendMovieUseCase-GetInTrendMovieUseCase"
+        keyPathToName[\HomeComponentDependency.getNewMovieUseCase] = "getNewMovieUseCase-GetNewMovieUseCase"
     }
 }
 extension MainComponent: Registration {

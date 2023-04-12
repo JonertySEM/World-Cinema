@@ -82,7 +82,6 @@
 		4FC8349D29E65A7200792651 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8349C29E65A7200792651 /* DispatchQueueExtension.swift */; };
 		4FC834A129E6709400792651 /* LoadFileHelpler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC834A029E6709400792651 /* LoadFileHelpler.swift */; };
 		4FC834A329E6814300792651 /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC834A229E6814300792651 /* CustomCellView.swift */; };
-		4FC834A629E6829E00792651 /* CustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC834A529E6829E00792651 /* CustomCellViewModel.swift */; };
 		4FCDDD9629CDCBC30005782D /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD9529CDCBC30005782D /* AuthorizationViewController.swift */; };
 		4FCDDD9829CDCBFD0005782D /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD9729CDCBFD0005782D /* AuthorizationComponent.swift */; };
 		4FD927FE29DC7C7A007EA8FE /* GetHomeCoverRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD927FD29DC7C7A007EA8FE /* GetHomeCoverRepository.swift */; };
@@ -107,6 +106,14 @@
 		4FE8520F29DB2A72002CCD6A /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8520E29DB2A72002CCD6A /* FlowController.swift */; };
 		4FE8521129DB2DB2002CCD6A /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8521029DB2DB2002CCD6A /* CoordinatorFactory.swift */; };
 		4FE8521429DB2ED2002CCD6A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8521329DB2ED2002CCD6A /* AppCoordinator.swift */; };
+		4FE93FBE29E6BA9800F21F4B /* InTrendCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FBD29E6BA9800F21F4B /* InTrendCollectionView.swift */; };
+		4FE93FC129E6C42800F21F4B /* GetInTrendMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FC029E6C42800F21F4B /* GetInTrendMovieUseCase.swift */; };
+		4FE93FC329E6C52100F21F4B /* GetNewMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FC229E6C52100F21F4B /* GetNewMovieUseCase.swift */; };
+		4FE93FC529E6C56B00F21F4B /* GetForMeMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FC429E6C56B00F21F4B /* GetForMeMovieUseCase.swift */; };
+		4FE93FC729E6C5C500F21F4B /* GetLastViewMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FC629E6C5C500F21F4B /* GetLastViewMovieUseCase.swift */; };
+		4FE93FC929E6C60700F21F4B /* GetCompilationMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FC829E6C60700F21F4B /* GetCompilationMovieUseCase.swift */; };
+		4FE93FCC29E6D4EF00F21F4B /* CustomMovieNewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FCB29E6D4EF00F21F4B /* CustomMovieNewCellView.swift */; };
+		4FE93FCE29E6D50200F21F4B /* MovieCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FCD29E6D50200F21F4B /* MovieCollectionView.swift */; };
 		4FF0B2F929CC240B00A82AFA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF0B2F829CC240B00A82AFA /* SnapKit */; };
 		4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */; };
 		4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30529CD8F5900A82AFA /* MainComponent.swift */; };
@@ -188,7 +195,6 @@
 		4FC8349C29E65A7200792651 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 		4FC834A029E6709400792651 /* LoadFileHelpler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFileHelpler.swift; sourceTree = "<group>"; };
 		4FC834A229E6814300792651 /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
-		4FC834A529E6829E00792651 /* CustomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewModel.swift; sourceTree = "<group>"; };
 		4FCDDD9529CDCBC30005782D /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		4FCDDD9729CDCBFD0005782D /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
 		4FD927FD29DC7C7A007EA8FE /* GetHomeCoverRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomeCoverRepository.swift; sourceTree = "<group>"; };
@@ -213,6 +219,14 @@
 		4FE8520E29DB2A72002CCD6A /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		4FE8521029DB2DB2002CCD6A /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		4FE8521329DB2ED2002CCD6A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4FE93FBD29E6BA9800F21F4B /* InTrendCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InTrendCollectionView.swift; sourceTree = "<group>"; };
+		4FE93FC029E6C42800F21F4B /* GetInTrendMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInTrendMovieUseCase.swift; sourceTree = "<group>"; };
+		4FE93FC229E6C52100F21F4B /* GetNewMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewMovieUseCase.swift; sourceTree = "<group>"; };
+		4FE93FC429E6C56B00F21F4B /* GetForMeMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetForMeMovieUseCase.swift; sourceTree = "<group>"; };
+		4FE93FC629E6C5C500F21F4B /* GetLastViewMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLastViewMovieUseCase.swift; sourceTree = "<group>"; };
+		4FE93FC829E6C60700F21F4B /* GetCompilationMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompilationMovieUseCase.swift; sourceTree = "<group>"; };
+		4FE93FCB29E6D4EF00F21F4B /* CustomMovieNewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMovieNewCellView.swift; sourceTree = "<group>"; };
+		4FE93FCD29E6D50200F21F4B /* MovieCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionView.swift; sourceTree = "<group>"; };
 		4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4FF0B30529CD8F5900A82AFA /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		4FF0B30A29CDAAE400A82AFA /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
@@ -399,8 +413,8 @@
 		4F42708829DEA6F300A1FC80 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				4FC834A429E6828C00792651 /* ViewModel */,
-				4FC834A229E6814300792651 /* CustomCellView.swift */,
+				4FE93FCA29E6D4DC00F21F4B /* NewMovieCollection */,
+				4FE93FBF29E6BB4D00F21F4B /* InTrendCollcetion */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -678,14 +692,6 @@
 			path = "WorldCinema-ios";
 			sourceTree = "<group>";
 		};
-		4FC834A429E6828C00792651 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				4FC834A529E6829E00792651 /* CustomCellViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		4FCDDD9129CDBC4B0005782D /* AuthorizationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +753,11 @@
 			isa = PBXGroup;
 			children = (
 				4FD9281329DD1EFD007EA8FE /* GetCoverHomeViewUseCase.swift */,
+				4FE93FC029E6C42800F21F4B /* GetInTrendMovieUseCase.swift */,
+				4FE93FC229E6C52100F21F4B /* GetNewMovieUseCase.swift */,
+				4FE93FC429E6C56B00F21F4B /* GetForMeMovieUseCase.swift */,
+				4FE93FC629E6C5C500F21F4B /* GetLastViewMovieUseCase.swift */,
+				4FE93FC829E6C60700F21F4B /* GetCompilationMovieUseCase.swift */,
 			);
 			path = HomeViewRepository;
 			sourceTree = "<group>";
@@ -825,6 +836,24 @@
 			path = HomeCoordinator;
 			sourceTree = "<group>";
 		};
+		4FE93FBF29E6BB4D00F21F4B /* InTrendCollcetion */ = {
+			isa = PBXGroup;
+			children = (
+				4FC834A229E6814300792651 /* CustomCellView.swift */,
+				4FE93FBD29E6BA9800F21F4B /* InTrendCollectionView.swift */,
+			);
+			path = InTrendCollcetion;
+			sourceTree = "<group>";
+		};
+		4FE93FCA29E6D4DC00F21F4B /* NewMovieCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FCB29E6D4EF00F21F4B /* CustomMovieNewCellView.swift */,
+				4FE93FCD29E6D50200F21F4B /* MovieCollectionView.swift */,
+			);
+			path = NewMovieCollection;
+			sourceTree = "<group>";
+		};
 		4FF0B2FC29CD8BF600A82AFA /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,10 +897,10 @@
 			buildPhases = (
 				BCD3FF6F4F3932FEE245C0CE /* [CP] Check Pods Manifest.lock */,
 				4F47BA4A29DAAFCC00DF7203 /* ShellScript */,
+				4FCDDD9329CDC77F0005782D /* Run Script */,
 				4FB1FF1229C9716100BD7141 /* Sources */,
 				4FB1FF1329C9716100BD7141 /* Frameworks */,
 				4FB1FF1429C9716100BD7141 /* Resources */,
-				4FCDDD9329CDC77F0005782D /* Run Script */,
 				701045781E7F7CF9D0D9CACB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -1053,6 +1082,7 @@
 				4F63C85F29D5B9B300B06D35 /* AuthorizationViewModel.swift in Sources */,
 				4F63C88929D8222F00B06D35 /* NetwrokingGetTokenHelper.swift in Sources */,
 				4FC8349D29E65A7200792651 /* DispatchQueueExtension.swift in Sources */,
+				4FE93FC929E6C60700F21F4B /* GetCompilationMovieUseCase.swift in Sources */,
 				4F4270B129E3EB7A00A1FC80 /* ScreenModelTypeEnums.swift in Sources */,
 				4F63C82029D4113A00B06D35 /* RegistrationViewController.swift in Sources */,
 				4FD9281429DD1EFD007EA8FE /* GetCoverHomeViewUseCase.swift in Sources */,
@@ -1062,23 +1092,28 @@
 				4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */,
 				4FC834A329E6814300792651 /* CustomCellView.swift in Sources */,
 				4F63C8A629D9975600B06D35 /* SwiftLoaderView.swift in Sources */,
+				4FE93FBE29E6BA9800F21F4B /* InTrendCollectionView.swift in Sources */,
 				4F4270B329E3F54900A1FC80 /* UIViewExtension.swift in Sources */,
 				4F63C89629D9659A00B06D35 /* SaveAuthorizationStatusUseCase.swift in Sources */,
 				4F42709629DEE2A800A1FC80 /* CollectionComponent.swift in Sources */,
 				4FE8521429DB2ED2002CCD6A /* AppCoordinator.swift in Sources */,
+				4FE93FC729E6C5C500F21F4B /* GetLastViewMovieUseCase.swift in Sources */,
 				4F63C8A829D9977500B06D35 /* LoaderView.swift in Sources */,
 				4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */,
 				4F4FC65F29D0612D001BFCA3 /* ViewController.swift in Sources */,
 				4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */,
+				4FE93FC529E6C56B00F21F4B /* GetForMeMovieUseCase.swift in Sources */,
 				4FE8520529DAEBD0002CCD6A /* ProfileViewController.swift in Sources */,
 				4F21928929D32CC5001AEB5F /* NetworkingEnums.swift in Sources */,
-				4FC834A629E6829E00792651 /* CustomCellViewModel.swift in Sources */,
+				4FE93FC329E6C52100F21F4B /* GetNewMovieUseCase.swift in Sources */,
 				4FD9280629DC80AA007EA8FE /* MovieResponse.swift in Sources */,
 				4F4270A429E300E500A1FC80 /* ProfileRepository.swift in Sources */,
+				4FE93FC129E6C42800F21F4B /* GetInTrendMovieUseCase.swift in Sources */,
 				4F4270AC29E302E000A1FC80 /* GetProfileDataUseCase.swift in Sources */,
 				4F21928629D32C00001AEB5F /* NetwrokingModel.swift in Sources */,
 				4F63C8A329D987F500B06D35 /* NetwrokingMessage.swift in Sources */,
 				4FD9280A29DC81F4007EA8FE /* ChatInfoResponse.swift in Sources */,
+				4FE93FCC29E6D4EF00F21F4B /* CustomMovieNewCellView.swift in Sources */,
 				4F42708D29DEE1B700A1FC80 /* CompilationViewController.swift in Sources */,
 				4F42709B29DEF6F400A1FC80 /* TabBarEnums.swift in Sources */,
 				4F63C88729D8221700B06D35 /* CheckValidatonHelper.swift in Sources */,
@@ -1092,6 +1127,7 @@
 				4F21927929D324AF001AEB5F /* RegistrationRequest.swift in Sources */,
 				4F21927B29D324F2001AEB5F /* AuthorizationRequest.swift in Sources */,
 				4FCDDD9829CDCBFD0005782D /* AuthorizationComponent.swift in Sources */,
+				4FE93FCE29E6D50200F21F4B /* MovieCollectionView.swift in Sources */,
 				4F63C88F29D944B800B06D35 /* UITextFieldExtension.swift in Sources */,
 				4F4FC65A29D0147F001BFCA3 /* RegistrationComponent.swift in Sources */,
 				4F4270B629E3F6F600A1FC80 /* CustomAlert.swift in Sources */,

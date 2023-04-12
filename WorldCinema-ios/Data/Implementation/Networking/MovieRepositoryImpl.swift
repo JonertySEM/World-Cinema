@@ -19,14 +19,10 @@ class MovieRepositoryImpl: MovieRepository {
         self.jsonEncoder = jsonEncoder
     }
     
-    func getNewMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
-        let parametr: Parameters = [
-            "filter": "new"
-        ]
+    func getNewMovie(token: String, completion: ((Result<[MovieResponse], Error>) -> Void)?) {
         AF.request(
-            Self.url + NetworkingModel.movieLine,
+            Self.url + NetworkingModel.movieLine + "?filter=new",
             method: .get,
-            parameters: parametr,
             encoding: JSONEncoding.default,
             headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingModel.timeout }
@@ -39,14 +35,10 @@ class MovieRepositoryImpl: MovieRepository {
             }
     }
     
-    func getInTrendMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
-        let parametr: Parameters = [
-            "filter": "inTrend"
-        ]
+    func getInTrendMovie(token: String, completion: ((Result<[MovieResponse], Error>) -> Void)?) {
         AF.request(
-            Self.url + NetworkingModel.movieLine,
+            Self.url + NetworkingModel.movieLine + "?filter=inTrend",
             method: .get,
-            parameters: parametr,
             encoding: JSONEncoding.default,
             headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingModel.timeout }

@@ -8,7 +8,7 @@
 import SnapKit
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDelegate {
     var viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
@@ -24,11 +24,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        trendCollectionView.delegate = self
-        trendCollectionView.dataSource = self
-        
         createView()
-        viewModel.getCoverInView()
+        viewModel.getNewMovie()
+        //viewModel.getCoverInView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,23 +34,9 @@ class HomeViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    let inTrendCollection = InTrendCollectionView()
     
-    let trendCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionFilmsView.backgroundColor = .black    
-        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-        collectionFilmsView.register(CustomCellView.self, forCellWithReuseIdentifier: "cell")
-        return collectionFilmsView
-    }()
-    
-    let newFilmsCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionFilmsView
-    }()
+    let newFilmsCollectionView = MovieCollectionView()
     
     let filmsForYouCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -66,8 +50,15 @@ class HomeViewController: UIViewController {
         let homeView = UIView()
         
         let coverSceneCard = R.image.cover()
-        let shadowSceneCard =  R.image.shadow()
-        let imagesCoverCard = UIImageView()
+        let shadowSceneCard = R.image.shadow()
+        
+        let imagesCoverCard: UIImageView = {
+            let image = UIImageView()
+            image.contentMode = .scaleAspectFill
+            image.layer.masksToBounds = true
+            return image
+        }()
+        
         let imagesShadowCard = UIImageView()
         
         let tapWatchFilm: CustomButton = {
@@ -127,9 +118,8 @@ class HomeViewController: UIViewController {
             return viewFilm
         }()
         
-        
-        
         view.addSubview(scrollView)
+        scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.addSubview(homeView)
         
         imagesShadowCard.image = shadowSceneCard
@@ -138,7 +128,7 @@ class HomeViewController: UIViewController {
         homeView.addSubview(imagesShadowCard)
        
         homeView.addSubview(labelInTrend)
-        homeView.addSubview(trendCollectionView)
+        homeView.addSubview(inTrendCollection)
         homeView.addSubview(labelYouWatched)
         homeView.addSubview(filmWitchYouWatched)
         homeView.addSubview(labelNewFilms)
@@ -196,7 +186,7 @@ class HomeViewController: UIViewController {
             make.top.equalTo(imagesShadowCard.snp.bottom).inset(-32)
         }
         
-        trendCollectionView.snp.makeConstraints { make in
+        inTrendCollection.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(labelInTrend.snp.bottom).inset(-16)
             make.height.equalTo(super.view.snp.height).multipliedBy(0.22)
@@ -204,8 +194,7 @@ class HomeViewController: UIViewController {
         
         labelYouWatched.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
-            make.top.equalTo(trendCollectionView.snp.bottom).inset(-32)
-            //make.trailing.lessThanOrEqualTo(homeView.snp.trailing).inset(196)
+            make.top.equalTo(inTrendCollection.snp.bottom).inset(-32)
         }
         
         filmWitchYouWatched.snp.makeConstraints { make in
@@ -217,7 +206,6 @@ class HomeViewController: UIViewController {
         labelNewFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
             make.top.equalTo(filmWitchYouWatched.snp.bottom).inset(-32)
-            
         }
         
         newFilmsCollectionView.snp.makeConstraints { make in
@@ -229,7 +217,6 @@ class HomeViewController: UIViewController {
         labelForYouFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
             make.top.equalTo(newFilmsCollectionView.snp.bottom).inset(-32)
-            
         }
         
         filmsForYouCollectionView.snp.makeConstraints { make in
@@ -246,24 +233,4 @@ class HomeViewController: UIViewController {
             make.height.equalTo(super.view.snp.height).multipliedBy(0.05)
         }
     }
-}
-
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCellView
-        cell.backgroundColor = .red
-        return cell
-    }
-    
-    
 }

@@ -30,32 +30,26 @@ class AppCoordinator: Coordinator {
         getAuthStatus()
         
         observeAuthStatus()
-        
-        
     }
     
     func start() {
-       
         switch authMode {
         case .authType:
             showLoginFlow()
         case .homeType:
             showHomeFlow()
         }
-        
     }
-    
-    
     
     private func getAuthStatus() {
         getAuthStatusUseCase.execute { [weak self] result in
             
             switch result {
-                case .success(let isAuthorized):
-                    self?.changeViewWithAuthStatus(authStatus: isAuthorized)
+            case .success(let isAuthorized):
+                self?.changeViewWithAuthStatus(authStatus: isAuthorized)
                    
-                case .failure(let error):
-                    print(error)
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -67,7 +61,6 @@ class AppCoordinator: Coordinator {
         } else {
             print("user is not authorized")
             authMode = .authType
-            
         }
     }
     

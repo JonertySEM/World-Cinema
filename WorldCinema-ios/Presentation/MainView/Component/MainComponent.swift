@@ -68,6 +68,25 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var movieRepository: MovieRepository {
+        shared {
+            MovieRepositoryImpl(jsonDecoder: jsonDecoder,
+                                jsonEncoder: jsonEncoder)
+        }
+    }
+    
+    var getInTrendMovieUseCase: GetInTrendMovieUseCase {
+        shared {
+            GetInTrendMovieUseCase(movieRepository: movieRepository)
+        }
+    }
+    
+    var getNewMovieUseCase: GetNewMovieUseCase {
+        shared {
+            GetNewMovieUseCase(movieRepository: movieRepository)
+        }
+    }
+    
     var saveAuthStatusUseCase: SaveAuthStatusUseCase {
         shared {
             SaveAuthStatusUseCase()

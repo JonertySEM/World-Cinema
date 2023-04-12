@@ -63,7 +63,6 @@ class ProfileViewModel: ObservableObject, FlowController {
         userEmail = data.email
     }
     
-    
     func getProfileData() {
         getTokensUseCase.execute(tokenType: .auth) { [weak self] result in
             self?.isProgressProfileShowing = false
