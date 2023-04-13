@@ -5,16 +5,10 @@
 //  Created by Семён Алимпиев on 12.04.2023.
 //
 
-
 import Foundation
 import UIKit
 
 class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-//    private var filmsCount: [MovieResponse]
-    
-    
-    
     lazy var movieNewCollectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -28,9 +22,17 @@ class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         return collectionFilmsView
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .red
+    private let movieList: [MovieResponse]
+    // private let movieTapClosure: ((MovieResponse) -> Void)?
+
+    init(
+        movieList: [MovieResponse]
+        // movieTapClosure: ((MovieResponse) -> Void)? = nil
+
+    ) {
+        self.movieList = movieList
+        // self.movieTapClosure = movieTapClosure
+        super.init(frame: .zero)
 
         addSubview(movieNewCollectionView)
 
@@ -39,7 +41,8 @@ class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         movieNewCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         movieNewCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -47,16 +50,40 @@ class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
 
 extension MovieCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
+        return CGSize(width: collectionView.frame.width/1.5, height: collectionView.frame.width/2)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return movieList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomMovieNewCellView
-        cell.backgroundColor = .red
+        let displayingMovie = movieList[indexPath.row]
+        return getCellOfNewMovies(cell: cell, movie: displayingMovie)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(movieList[indexPath.item])
+    }
+
+    private func getCellOfNewMovies(cell: UICollectionViewCell, movie: MovieResponse) -> UICollectionViewCell {
+        let backgroundImageView = UIImageView()
+
+        if let displayingMovieFirstUrl = movie.imageUrls.first {
+            if let imageUrl = URL(string: displayingMovieFirstUrl) {
+                LoadFileHelper.loadImge(withUrl: imageUrl, view: backgroundImageView)
+            }
+        }
+
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.layer.masksToBounds = true
+
+        cell.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
         return cell
     }
 }

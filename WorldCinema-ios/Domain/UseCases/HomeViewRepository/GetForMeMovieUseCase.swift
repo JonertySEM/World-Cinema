@@ -21,7 +21,7 @@ class GetForMeMovieUseCase {
     }
     
     func execute(token: String,
-                 completion: ((Result<MovieResponse, Error>) -> Void)? = nil) {
+                 completion: ((Result<[MovieResponse], Error>) -> Void)? = nil) {
         movieRepository.getForMeMovie(token: token, completion: completion)
     }
 }

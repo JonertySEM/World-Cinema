@@ -11,12 +11,14 @@ import Foundation
 class CollectionRepositoryImpl: CollectionRepository {
     private static let url = NetworkingModel.baseUrl
 
+    private let requestInterceptor: RequestInterceptor
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
 
-    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder) {
+    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder, requestInterceptor: RequestInterceptor) {
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
+        self.requestInterceptor = requestInterceptor
     }
 
     func getAllCollection(token: String, completion: ((Result<[CollectionResponse], Error>) -> Void)?) {
@@ -24,7 +26,8 @@ class CollectionRepositoryImpl: CollectionRepository {
             Self.url + NetworkingModel.collectionLine,
             method: .get,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
@@ -47,7 +50,8 @@ class CollectionRepositoryImpl: CollectionRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+                headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+                interceptor: requestInterceptor
             ) { $0.timeoutInterval = NetworkingModel.timeout }
                 .validate()
                 .response { [self] result in
@@ -65,7 +69,8 @@ class CollectionRepositoryImpl: CollectionRepository {
             Self.url + NetworkingModel.collectionLine + "/\(collectionId)",
             method: .delete,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
@@ -81,7 +86,8 @@ class CollectionRepositoryImpl: CollectionRepository {
             Self.url + NetworkingModel.collectionLine + "/\(collectionId)" + "/movies",
             method: .delete,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
@@ -104,7 +110,8 @@ class CollectionRepositoryImpl: CollectionRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+                headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+                interceptor: requestInterceptor
             ) { $0.timeoutInterval = NetworkingModel.timeout }
                 .validate()
                 .response { [self] result in
@@ -129,7 +136,8 @@ class CollectionRepositoryImpl: CollectionRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+                headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+                interceptor: requestInterceptor
             ) { $0.timeoutInterval = NetworkingModel.timeout }
                 .validate()
                 .response { [self] result in
@@ -152,7 +160,8 @@ class CollectionRepositoryImpl: CollectionRepository {
             method: .delete,
             parameters: parametr,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in

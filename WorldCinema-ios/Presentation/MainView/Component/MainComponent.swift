@@ -71,7 +71,8 @@ final class MainComponent: BootstrapComponent {
     var movieRepository: MovieRepository {
         shared {
             MovieRepositoryImpl(jsonDecoder: jsonDecoder,
-                                jsonEncoder: jsonEncoder)
+                                jsonEncoder: jsonEncoder,
+                                requestInterceptor: requestInterceptor)
         }
     }
     
@@ -84,6 +85,18 @@ final class MainComponent: BootstrapComponent {
     var getNewMovieUseCase: GetNewMovieUseCase {
         shared {
             GetNewMovieUseCase(movieRepository: movieRepository)
+        }
+    }
+    
+    var getLastViewMovieUseCase: GetLastViewMovieUseCase {
+        shared {
+            GetLastViewMovieUseCase(movieRepository: movieRepository)
+        }
+    }
+    
+    var getForMeMovieUseCase: GetForMeMovieUseCase {
+        shared {
+            GetForMeMovieUseCase(movieRepository: movieRepository)
         }
     }
     

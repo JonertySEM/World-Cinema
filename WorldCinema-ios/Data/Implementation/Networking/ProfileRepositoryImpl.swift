@@ -53,7 +53,9 @@ class ProfileRepositoryImpl: ProfileRepository {
                       }
                   },
                   to: Self.url + NetworkingModel.profile + NetworkingModel.avatar,
-                  headers: headers)
+                  headers: headers,
+                  interceptor: requestInterceptor)
+
             .validate()
             .response { [self] result in
                 result.processResult(

@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController {
         
         viewModel.$avatar.sink { [self] url in
             guard let imageUrl = URL(string: url) else { return }
-            LoadFileHelper.loadImge(withUrl: imageUrl, view: userAvatar)
+            LoadFileHelper.loadImgeAvatar(withUrl: imageUrl, view: userAvatar)
         }.store(in: &subscribers)
     }
     

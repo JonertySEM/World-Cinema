@@ -5,11 +5,28 @@
 //  Created by Семён Алимпиев on 03.04.2023.
 //
 
+import Combine
 import SnapKit
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate {
     var viewModel: HomeViewModel
+    private var subscribers: Set<AnyCancellable> = []
+    
+    private var refreshControl = UIRefreshControl()
+    
+    private var newMovieList = [MovieResponse]()
+    private var inTrendMovieList = [MovieResponse]()
+    private var lastWatchFilm  = MovieResponse(movieId: "",
+                                              name: "",
+                                              description: "",
+                                              age: "",
+                                              chatInfo: ChatInfoResponse(chatId: "",
+                                                                    chatName: ""),
+                                              imageUrls: [String](),
+                                              poster: "",
+                                              tags: [TagResponse]())
+    private var forYouMovieList = [MovieResponse]()
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -24,19 +41,57 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createView()
         viewModel.getNewMovie()
-        //viewModel.getCoverInView()
+        viewModel.getCoverInView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        viewModel.$isProgressProfileShowing.sink { [self] result in
+            if result {
+                createView()
+                viewModel.isProgressProfileShowing = false
+            }
+        }.store(in: &subscribers)
+        
+        viewModel.$filmCover.sink { [self] url in
+            guard let imageUrl = URL(string: url) else { return }
+            LoadFileHelper.loadImge(withUrl: imageUrl, view: imagesCoverCard)
+        }.store(in: &subscribers)
+        
+        viewModel.$movieNewList.sink { [self] list in
+            newMovieList = list
+        }.store(in: &subscribers)
+        
+        viewModel.$movieInTrend.sink { [self] list in
+            inTrendMovieList = list
+        }.store(in: &subscribers)
+        
+        viewModel.$lastWatchedMovie.sink { [self] movie in
+            lastWatchFilm = movie
+        }.store(in: &subscribers)
+        
+        viewModel.$movieForMeList.sink { [self] list in
+            forYouMovieList = list
+        }.store(in: &subscribers)
+        
+        scrollView.refreshControl = refreshControl
+        refreshControl.backgroundColor = .clear
+        refreshControl.tintColor = .red
+        scrollView.addSubview(refreshControl)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+
+    let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.isScrollEnabled = true
+        scroll.alwaysBounceVertical = true
+        return scroll
+    }()
     
     let inTrendCollection = InTrendCollectionView()
-    
-    let newFilmsCollectionView = MovieCollectionView()
     
     let filmsForYouCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -45,21 +100,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         return collectionFilmsView
     }()
     
+    let imagesCoverCard: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.layer.masksToBounds = true
+        return image
+    }()
+    
+    lazy var newFilmsCollectionView = MovieCollectionView(movieList: newMovieList)
+    
     private func createView() {
-        let scrollView = UIScrollView()
+        scrollView.contentInsetAdjustmentBehavior = .never
+        
         let homeView = UIView()
         
-        let coverSceneCard = R.image.cover()
+        print("--------------MOVIELIST")
+        print(newMovieList)
+        
         let shadowSceneCard = R.image.shadow()
         
-        let imagesCoverCard: UIImageView = {
+        let imagesShadowCard: UIImageView = {
             let image = UIImageView()
             image.contentMode = .scaleAspectFill
             image.layer.masksToBounds = true
             return image
         }()
-        
-        let imagesShadowCard = UIImageView()
         
         let tapWatchFilm: CustomButton = {
             let button = CustomButton()
@@ -119,14 +184,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         }()
         
         view.addSubview(scrollView)
-        scrollView.contentInsetAdjustmentBehavior = .never
+       
         scrollView.addSubview(homeView)
         
         imagesShadowCard.image = shadowSceneCard
-        imagesCoverCard.image = coverSceneCard
         
-        homeView.addSubview(imagesShadowCard)
-       
         homeView.addSubview(labelInTrend)
         homeView.addSubview(inTrendCollection)
         homeView.addSubview(labelYouWatched)
@@ -156,21 +218,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             make.width.equalTo(super.view.snp.width)
             make.top.equalTo(scrollView.snp.top)
             make.bottom.equalTo(scrollView.snp.bottom)
-            make.height.greaterThanOrEqualTo(super.view.snp.height).multipliedBy(1.75)
         }
         
         imagesShadowCard.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading)
             make.trailing.equalTo(homeView.snp.trailing)
             make.top.equalTo(homeView.snp.top)
-            make.height.greaterThanOrEqualTo(super.view.snp.height).multipliedBy(0.5)
+            make.height.equalTo(super.view.snp.height).multipliedBy(0.5)
         }
         
         imagesCoverCard.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading)
             make.trailing.equalTo(homeView.snp.trailing)
             make.top.equalTo(homeView.snp.top)
-            make.height.greaterThanOrEqualTo(super.view.snp.height).multipliedBy(0.5)
+            make.height.equalTo(imagesShadowCard.snp.height).multipliedBy(1.0 / 1.0)
         }
         
         tapWatchFilm.snp.makeConstraints { make in
@@ -194,6 +255,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         labelYouWatched.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(300)
             make.top.equalTo(inTrendCollection.snp.bottom).inset(-32)
         }
         
@@ -232,5 +294,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             make.top.equalTo(filmsForYouCollectionView.snp.bottom).inset(-44)
             make.height.equalTo(super.view.snp.height).multipliedBy(0.05)
         }
+        
+//        labelInTrend.removeFromSuperview()
+//        inTrendCollection.removeFromSuperview()
+    }
+     
+    
+    @objc func refresh() {
+        viewModel.getNewMovie()
+        
+        viewModel.$isProgressProfileShowing.sink { [self] flag in
+            if flag {
+                newFilmsCollectionView.movieNewCollectionView.reloadData()
+                refreshControl.endRefreshing()
+                viewModel.isProgressProfileShowing = false
+            }
+        }.store(in: &subscribers)
     }
 }

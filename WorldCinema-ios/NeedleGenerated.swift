@@ -101,6 +101,12 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
     var getNewMovieUseCase: GetNewMovieUseCase {
         return mainComponent.getNewMovieUseCase
     }
+    var getLastViewMovieUseCase: GetLastViewMovieUseCase {
+        return mainComponent.getLastViewMovieUseCase
+    }
+    var getForMeMovieUseCase: GetForMeMovieUseCase {
+        return mainComponent.getForMeMovieUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -146,6 +152,8 @@ extension HomeComponent: Registration {
         keyPathToName[\HomeComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
         keyPathToName[\HomeComponentDependency.getInTrendMovieUseCase] = "getInTrendMovieUseCase-GetInTrendMovieUseCase"
         keyPathToName[\HomeComponentDependency.getNewMovieUseCase] = "getNewMovieUseCase-GetNewMovieUseCase"
+        keyPathToName[\HomeComponentDependency.getLastViewMovieUseCase] = "getLastViewMovieUseCase-GetLastViewMovieUseCase"
+        keyPathToName[\HomeComponentDependency.getForMeMovieUseCase] = "getForMeMovieUseCase-GetForMeMovieUseCase"
     }
 }
 extension MainComponent: Registration {

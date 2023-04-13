@@ -21,7 +21,7 @@ class GetCompilationMovieUseCase {
     }
     
     func execute(token: String,
-                 completion: ((Result<MovieResponse, Error>) -> Void)? = nil) {
+                 completion: ((Result<[MovieResponse], Error>) -> Void)? = nil) {
         movieRepository.getCompilationMovie(token: token, completion: completion)
     }
 }

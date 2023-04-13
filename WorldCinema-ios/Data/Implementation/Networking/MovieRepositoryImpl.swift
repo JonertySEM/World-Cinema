@@ -13,10 +13,12 @@ class MovieRepositoryImpl: MovieRepository {
     
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
+    private let requestInterceptor: RequestInterceptor
     
-    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder) {
+    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder, requestInterceptor: RequestInterceptor) {
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
+        self.requestInterceptor = requestInterceptor
     }
     
     func getNewMovie(token: String, completion: ((Result<[MovieResponse], Error>) -> Void)?) {
@@ -24,7 +26,8 @@ class MovieRepositoryImpl: MovieRepository {
             Self.url + NetworkingModel.movieLine + "?filter=new",
             method: .get,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
@@ -40,7 +43,8 @@ class MovieRepositoryImpl: MovieRepository {
             Self.url + NetworkingModel.movieLine + "?filter=inTrend",
             method: .get,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
@@ -51,16 +55,13 @@ class MovieRepositoryImpl: MovieRepository {
             }
     }
     
-    func getForMeMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
-        let parametr: Parameters = [
-            "filter": "forMe"
-        ]
+    func getForMeMovie(token: String, completion: ((Result<[MovieResponse], Error>) -> Void)?) {
         AF.request(
-            Self.url + NetworkingModel.movieLine,
+            Self.url + NetworkingModel.movieLine + "?filter=forMe",
             method: .get,
-            parameters: parametr,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
@@ -72,15 +73,12 @@ class MovieRepositoryImpl: MovieRepository {
     }
     
     func getLastViewMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
-        let parametr: Parameters = [
-            "filter": "lastView"
-        ]
         AF.request(
-            Self.url + NetworkingModel.movieLine,
+            Self.url + NetworkingModel.movieLine + "?filter=lastView",
             method: .get,
-            parameters: parametr,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
@@ -91,16 +89,13 @@ class MovieRepositoryImpl: MovieRepository {
             }
     }
     
-    func getCompilationMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
-        let parametr: Parameters = [
-            "filter": "compilation"
-        ]
+    func getCompilationMovie(token: String, completion: ((Result<[MovieResponse], Error>) -> Void)?) {
         AF.request(
-            Self.url + NetworkingModel.movieLine,
+            Self.url + NetworkingModel.movieLine + "?filter=compilation",
             method: .get,
-            parameters: parametr,
             encoding: JSONEncoding.default,
-            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token)
+            headers: NetwrokingGetTokenHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingModel.timeout }
             .validate()
             .response { [self] result in
