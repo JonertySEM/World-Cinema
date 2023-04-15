@@ -19,6 +19,7 @@ class HomeCoordinator: NSObject, Coordinator {
     
     var flowCompletionHendler: CoordinatorHendler?
     
+    
     private let moduleFactory = ModuleFactory()
     
     required init(_ navigationController: UINavigationController) {
@@ -75,7 +76,7 @@ class HomeCoordinator: NSObject, Coordinator {
       
     private func getTabController(_ page: TabBarEnum) -> UINavigationController {
         let navController = UINavigationController()
-        navController.setNavigationBarHidden(false, animated: false)
+        navController.setNavigationBarHidden(true, animated: false)
 
         navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(),
                                                 image: page.addIconInTabBar(),
@@ -88,6 +89,12 @@ class HomeCoordinator: NSObject, Coordinator {
             component.homeViewModel.completionHandler = { [weak self] _ in
                 self?.finish()
                 self?.showLoginFlow()
+            }
+            
+            component.homeViewModel.completionHandlerButton = { [weak self] movie in
+                guard let film = movie else { return }
+                
+                self?.showMovieFlow(movie: film)
             }
             
             navController.pushViewController(component.homeViewController, animated: true)
@@ -130,6 +137,16 @@ class HomeCoordinator: NSObject, Coordinator {
         let authCoordinator = CoordinatorFactory().createAuthorizationCoordinator(navigationController: navigationController)
         childCoordinators.append(authCoordinator)
         authCoordinator.start()
+    }
+    
+    
+    private func showMovieFlow(movie: MovieResponse) {
+        let movieCoordinator = CoordinatorFactory().createMovieCoordinator(navigationController: navigationController)
+        
+       
+        childCoordinators.append(movieCoordinator)
+        movieCoordinator.film = movie
+        movieCoordinator.start()
     }
 }
 

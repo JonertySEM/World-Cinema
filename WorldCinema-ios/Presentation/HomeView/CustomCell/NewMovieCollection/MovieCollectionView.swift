@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
     lazy var movieNewCollectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -23,15 +25,15 @@ class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     }()
 
     private let movieList: [MovieResponse]
-    // private let movieTapClosure: ((MovieResponse) -> Void)?
+    private let movieTapClosure: ((MovieResponse) -> Void)?
 
     init(
-        movieList: [MovieResponse]
-        // movieTapClosure: ((MovieResponse) -> Void)? = nil
+        movieList: [MovieResponse],
+        movieTapClosure: ((MovieResponse) -> Void)? = nil
 
     ) {
         self.movieList = movieList
-        // self.movieTapClosure = movieTapClosure
+        self.movieTapClosure = movieTapClosure
         super.init(frame: .zero)
 
         addSubview(movieNewCollectionView)
@@ -64,7 +66,7 @@ extension MovieCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(movieList[indexPath.item])
+        movieTapClosure?(movieList[indexPath.item])
     }
 
     private func getCellOfNewMovies(cell: UICollectionViewCell, movie: MovieResponse) -> UICollectionViewCell {

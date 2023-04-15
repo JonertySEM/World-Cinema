@@ -50,6 +50,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         viewModel.$isProgressProfileShowing.sink { [self] result in
             if result {
                 createView()
+                clearVoidCollections()
                 viewModel.isProgressProfileShowing = false
             }
         }.store(in: &subscribers)
@@ -83,7 +84,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     }
     
     lazy var inTrendCollection = InTrendCollectionView(movieList: inTrendMovieList)
-    lazy var newFilmsCollectionView = MovieCollectionView(movieList: newMovieList)
+    lazy var newFilmsCollectionView = MovieCollectionView(movieList: newMovieList, movieTapClosure: viewModel.completionHandlerButton)
     lazy var filmsForYouCollectionView = ForYouMovieCollectionView(movieList: forYouMovieList)
     
     let imagesCoverCard: UIImageView = {
@@ -162,6 +163,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.isScrollEnabled = true
+        scroll.contentInsetAdjustmentBehavior = .never
         scroll.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
         scroll.alwaysBounceVertical = true
         return scroll
@@ -170,28 +172,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     let homeView = UIView()
     
     private func createView() {
-        scrollView.contentInsetAdjustmentBehavior = .never
-        
-        print("--------------MOVIELIST")
-        print(newMovieList)
-        
-        print("------------ForYouMovie")
-        print(lastWatchFilm)
-        
         view.addSubview(scrollView)
        
         scrollView.addSubview(homeView)
         
         imagesShadowCard.image = shadowSceneCard
-        
-        homeView.addSubview(labelInTrend)
-        homeView.addSubview(inTrendCollection)
-        homeView.addSubview(labelYouWatched)
-        homeView.addSubview(filmWitchYouWatched)
         homeView.addSubview(labelNewFilms)
         homeView.addSubview(newFilmsCollectionView)
+        homeView.addSubview(labelInTrend)
+        homeView.addSubview(inTrendCollection)
+        
+        homeView.addSubview(labelYouWatched)
+        homeView.addSubview(filmWitchYouWatched)
+        
         homeView.addSubview(labelForYouFilms)
         homeView.addSubview(filmsForYouCollectionView)
+        
         homeView.addSubview(tapYourFavorites)
         homeView.addSubview(imagesCoverCard)
         homeView.addSubview(imagesShadowCard)
@@ -292,24 +288,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             make.top.equalTo(filmsForYouCollectionView.snp.bottom).inset(-44)
             make.height.equalTo(super.view.snp.height).multipliedBy(0.05)
         }
-        
-          clearVoidCollections()
     }
     
     private func clearVoidCollections() {
         if newMovieList.count == 0 {
             labelNewFilms.removeFromSuperview()
             newFilmsCollectionView.removeFromSuperview()
+        } else {
+            homeView.addSubview(labelNewFilms)
+            homeView.addSubview(newFilmsCollectionView)
         }
         
         if inTrendMovieList.count == 0 {
             labelInTrend.removeFromSuperview()
             inTrendCollection.removeFromSuperview()
+        } else {
+            homeView.addSubview(labelInTrend)
+            homeView.addSubview(inTrendCollection)
         }
         
         if forYouMovieList.count == 0 {
             labelForYouFilms.removeFromSuperview()
             filmsForYouCollectionView.removeFromSuperview()
+        } else {
+            homeView.addSubview(labelForYouFilms)
+            homeView.addSubview(filmsForYouCollectionView)
         }
         
         print(lastWatchFilm.poster)
@@ -321,14 +324,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     }
      
     @objc func refresh() {
-        viewModel.getNewMovie()
-        // homeView.isHidden = true
+        loadAllMovie()
         
         viewModel.$isProgressProfileShowing.sink { [self] flag in
             if flag {
+                inTrendCollection.movieNewCollectionView.reloadData()
                 newFilmsCollectionView.movieNewCollectionView.reloadData()
+                filmsForYouCollectionView.trendCollectionView.reloadData()
+                clearVoidCollections()
                 refreshControl.endRefreshing()
-                homeView.isHidden = false
                 viewModel.isProgressProfileShowing = false
             }
         }.store(in: &subscribers)

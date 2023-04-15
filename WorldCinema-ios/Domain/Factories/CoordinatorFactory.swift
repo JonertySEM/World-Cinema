@@ -20,4 +20,8 @@ class CoordinatorFactory {
     func createHomeCoordinator(navigationController: UINavigationController) -> HomeCoordinator {
         HomeCoordinator(navigationController)
     }
+    
+    func createMovieCoordinator(navigationController: UINavigationController) -> MovieCoordinator {
+        MovieCoordinator(navigationController)
+    }
 }

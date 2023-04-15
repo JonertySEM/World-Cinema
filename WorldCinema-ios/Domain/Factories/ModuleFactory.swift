@@ -33,4 +33,8 @@ class ModuleFactory {
     func createProfileModule() -> ProfileComponent {
         mainComponent.profileComponent
     }
+    
+    func createMovieModule() -> MovieComponent {
+        mainComponent.movieComponent
+    }
 }

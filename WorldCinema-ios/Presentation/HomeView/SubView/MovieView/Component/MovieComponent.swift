@@ -16,7 +16,13 @@ protocol MovieComponentProvider: Dependency {
 
 final class MovieComponent: Component <MovieComponentProvider> {
     
+    var movieViewModel: MovieViewModel {
+        shared {
+            MovieViewModel()
+        }
+    }
+    
     var movieViewController: UIViewController {
-        return MovieViewController()
+        return MovieViewController(viewModel: movieViewModel)
     }
 }

@@ -10,8 +10,9 @@ import Foundation
 import SPAlert
 
 class HomeViewModel: ObservableObject, FlowController {
-    var completionHandlerButton: ((String?) -> ())?
+    
     var completionHandler: ((String?) -> ())?
+    var completionHandlerButton: ((MovieResponse?) -> ())?
 
     private var getCoverHomeViewUseCase: GetCoverHomeViewUseCase
     private var getTokensUseCase: GetTokensUseCase
@@ -67,9 +68,9 @@ class HomeViewModel: ObservableObject, FlowController {
                                 self?.isProgressProfileShowing = true
                                 print(newMovie)
                             case .failure(let error):
+                                print(error)
                                 LoaderView.endLoading()
-                                self?.processError(error)
-                                self?.completionHandler?("")
+                                
                         }
                     }
                 case .failure(let error):
@@ -89,8 +90,7 @@ class HomeViewModel: ObservableObject, FlowController {
                             case .success(let inTrendsMovie):
                                 print(inTrendsMovie)
                             case .failure(let error):
-                                self?.processError(error)
-                                self?.completionHandler?("")
+                                print(error)
                                
                         }
                     }
@@ -109,9 +109,8 @@ class HomeViewModel: ObservableObject, FlowController {
                     switch result {
                         case .success(let movie):
                             self?.lastWatchedMovie = movie
-                    case .failure(let error):
-                        self?.processError(error)
-                        self?.completionHandler?("")
+                        case .failure(let error):
+                            print(error)
                     }
                     
                 }
@@ -130,10 +129,9 @@ class HomeViewModel: ObservableObject, FlowController {
                 self?.getForMeMovieUseCase.execute(token: token) { [weak self] result in
                     switch result {
                         case .success(let movie):
-                        self?.movieForMeList = movie
-                    case .failure(let error):
-                        self?.processError(error)
-                        self?.completionHandler?("")
+                            self?.movieForMeList = movie
+                        case .failure(let error):
+                            print(error)
                     }
                     
                 }

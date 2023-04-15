@@ -120,6 +120,8 @@
 		4FE93FDC29EA50BC00F21F4B /* GetHexColorHelpler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FDB29EA50BC00F21F4B /* GetHexColorHelpler.swift */; };
 		4FE93FDF29EA58E400F21F4B /* ModernRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FDE29EA58E400F21F4B /* ModernRefreshControl.swift */; };
 		4FE93FE129EA591100F21F4B /* ScreamRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FE029EA591100F21F4B /* ScreamRefreshControl.swift */; };
+		4FE93FE429EA921900F21F4B /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FE329EA921900F21F4B /* MovieCoordinator.swift */; };
+		4FE93FE729EA9ECF00F21F4B /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FE629EA9ECF00F21F4B /* MovieViewModel.swift */; };
 		4FF0B2F929CC240B00A82AFA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF0B2F829CC240B00A82AFA /* SnapKit */; };
 		4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */; };
 		4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30529CD8F5900A82AFA /* MainComponent.swift */; };
@@ -239,6 +241,8 @@
 		4FE93FDB29EA50BC00F21F4B /* GetHexColorHelpler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHexColorHelpler.swift; sourceTree = "<group>"; };
 		4FE93FDE29EA58E400F21F4B /* ModernRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRefreshControl.swift; sourceTree = "<group>"; };
 		4FE93FE029EA591100F21F4B /* ScreamRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreamRefreshControl.swift; sourceTree = "<group>"; };
+		4FE93FE329EA921900F21F4B /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
+		4FE93FE629EA9ECF00F21F4B /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4FF0B30529CD8F5900A82AFA /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		4FF0B30A29CDAAE400A82AFA /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
@@ -788,6 +792,7 @@
 		4FE851FA29DADC5B002CCD6A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4FE93FE229EA754100F21F4B /* MovieCoordinator */,
 				4FE8521529DB348C002CCD6A /* HomeCoordinator */,
 				4FE8520629DB2878002CCD6A /* LoginCoordinator */,
 				4FE8521329DB2ED2002CCD6A /* AppCoordinator.swift */,
@@ -881,6 +886,7 @@
 		4FE93FD329E968C300F21F4B /* MovieView */ = {
 			isa = PBXGroup;
 			children = (
+				4FE93FE529EA9EBF00F21F4B /* ViewModel */,
 				4FE93FD829E969AD00F21F4B /* Component */,
 				4FE93FD629E969A800F21F4B /* MovieViewController.swift */,
 			);
@@ -918,6 +924,22 @@
 				4FE93FE029EA591100F21F4B /* ScreamRefreshControl.swift */,
 			);
 			path = "ScreamRefreshControl ";
+			sourceTree = "<group>";
+		};
+		4FE93FE229EA754100F21F4B /* MovieCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FE329EA921900F21F4B /* MovieCoordinator.swift */,
+			);
+			path = MovieCoordinator;
+			sourceTree = "<group>";
+		};
+		4FE93FE529EA9EBF00F21F4B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FE629EA9ECF00F21F4B /* MovieViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4FF0B2FC29CD8BF600A82AFA /* MainView */ = {
@@ -1169,6 +1191,7 @@
 				4FE93FDC29EA50BC00F21F4B /* GetHexColorHelpler.swift in Sources */,
 				4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */,
 				4F4FC65F29D0612D001BFCA3 /* ViewController.swift in Sources */,
+				4FE93FE429EA921900F21F4B /* MovieCoordinator.swift in Sources */,
 				4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */,
 				4FE93FC529E6C56B00F21F4B /* GetForMeMovieUseCase.swift in Sources */,
 				4FE8520529DAEBD0002CCD6A /* ProfileViewController.swift in Sources */,
@@ -1224,6 +1247,7 @@
 				4F48AD1D29DC02FC009450CC /* HomeComponent.swift in Sources */,
 				4F21928B29D32D80001AEB5F /* VoidResponse.swift in Sources */,
 				4FE8520A29DB28A3002CCD6A /* LoginCoordinator.swift in Sources */,
+				4FE93FE729EA9ECF00F21F4B /* MovieViewModel.swift in Sources */,
 				4F4270A929E3026200A1FC80 /* ProfileRepositoryImpl.swift in Sources */,
 				4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */,
 				4F42709029DEE1EC00A1FC80 /* CollectionViewController.swift in Sources */,
