@@ -83,32 +83,32 @@ class HomeCoordinator: NSObject, Coordinator {
 
         switch page {
         case .homeView:
-            let controller = moduleFactory.createHomeModule()
+            let component = moduleFactory.createHomeModule()
             
-            controller.viewModel.completionHandler = { [weak self] _ in
+            component.homeViewModel.completionHandler = { [weak self] _ in
                 self?.finish()
                 self?.showLoginFlow()
             }
             
-            navController.pushViewController(controller, animated: true)
+            navController.pushViewController(component.homeViewController, animated: true)
            
         case .compilationView:
-            let controller = moduleFactory.createCompilationModule()
+            let component = moduleFactory.createCompilationModule()
             
-            navController.pushViewController(controller, animated: true)
+            navController.pushViewController(component.compilationViewController, animated: true)
         case .collectionView:
-            let controller = moduleFactory.createColectionModule()
+            let component = moduleFactory.createColectionModule()
             
-            navController.pushViewController(controller, animated: true)
+            navController.pushViewController(component.collectionViewController, animated: true)
         case .profileView:
-            let controller = moduleFactory.createProfileModule()
+            let component = moduleFactory.createProfileModule()
             
-            controller.viewModel.completionHandler = { [weak self] _ in
+            component.profileViewModel.completionHandler = { [weak self] _ in
                 self?.finish()
                 self?.showLoginFlow()
             }
             
-            navController.pushViewController(controller, animated: true)
+            navController.pushViewController(component.profileViewController, animated: true)
         }
         
         return navController

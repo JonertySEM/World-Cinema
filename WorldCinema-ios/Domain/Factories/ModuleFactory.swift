@@ -8,27 +8,29 @@
 import Foundation
 
 class ModuleFactory {
-    func createAuthModule() -> AuthorizationViewController {
-        MainComponent().authorizationComponent.authorizationViewController as! AuthorizationViewController
+    
+    private var mainComponent = MainComponent()
+    func getAuthorizationComponent() -> AuthorizationComponent {
+        mainComponent.authorizationComponent
     }
     
-    func createRegistrationModule() -> RegistrationViewController {
-        MainComponent().registrationComponent.registrationViewController as! RegistrationViewController
+    func createRegistrationModule() -> RegistrationComponent {
+        mainComponent.registrationComponent
     }
     
-    func createHomeModule() -> HomeViewController {
-        MainComponent().homeComponent.homeViewController as! HomeViewController
+    func createHomeModule() -> HomeComponent {
+        mainComponent.homeComponent
     }
     
-    func createCompilationModule() -> CompilationViewController {
-        MainComponent().compilationComponent.compilationViewController
+    func createCompilationModule() -> CompilationComponent {
+        mainComponent.compilationComponent
     }
     
-    func createColectionModule() -> CollectionViewController {
-        MainComponent().collectionComponent.collectionViewController
+    func createColectionModule() -> CollectionComponent {
+        mainComponent.collectionComponent
     }
     
-    func createProfileModule() -> ProfileViewController {
-        MainComponent().profileComponent.profileViewController
+    func createProfileModule() -> ProfileComponent {
+        mainComponent.profileComponent
     }
 }

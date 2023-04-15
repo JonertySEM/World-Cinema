@@ -12,7 +12,7 @@ import UIKit
 class CustomAlert {
     private var backgroudView: UIView = {
         let background = UIView()
-        background.backgroundColor = .black
+        background.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
         background.alpha = 0
         return background
     }()
@@ -21,7 +21,7 @@ class CustomAlert {
     
     private var myAlert: UIView = {
         let myView = UIView()
-        myView.backgroundColor = .black
+        myView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
         myView.layer.borderColor = UIColor.lightGray.cgColor
         myView.layer.borderWidth = 1
         myView.layer.masksToBounds = true

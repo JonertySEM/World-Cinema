@@ -116,6 +116,17 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
 private func factory9bc7b43729f663f093120ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return HomeComponentDependency887e91671f4424758155Provider(mainComponent: parent1(component) as! MainComponent)
 }
+private class MovieComponentProvidera7033cbb13a1a098180aProvider: MovieComponentProvider {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->MovieComponent
+private func factory6debacc94202b5616665e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MovieComponentProvidera7033cbb13a1a098180aProvider()
+}
 
 #else
 extension RegistrationComponent: Registration {
@@ -156,6 +167,11 @@ extension HomeComponent: Registration {
         keyPathToName[\HomeComponentDependency.getForMeMovieUseCase] = "getForMeMovieUseCase-GetForMeMovieUseCase"
     }
 }
+extension MovieComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension MainComponent: Registration {
     public func registerItems() {
 
@@ -184,6 +200,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->CompilationComponent", factorya1836deb0193bacd38b4e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->MovieComponent", factory6debacc94202b5616665e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
 }
 #endif

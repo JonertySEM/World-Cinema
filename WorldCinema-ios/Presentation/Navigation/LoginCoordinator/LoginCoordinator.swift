@@ -28,18 +28,18 @@ class LoginCoordinator: Coordinator {
     }
     
     private func showAuthModule() {
-        let controller = moduleFactory.createAuthModule()
+        let component = moduleFactory.getAuthorizationComponent()
         
-        controller.viewModel.completionHandler = { [weak self] _ in
+        component.authorizationViewModel.completionHandler = { [weak self] _ in
             self?.finish()
             self?.showHomeMovieModule()
         }
         
-        controller.viewModel.completionHandlerButton = { [weak self] _ in
+        component.authorizationViewModel.completionHandlerButton = { [weak self] _ in
             self?.showRegistrationModule()
         }
         
-        navigationController.pushViewController(controller, animated: true)
+        navigationController.pushViewController(component.authorizationViewController, animated: true)
     }
     
     private func showHomeMovieModule() {
@@ -49,18 +49,18 @@ class LoginCoordinator: Coordinator {
     }
     
     private func showRegistrationModule() {
-        let controller = moduleFactory.createRegistrationModule()
+        let component = moduleFactory.createRegistrationModule()
         
-        controller.viewModel.completionHandler = { [weak self] _ in
+        component.registrationViewModel.completionHandler = { [weak self] _ in
             self?.finish()
             self?.showHomeMovieModule()
         }
         
-        controller.viewModel.completionHandlerButton = { [weak self] _ in
+        component.registrationViewModel.completionHandlerButton = { [weak self] _ in
             self?.showAuthModule()
         }
         
-        navigationController.pushViewController(controller, animated: true)
+        navigationController.pushViewController(component.registrationViewController, animated: true)
     }
 }
     

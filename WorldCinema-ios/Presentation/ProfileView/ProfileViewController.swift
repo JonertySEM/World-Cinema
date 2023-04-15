@@ -124,7 +124,7 @@ class ProfileViewController: UIViewController {
         label.font = R.font.sfProTextBold(size: 15)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.textColor = .red
+        label.textColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
         return label
     }()
     
@@ -157,7 +157,7 @@ class ProfileViewController: UIViewController {
     let buttonExit: CustomButton = {
         let button = CustomButton()
         button.setTitle("Выйти", for: .normal)
-        button.setTitleColor(.red, for: .normal)
+        button.setTitleColor(GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01"), for: .normal)
         button.titleLabel?.font = R.font.sfProTextBold(size: 15)
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1

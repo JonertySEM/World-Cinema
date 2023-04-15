@@ -114,6 +114,12 @@
 		4FE93FC929E6C60700F21F4B /* GetCompilationMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FC829E6C60700F21F4B /* GetCompilationMovieUseCase.swift */; };
 		4FE93FCC29E6D4EF00F21F4B /* CustomMovieNewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FCB29E6D4EF00F21F4B /* CustomMovieNewCellView.swift */; };
 		4FE93FCE29E6D50200F21F4B /* MovieCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FCD29E6D50200F21F4B /* MovieCollectionView.swift */; };
+		4FE93FD129E94E0B00F21F4B /* ForYouMovieCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FD029E94E0B00F21F4B /* ForYouMovieCollectionView.swift */; };
+		4FE93FD729E969A800F21F4B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FD629E969A800F21F4B /* MovieViewController.swift */; };
+		4FE93FDA29E969DA00F21F4B /* MovieComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FD929E969DA00F21F4B /* MovieComponent.swift */; };
+		4FE93FDC29EA50BC00F21F4B /* GetHexColorHelpler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FDB29EA50BC00F21F4B /* GetHexColorHelpler.swift */; };
+		4FE93FDF29EA58E400F21F4B /* ModernRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FDE29EA58E400F21F4B /* ModernRefreshControl.swift */; };
+		4FE93FE129EA591100F21F4B /* ScreamRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE93FE029EA591100F21F4B /* ScreamRefreshControl.swift */; };
 		4FF0B2F929CC240B00A82AFA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF0B2F829CC240B00A82AFA /* SnapKit */; };
 		4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */; };
 		4FF0B30629CD8F5900A82AFA /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0B30529CD8F5900A82AFA /* MainComponent.swift */; };
@@ -227,6 +233,12 @@
 		4FE93FC829E6C60700F21F4B /* GetCompilationMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompilationMovieUseCase.swift; sourceTree = "<group>"; };
 		4FE93FCB29E6D4EF00F21F4B /* CustomMovieNewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMovieNewCellView.swift; sourceTree = "<group>"; };
 		4FE93FCD29E6D50200F21F4B /* MovieCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionView.swift; sourceTree = "<group>"; };
+		4FE93FD029E94E0B00F21F4B /* ForYouMovieCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouMovieCollectionView.swift; sourceTree = "<group>"; };
+		4FE93FD629E969A800F21F4B /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		4FE93FD929E969DA00F21F4B /* MovieComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieComponent.swift; sourceTree = "<group>"; };
+		4FE93FDB29EA50BC00F21F4B /* GetHexColorHelpler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHexColorHelpler.swift; sourceTree = "<group>"; };
+		4FE93FDE29EA58E400F21F4B /* ModernRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRefreshControl.swift; sourceTree = "<group>"; };
+		4FE93FE029EA591100F21F4B /* ScreamRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreamRefreshControl.swift; sourceTree = "<group>"; };
 		4FF0B30029CD8C3800A82AFA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4FF0B30529CD8F5900A82AFA /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		4FF0B30A29CDAAE400A82AFA /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
@@ -396,6 +408,7 @@
 		4F38329429C977B2000A660D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4FE93FDD29EA58AD00F21F4B /* ScreamRefreshControl  */,
 				4FE851FA29DADC5B002CCD6A /* Navigation */,
 				4F63C8A429D9973500B06D35 /* SharedLoaderView */,
 				4F4FC66329D094B7001BFCA3 /* Modifed */,
@@ -413,6 +426,7 @@
 		4F42708829DEA6F300A1FC80 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				4FE93FCF29E94D4200F21F4B /* ForYouMovieCollection */,
 				4FE93FCA29E6D4DC00F21F4B /* NewMovieCollection */,
 				4FE93FBF29E6BB4D00F21F4B /* InTrendCollcetion */,
 			);
@@ -621,6 +635,7 @@
 				4F63C88629D8221700B06D35 /* CheckValidatonHelper.swift */,
 				4F63C88829D8222F00B06D35 /* NetwrokingGetTokenHelper.swift */,
 				4FC834A029E6709400792651 /* LoadFileHelpler.swift */,
+				4FE93FDB29EA50BC00F21F4B /* GetHexColorHelpler.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -792,6 +807,7 @@
 		4FE8520029DAEB54002CCD6A /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				4FE93FD429E968D600F21F4B /* SubView */,
 				4F42708829DEA6F300A1FC80 /* CustomCell */,
 				4FD9280F29DD1E88007EA8FE /* ViewModel */,
 				4F48AD1B29DC02EF009450CC /* Component */,
@@ -852,6 +868,56 @@
 				4FE93FCD29E6D50200F21F4B /* MovieCollectionView.swift */,
 			);
 			path = NewMovieCollection;
+			sourceTree = "<group>";
+		};
+		4FE93FCF29E94D4200F21F4B /* ForYouMovieCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FD029E94E0B00F21F4B /* ForYouMovieCollectionView.swift */,
+			);
+			path = ForYouMovieCollection;
+			sourceTree = "<group>";
+		};
+		4FE93FD329E968C300F21F4B /* MovieView */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FD829E969AD00F21F4B /* Component */,
+				4FE93FD629E969A800F21F4B /* MovieViewController.swift */,
+			);
+			path = MovieView;
+			sourceTree = "<group>";
+		};
+		4FE93FD429E968D600F21F4B /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FD529E968E000F21F4B /* EpisodeView */,
+				4FE93FD329E968C300F21F4B /* MovieView */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		4FE93FD529E968E000F21F4B /* EpisodeView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EpisodeView;
+			sourceTree = "<group>";
+		};
+		4FE93FD829E969AD00F21F4B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FD929E969DA00F21F4B /* MovieComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		4FE93FDD29EA58AD00F21F4B /* ScreamRefreshControl  */ = {
+			isa = PBXGroup;
+			children = (
+				4FE93FDE29EA58E400F21F4B /* ModernRefreshControl.swift */,
+				4FE93FE029EA591100F21F4B /* ScreamRefreshControl.swift */,
+			);
+			path = "ScreamRefreshControl ";
 			sourceTree = "<group>";
 		};
 		4FF0B2FC29CD8BF600A82AFA /* MainView */ = {
@@ -1065,6 +1131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F53C5DF29DD7CEA00B94D6A /* CustomButton.swift in Sources */,
+				4FE93FDF29EA58E400F21F4B /* ModernRefreshControl.swift in Sources */,
 				4FCDDD9629CDCBC30005782D /* AuthorizationViewController.swift in Sources */,
 				4FD9281129DD1E99007EA8FE /* HomeViewModel.swift in Sources */,
 				4F21927D29D3257B001AEB5F /* RefreshTokenRequest.swift in Sources */,
@@ -1099,6 +1166,7 @@
 				4FE8521429DB2ED2002CCD6A /* AppCoordinator.swift in Sources */,
 				4FE93FC729E6C5C500F21F4B /* GetLastViewMovieUseCase.swift in Sources */,
 				4F63C8A829D9977500B06D35 /* LoaderView.swift in Sources */,
+				4FE93FDC29EA50BC00F21F4B /* GetHexColorHelpler.swift in Sources */,
 				4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */,
 				4F4FC65F29D0612D001BFCA3 /* ViewController.swift in Sources */,
 				4F4FC66529D094D8001BFCA3 /* CustomTextField.swift in Sources */,
@@ -1123,6 +1191,7 @@
 				4FD9281B29DD27E2007EA8FE /* NetwrokingKeysEnum.swift in Sources */,
 				4F63C89C29D9667D00B06D35 /* SwiftyUserDefaultsEnum.swift in Sources */,
 				4F63C87829D8111F00B06D35 /* SaveTokenUseCase.swift in Sources */,
+				4FE93FD729E969A800F21F4B /* MovieViewController.swift in Sources */,
 				4F21927529D323FA001AEB5F /* AuthorizationRepository.swift in Sources */,
 				4F21927929D324AF001AEB5F /* RegistrationRequest.swift in Sources */,
 				4F21927B29D324F2001AEB5F /* AuthorizationRequest.swift in Sources */,
@@ -1133,7 +1202,9 @@
 				4F4270B629E3F6F600A1FC80 /* CustomAlert.swift in Sources */,
 				4F42709929DEE2CA00A1FC80 /* ProfileComponent.swift in Sources */,
 				4FD9281929DD274D007EA8FE /* InterceptorRequest.swift in Sources */,
+				4FE93FE129EA591100F21F4B /* ScreamRefreshControl.swift in Sources */,
 				4FD9280329DC7DCA007EA8FE /* GetCoverRepositoryImpl.swift in Sources */,
+				4FE93FD129E94E0B00F21F4B /* ForYouMovieCollectionView.swift in Sources */,
 				4F63C87629D80FF600B06D35 /* KeyChainRepositoryErrorEnum.swift in Sources */,
 				4FF0B30B29CDAAE400A82AFA /* NeedleGenerated.swift in Sources */,
 				4F42709D29E05A3F00A1FC80 /* CollectionRepository.swift in Sources */,
@@ -1157,6 +1228,7 @@
 				4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */,
 				4F42709029DEE1EC00A1FC80 /* CollectionViewController.swift in Sources */,
 				4F4270A729E301FE00A1FC80 /* ProfileResponse.swift in Sources */,
+				4FE93FDA29E969DA00F21F4B /* MovieComponent.swift in Sources */,
 				4F63C89829D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift in Sources */,
 				4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */,
 				4FD9281629DD20B2007EA8FE /* LogOutUseCase.swift in Sources */,

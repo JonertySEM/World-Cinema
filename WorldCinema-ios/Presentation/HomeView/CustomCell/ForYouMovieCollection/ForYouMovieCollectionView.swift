@@ -1,15 +1,19 @@
 //
-//  MovieCollectionView.swift
+//  ForYouMovieCollectionView.swift
 //  WorldCinema-ios
 //
-//  Created by Семён Алимпиев on 12.04.2023.
+//  Created by Семён Алимпиев on 14.04.2023.
 //
 
 import Foundation
 import UIKit
 
-class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
-    lazy var movieNewCollectionView: UICollectionView = { [unowned self] in
+class ForYouMovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    private let movieList: [MovieResponse]
+    // private let movieTapClosure: ((MovieResponse) -> Void)?
+    
+    lazy var trendCollectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -17,13 +21,10 @@ class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionFilmsView.delegate = self
         collectionFilmsView.dataSource = self
         collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-        collectionFilmsView.register(CustomMovieNewCellView.self, forCellWithReuseIdentifier: "cell")
+        collectionFilmsView.register(CustomCellView.self, forCellWithReuseIdentifier: "cell")
 
         return collectionFilmsView
     }()
-
-    private let movieList: [MovieResponse]
-    // private let movieTapClosure: ((MovieResponse) -> Void)?
 
     init(
         movieList: [MovieResponse]
@@ -34,23 +35,23 @@ class MovieCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         // self.movieTapClosure = movieTapClosure
         super.init(frame: .zero)
 
-        addSubview(movieNewCollectionView)
+        addSubview(trendCollectionView)
 
-        movieNewCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        movieNewCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        movieNewCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        movieNewCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        trendCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        trendCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        trendCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        trendCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 
-   
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-extension MovieCollectionView: UICollectionViewDelegateFlowLayout {
+extension ForYouMovieCollectionView {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/1.5, height: collectionView.frame.width/2)
+        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

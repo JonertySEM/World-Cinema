@@ -127,7 +127,7 @@ class RegistrationViewController: UIViewController {
         let registrationButton: CustomButton = {
             let registrationButton = CustomButton()
             registrationButton.setTitle(R.string.localizable.haveAccount(), for: .normal)
-            registrationButton.setTitleColor(.red, for: .normal)
+            registrationButton.setTitleColor(GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01"), for: .normal)
             registrationButton.titleLabel?.font = R.font.sfProTextBold(size: 15)
             registrationButton.layer.borderColor = UIColor.lightGray.cgColor
             registrationButton.layer.borderWidth = 1
@@ -135,7 +135,7 @@ class RegistrationViewController: UIViewController {
             return registrationButton
         }()
         
-        view.backgroundColor = .black
+        view.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
         
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)

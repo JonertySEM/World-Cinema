@@ -13,19 +13,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     var viewModel: HomeViewModel
     private var subscribers: Set<AnyCancellable> = []
     
-    private var refreshControl = UIRefreshControl()
+    private var refreshControl = ModernRefreshControl()
     
     private var newMovieList = [MovieResponse]()
     private var inTrendMovieList = [MovieResponse]()
-    private var lastWatchFilm  = MovieResponse(movieId: "",
-                                              name: "",
-                                              description: "",
-                                              age: "",
-                                              chatInfo: ChatInfoResponse(chatId: "",
-                                                                    chatName: ""),
-                                              imageUrls: [String](),
-                                              poster: "",
-                                              tags: [TagResponse]())
+    private var lastWatchFilm = MovieResponse()
     private var forYouMovieList = [MovieResponse]()
     
     init(viewModel: HomeViewModel) {
@@ -41,8 +33,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadAllMovie()
+    }
+    
+    private func loadAllMovie() {
         viewModel.getNewMovie()
         viewModel.getCoverInView()
+        viewModel.getMovieInTrend()
+        viewModel.getFilmForMe()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,27 +76,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         }.store(in: &subscribers)
         
         scrollView.refreshControl = refreshControl
-        refreshControl.backgroundColor = .clear
-        refreshControl.tintColor = .red
+        refreshControl.backgroundColor = .black
+        ModernRefreshControl.appearance().tintColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
         scrollView.addSubview(refreshControl)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
-    let scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.isScrollEnabled = true
-        scroll.alwaysBounceVertical = true
-        return scroll
-    }()
     
-    let inTrendCollection = InTrendCollectionView()
-    
-    let filmsForYouCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionFilmsView
-    }()
+    lazy var inTrendCollection = InTrendCollectionView(movieList: inTrendMovieList)
+    lazy var newFilmsCollectionView = MovieCollectionView(movieList: newMovieList)
+    lazy var filmsForYouCollectionView = ForYouMovieCollectionView(movieList: forYouMovieList)
     
     let imagesCoverCard: UIImageView = {
         let image = UIImageView()
@@ -107,81 +93,90 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         return image
     }()
     
-    lazy var newFilmsCollectionView = MovieCollectionView(movieList: newMovieList)
+    let shadowSceneCard = R.image.shadow()
+    
+    let imagesShadowCard: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.layer.masksToBounds = true
+        return image
+    }()
+    
+    let tapWatchFilm: CustomButton = {
+        let button = CustomButton()
+        button.setTitle(R.string.localizable.watch(), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = R.font.sfProTextBold(size: 15)
+        button.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
+        button.layer.cornerRadius = 4
+        return button
+    }()
+    
+    let tapYourFavorites: CustomButton = {
+        let button = CustomButton()
+        button.setTitle(R.string.localizable.addPrefers(), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = R.font.sfProTextBold(size: 15)
+        button.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
+        button.layer.cornerRadius = 4
+        return button
+    }()
+    
+    let labelInTrend: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.inTrends()
+        label.font = R.font.sfProTextBold(size: 24)
+        label.textColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
+        return label
+    }()
+    
+    let labelYouWatched: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.youWatched()
+        label.font = R.font.sfProTextBold(size: 24)
+        label.textColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
+        return label
+    }()
+    
+    let labelNewFilms: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.newFilms()
+        label.font = R.font.sfProTextBold(size: 24)
+        label.textColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
+        return label
+    }()
+    
+    let labelForYouFilms: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.forYou()
+        label.font = R.font.sfProTextBold(size: 24)
+        label.textColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
+        return label
+    }()
+    
+    let filmWitchYouWatched: UIImageView = {
+        let viewFilm = UIImageView()
+        return viewFilm
+    }()
+    
+    let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.isScrollEnabled = true
+        scroll.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        scroll.alwaysBounceVertical = true
+        return scroll
+    }()
+    
+    let homeView = UIView()
     
     private func createView() {
         scrollView.contentInsetAdjustmentBehavior = .never
         
-        let homeView = UIView()
-        
         print("--------------MOVIELIST")
         print(newMovieList)
         
-        let shadowSceneCard = R.image.shadow()
-        
-        let imagesShadowCard: UIImageView = {
-            let image = UIImageView()
-            image.contentMode = .scaleAspectFill
-            image.layer.masksToBounds = true
-            return image
-        }()
-        
-        let tapWatchFilm: CustomButton = {
-            let button = CustomButton()
-            button.setTitle(R.string.localizable.watch(), for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = R.font.sfProTextBold(size: 15)
-            button.backgroundColor = .red
-            button.layer.cornerRadius = 4
-            return button
-        }()
-        
-        let tapYourFavorites: CustomButton = {
-            let button = CustomButton()
-            button.setTitle(R.string.localizable.addPrefers(), for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = R.font.sfProTextBold(size: 15)
-            button.backgroundColor = .red
-            button.layer.cornerRadius = 4
-            return button
-        }()
-        
-        let labelInTrend: UILabel = {
-            let label = UILabel()
-            label.text = R.string.localizable.inTrends()
-            label.font = R.font.sfProTextBold(size: 24)
-            label.textColor = .red
-            return label
-        }()
-        
-        let labelYouWatched: UILabel = {
-            let label = UILabel()
-            label.text = R.string.localizable.youWatched()
-            label.font = R.font.sfProTextBold(size: 24)
-            label.textColor = .red
-            return label
-        }()
-        
-        let labelNewFilms: UILabel = {
-            let label = UILabel()
-            label.text = R.string.localizable.newFilms()
-            label.font = R.font.sfProTextBold(size: 24)
-            label.textColor = .red
-            return label
-        }()
-        
-        let labelForYouFilms: UILabel = {
-            let label = UILabel()
-            label.text = R.string.localizable.forYou()
-            label.font = R.font.sfProTextBold(size: 24)
-            label.textColor = .red
-            return label
-        }()
-        
-        let filmWitchYouWatched: UIImageView = {
-            let viewFilm = UIImageView()
-            return viewFilm
-        }()
+        print("------------ForYouMovie")
+        print(lastWatchFilm)
         
         view.addSubview(scrollView)
        
@@ -202,7 +197,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         homeView.addSubview(imagesShadowCard)
         homeView.addSubview(tapWatchFilm)
         
-        homeView.backgroundColor = .black
+        homeView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
         
         filmWitchYouWatched.backgroundColor = .green
         
@@ -267,6 +262,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         labelNewFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(300)
             make.top.equalTo(filmWitchYouWatched.snp.bottom).inset(-32)
         }
         
@@ -278,6 +274,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         labelForYouFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(300)
             make.top.equalTo(newFilmsCollectionView.snp.bottom).inset(-32)
         }
         
@@ -290,23 +287,48 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         tapYourFavorites.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
             make.trailing.equalTo(homeView.snp.trailing).inset(16)
-            make.bottom.lessThanOrEqualTo(homeView.snp.bottom).inset(20)
+            make.bottom.equalTo(homeView.snp.bottom)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-300).priority(300)
             make.top.equalTo(filmsForYouCollectionView.snp.bottom).inset(-44)
             make.height.equalTo(super.view.snp.height).multipliedBy(0.05)
         }
         
-//        labelInTrend.removeFromSuperview()
-//        inTrendCollection.removeFromSuperview()
+          clearVoidCollections()
+    }
+    
+    private func clearVoidCollections() {
+        if newMovieList.count == 0 {
+            labelNewFilms.removeFromSuperview()
+            newFilmsCollectionView.removeFromSuperview()
+        }
+        
+        if inTrendMovieList.count == 0 {
+            labelInTrend.removeFromSuperview()
+            inTrendCollection.removeFromSuperview()
+        }
+        
+        if forYouMovieList.count == 0 {
+            labelForYouFilms.removeFromSuperview()
+            filmsForYouCollectionView.removeFromSuperview()
+        }
+        
+        print(lastWatchFilm.poster)
+        
+        if lastWatchFilm.poster == "" {
+            labelYouWatched.removeFromSuperview()
+            filmWitchYouWatched.removeFromSuperview()
+        }
     }
      
-    
     @objc func refresh() {
         viewModel.getNewMovie()
+        // homeView.isHidden = true
         
         viewModel.$isProgressProfileShowing.sink { [self] flag in
             if flag {
                 newFilmsCollectionView.movieNewCollectionView.reloadData()
                 refreshControl.endRefreshing()
+                homeView.isHidden = false
                 viewModel.isProgressProfileShowing = false
             }
         }.store(in: &subscribers)

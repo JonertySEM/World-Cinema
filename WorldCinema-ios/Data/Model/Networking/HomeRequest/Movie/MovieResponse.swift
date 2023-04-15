@@ -8,12 +8,13 @@
 import Foundation
 
 struct MovieResponse: Codable {
-    let movieId: String
-    let name: String
-    let description: String
-    let age: String
-    let chatInfo: ChatInfoResponse
-    let imageUrls: [String]
-    let poster: String
-    let tags: [TagResponse]
+    var movieId: String = ""
+    var name: String = ""
+    var description: String = ""
+    var age: String = ""
+    var chatInfo: ChatInfoResponse = ChatInfoResponse(chatId: "", chatName: "")
+    var imageUrls: [String] = [String]()
+    var poster: String = ""
+    var tags: [TagResponse] = [TagResponse]()
+
 }

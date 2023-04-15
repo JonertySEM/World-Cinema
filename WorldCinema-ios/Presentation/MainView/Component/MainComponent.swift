@@ -194,6 +194,12 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var movieComponent: MovieComponent {
+        shared {
+            MovieComponent(parent: self)
+        }
+    }
+    
     var profileComponent: ProfileComponent {
         shared {
             ProfileComponent(parent: self)

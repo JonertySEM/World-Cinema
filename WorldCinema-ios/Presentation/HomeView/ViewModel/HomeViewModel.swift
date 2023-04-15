@@ -27,15 +27,7 @@ class HomeViewModel: ObservableObject, FlowController {
     @Published var movieNewList = [MovieResponse]()
     @Published var movieForMeList = [MovieResponse]()
     @Published var movieInTrend = [MovieResponse]()
-    @Published var lastWatchedMovie = MovieResponse(movieId: "",
-                                                    name: "",
-                                                    description: "",
-                                                    age: "",
-                                                    chatInfo: ChatInfoResponse(chatId: "",
-                                                                               chatName: ""),
-                                                    imageUrls: [String](),
-                                                    poster: "",
-                                                    tags: [TagResponse]())
+    @Published var lastWatchedMovie = MovieResponse()
 
     init(
         getCoverHomeViewUseCase: GetCoverHomeViewUseCase,

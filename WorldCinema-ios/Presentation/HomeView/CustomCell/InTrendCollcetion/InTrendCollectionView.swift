@@ -10,15 +10,11 @@ import UIKit
 
 class InTrendCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
     
-//    private var filmsCount: [MovieResponse]
-    
-    
-    
     lazy var trendCollectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionFilmsView.backgroundColor = .black
+        collectionFilmsView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
         collectionFilmsView.delegate = self
         collectionFilmsView.dataSource = self
         collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,17 +22,38 @@ class InTrendCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
 
         return collectionFilmsView
     }()
+    
+    lazy var movieNewCollectionView: UICollectionView = { [unowned self] in
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionFilmsView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        collectionFilmsView.delegate = self
+        collectionFilmsView.dataSource = self
+        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
+        collectionFilmsView.register(CustomMovieNewCellView.self, forCellWithReuseIdentifier: "cell")
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .red
+        return collectionFilmsView
+    }()
 
-        addSubview(trendCollectionView)
+    private let movieList: [MovieResponse]
+    // private let movieTapClosure: ((MovieResponse) -> Void)?
 
-        trendCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        trendCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        trendCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        trendCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    init(
+        movieList: [MovieResponse]
+        // movieTapClosure: ((MovieResponse) -> Void)? = nil
+
+    ) {
+        self.movieList = movieList
+        // self.movieTapClosure = movieTapClosure
+        super.init(frame: .zero)
+
+        addSubview(movieNewCollectionView)
+
+        movieNewCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        movieNewCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        movieNewCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        movieNewCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +67,7 @@ extension InTrendCollectionView: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return movieList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
