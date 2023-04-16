@@ -76,6 +76,14 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var getEpisodesRepository: GetEpisodesRepository {
+        shared {
+            GetEpisodesRepositoryImpl(jsonDecoder: jsonDecoder,
+                                      jsonEncoder: jsonEncoder,
+                                      requestInterceptor: requestInterceptor)
+        }
+    }
+    
     var getInTrendMovieUseCase: GetInTrendMovieUseCase {
         shared {
             GetInTrendMovieUseCase(movieRepository: movieRepository)
@@ -149,6 +157,12 @@ final class MainComponent: BootstrapComponent {
     var logOutUseCase: LogOutUseCase {
         shared {
             LogOutUseCase(saveTokensUseCase: saveTokensUseCase)
+        }
+    }
+    
+    var getEpisodesUseCase: GetEpisodesUseCase {
+        shared {
+            GetEpisodesUseCase(getEpisodesRepository: getEpisodesRepository)
         }
     }
     

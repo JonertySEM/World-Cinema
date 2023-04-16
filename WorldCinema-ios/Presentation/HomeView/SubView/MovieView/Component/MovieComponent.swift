@@ -10,18 +10,18 @@ import NeedleFoundation
 import UIKit
 
 protocol MovieComponentProvider: Dependency {
-    
+    var getEpisodesUseCase: GetEpisodesUseCase { get }
+    var getTokensUseCase: GetTokensUseCase { get }
 }
 
-
-final class MovieComponent: Component <MovieComponentProvider> {
-    
+final class MovieComponent: Component<MovieComponentProvider> {
     var movieViewModel: MovieViewModel {
         shared {
-            MovieViewModel()
+            MovieViewModel(getEpisodesUseCase: dependency.getEpisodesUseCase,
+                           getTokensUseCase: dependency.getTokensUseCase)
         }
     }
-    
+
     var movieViewController: UIViewController {
         return MovieViewController(viewModel: movieViewModel)
     }

@@ -35,6 +35,13 @@ class MovieCoordinator: Coordinator {
     
     
     private func showMovieModule(film: MovieResponse) {
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
+                    
+        navigationController.navigationBar.standardAppearance = navBarAppearance
+        navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
         let component = moduleFactory.createMovieModule()
         component.movieViewModel.getFilmData(filmData: film)
         navigationController.pushViewController(component.movieViewController, animated: true)

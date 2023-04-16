@@ -288,15 +288,18 @@ struct _R {
     var tiviMovie: RswiftResources.ImageResource { .init(name: "tiviMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
-  /// This `_R.font` struct is generated, and contains static references to 1 fonts.
+  /// This `_R.font` struct is generated, and contains static references to 2 fonts.
   struct font: Sequence {
     let bundle: Foundation.Bundle
 
     /// Font `SFProText-Bold`.
     var sfProTextBold: RswiftResources.FontResource { .init(name: "SFProText-Bold", bundle: bundle, filename: "SFProText-Bold.ttf") }
 
+    /// Font `SFProText-Regular`.
+    var sfProTextRegular: RswiftResources.FontResource { .init(name: "SFProText-Regular", bundle: bundle, filename: "SFProText-Regular.ttf") }
+
     func makeIterator() -> IndexingIterator<[RswiftResources.FontResource]> {
-      [sfProTextBold].makeIterator()
+      [sfProTextBold, sfProTextRegular].makeIterator()
     }
     func validate() throws {
       for font in self {
@@ -305,12 +308,15 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 1 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 2 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
     /// Resource file `SFProText-Bold.ttf`.
     var sfProTextBoldTtf: RswiftResources.FileResource { .init(name: "SFProText-Bold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `SFProText-Regular.ttf`.
+    var sfProTextRegularTtf: RswiftResources.FileResource { .init(name: "SFProText-Regular", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
   }
 
   /// This `_R.storyboard` struct is generated, and contains static references to 1 storyboards.

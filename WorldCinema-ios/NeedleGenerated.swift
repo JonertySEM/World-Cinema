@@ -117,15 +117,20 @@ private func factory9bc7b43729f663f093120ae93e637f014511a119(_ component: Needle
     return HomeComponentDependency887e91671f4424758155Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class MovieComponentProvidera7033cbb13a1a098180aProvider: MovieComponentProvider {
-
-
-    init() {
-
+    var getEpisodesUseCase: GetEpisodesUseCase {
+        return mainComponent.getEpisodesUseCase
+    }
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->MovieComponent
-private func factory6debacc94202b5616665e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return MovieComponentProvidera7033cbb13a1a098180aProvider()
+private func factory6debacc94202b56166650ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MovieComponentProvidera7033cbb13a1a098180aProvider(mainComponent: parent1(component) as! MainComponent)
 }
 
 #else
@@ -169,7 +174,8 @@ extension HomeComponent: Registration {
 }
 extension MovieComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\MovieComponentProvider.getEpisodesUseCase] = "getEpisodesUseCase-GetEpisodesUseCase"
+        keyPathToName[\MovieComponentProvider.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
     }
 }
 extension MainComponent: Registration {
@@ -200,7 +206,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->CompilationComponent", factorya1836deb0193bacd38b4e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->MovieComponent", factory6debacc94202b5616665e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->MovieComponent", factory6debacc94202b56166650ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
 }
 #endif
