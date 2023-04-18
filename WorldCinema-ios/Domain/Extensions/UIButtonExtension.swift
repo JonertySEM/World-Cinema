@@ -17,7 +17,7 @@ extension UIButton {
 
     func buttonEnable() {
         self.isEnabled = false
-        self.changeButton(button: self, color: GetHexColorHelper().hexStringToUIColor(hex: "#150D0B"))
+        self.changeButton(button: self, color: .black)
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 4

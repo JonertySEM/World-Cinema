@@ -115,7 +115,7 @@ class AuthorizationViewController: UIViewController {
             return registrationButton
         }()
         
-        view.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        view.backgroundColor = .black
         
         passwordTextField.isSecureTextEntry = true
         

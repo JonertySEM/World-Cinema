@@ -10,14 +10,19 @@ import UIKit
 
 class TagCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
     lazy var tagCollectionView: UICollectionView = { [unowned self] in
-        let layout = TagCollectionLayout(minimumInteritemSpacing: 8, minimumLineSpacing: 8)
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        let layout = TagFlowLayout()
         layout.scrollDirection = .vertical
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let tagCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        tagCollectionView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        tagCollectionView.backgroundColor = .black
         tagCollectionView.delegate = self
         tagCollectionView.dataSource = self
         tagCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        tagCollectionView.collectionViewLayout = layout
         tagCollectionView.register(CustomTegCell.self, forCellWithReuseIdentifier: "cell")
 
         return tagCollectionView
@@ -47,10 +52,18 @@ class TagCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDel
 }
 
 extension TagCollectionView: UICollectionViewDelegateFlowLayout {
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/1.5, height: collectionView.frame.width/2)
+    func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize.zero
+    }
+
+    internal func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let label = UILabel(frame: CGRect.zero)
+        label.font = R.font.sfProTextBold(size: 14)
+        label.text = tagList[indexPath.row].tagName
+        label.textColor = .white
+        label.sizeToFit()
+        let size = label.frame.size
+        return CGSize(width: size.width + 30, height: 40)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,36 +72,18 @@ extension TagCollectionView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomTegCell
-        cell.backgroundColor = .red
-        return cell
-//        let displayingMovie = movieList[indexPath.row]
-//        return getCellOfNewMovies(cell: cell, movie: displayingMovie)
-    }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // movieTapClosure?(movieList[indexPath.item])
-    }
+        let tagMovie = tagList[indexPath.row]
 
-    private func getCellOfNewMovies(cell: UICollectionViewCell, movie: MovieResponse) -> UICollectionViewCell {
-        let backgroundImageView = UIImageView()
+        cell.tagLabel.text = tagMovie.tagName
+        cell.layer.borderColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01").cgColor
+        cell.layer.borderWidth = 1
+        cell.tagLabel.textColor = .white
+        cell.tagLabel.textAlignment = .center
+        cell.layer.cornerRadius = 4
+        cell.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01")
 
-        if let displayingMovieFirstUrl = movie.imageUrls.first {
-            if let imageUrl = URL(string: displayingMovieFirstUrl) {
-                LoadFileHelper.loadImge(withUrl: imageUrl, view: backgroundImageView)
-            }
-        }
-
-        backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.layer.masksToBounds = true
-
-        cell.addSubview(backgroundImageView)
-        backgroundImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
 
         return cell
     }
-    
-    
 }
-

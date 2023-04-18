@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 class CadrPreviewCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
+
     lazy var filmPreviewCollectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionFilmsView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        collectionFilmsView.backgroundColor = .black
         collectionFilmsView.delegate = self
         collectionFilmsView.dataSource = self
         collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +61,8 @@ extension CadrPreviewCollectionView: UICollectionViewDelegateFlowLayout {
         return getCellOfNewMovies(cell: cell, movie: displayingMovie)
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
 
     private func getCellOfNewMovies(cell: UICollectionViewCell, movie: String) -> UICollectionViewCell {
         let backgroundImageView = UIImageView()
@@ -79,4 +81,7 @@ extension CadrPreviewCollectionView: UICollectionViewDelegateFlowLayout {
 
         return cell
     }
+    
+    
 }
+

@@ -48,7 +48,7 @@ class EpisodePreviewCollectionView: UIView, UICollectionViewDataSource, UICollec
 
 extension EpisodePreviewCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width/3)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width/4.2)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,8 +64,10 @@ extension EpisodePreviewCollectionView: UICollectionViewDelegateFlowLayout {
         }
 
         cell.titleEpisode.text = displayingMovie.name
+        cell.titleEpisode.sizeToFit()
         cell.descripitonEpisode.text = displayingMovie.description
-
+        cell.descripitonEpisode.sizeToFit()
+        
         if let year = displayingMovie.year {
             cell.yearEpisode.text = String(year)
         }

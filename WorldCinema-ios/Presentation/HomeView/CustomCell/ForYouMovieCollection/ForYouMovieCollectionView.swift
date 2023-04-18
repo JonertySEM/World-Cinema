@@ -17,7 +17,7 @@ class ForYouMovieCollectionView: UIView, UICollectionViewDataSource, UICollectio
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionFilmsView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        collectionFilmsView.backgroundColor = .black
         collectionFilmsView.delegate = self
         collectionFilmsView.dataSource = self
         collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false

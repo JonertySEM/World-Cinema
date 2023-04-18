@@ -65,7 +65,7 @@ class MovieViewController: UIViewController {
         let scroll = UIScrollView()
         scroll.isScrollEnabled = true
         scroll.contentInsetAdjustmentBehavior = .never
-        scroll.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        scroll.backgroundColor = .black 
         scroll.alwaysBounceVertical = true
         return scroll
     }()
@@ -289,6 +289,9 @@ class MovieViewController: UIViewController {
         if episodesData.count == 0 {
             episodeInfo.removeFromSuperview()
             episodePreviewCollectionView.removeFromSuperview()
+            filmCadrCollectionView.snp.makeConstraints { make in
+                make.bottom.equalTo(homeView.snp.bottom).inset(32)
+            }
         }
         
         

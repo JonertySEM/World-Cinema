@@ -11,9 +11,11 @@ import UIKit
 class CustomEpisodePreviewCell: UICollectionViewCell {
     let titleEpisode: UILabel = {
         let label = UILabel()
+        label.setContentHuggingPriority(.init(Float(250)), for: .vertical)
+        label.setContentCompressionResistancePriority(.init(Float(1000)), for: .vertical)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.font = R.font.sfProTextBold(size: 14)
+        label.font = R.font.sfProTextBold(size: 16)
         label.textColor = .white
         return label
     }()
@@ -21,6 +23,8 @@ class CustomEpisodePreviewCell: UICollectionViewCell {
     let descripitonEpisode: UILabel = {
         let label = UILabel()
         label.font = R.font.sfProTextRegular(size: 12)
+        label.setContentHuggingPriority(.init(Float(250)), for: .vertical)
+        label.setContentCompressionResistancePriority(.init(Float(1000)), for: .vertical)
         label.numberOfLines = 2
         label.textColor = GetHexColorHelper().hexStringToUIColor(hex: "#AFAFAF")
         return label
@@ -29,7 +33,8 @@ class CustomEpisodePreviewCell: UICollectionViewCell {
     let yearEpisode: UILabel = {
         let label = UILabel()
         label.font = R.font.sfProTextRegular(size: 12)
-        label.numberOfLines = 0
+        label.setContentHuggingPriority(.init(Float(250)), for: .vertical)
+        label.setContentCompressionResistancePriority(.init(Float(750)), for: .vertical)
         label.textColor = GetHexColorHelper().hexStringToUIColor(hex: "#AFAFAF")
         return label
     }()
@@ -46,7 +51,9 @@ class CustomEpisodePreviewCell: UICollectionViewCell {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.contentMode = .scaleToFill
-        stack.spacing = 12
+        stack.setContentHuggingPriority(.init(Float(250)), for: .vertical)
+        stack.setContentCompressionResistancePriority(.init(Float(750)), for: .vertical)
+        stack.spacing = 6
         stack.distribution = .fill
         return stack
     }()
@@ -56,7 +63,7 @@ class CustomEpisodePreviewCell: UICollectionViewCell {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.contentMode = .scaleToFill
-        stack.spacing = 6
+        stack.spacing = 4
         stack.distribution = .fillProportionally
         return stack
     }()
@@ -87,14 +94,16 @@ class CustomEpisodePreviewCell: UICollectionViewCell {
         
         
         previewEpisode.snp.makeConstraints { make in
-            make.width.equalTo(self.snp.width).multipliedBy(0.4)
+            make.width.equalTo(self.snp.width).multipliedBy(0.35)
             make.height.equalTo(textWithYear.snp.height).multipliedBy(1.0/1.0)
         }
+        
+        
         
         stackWithPicture.snp.makeConstraints { make in
             make.bottom.top.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
-            //make.height.equalTo(self.snp.height).multipliedBy(0.5)
+            make.height.equalToSuperview()
         }
         
         

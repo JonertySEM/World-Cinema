@@ -164,7 +164,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         let scroll = UIScrollView()
         scroll.isScrollEnabled = true
         scroll.contentInsetAdjustmentBehavior = .never
-        scroll.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        scroll.backgroundColor = .black
         scroll.alwaysBounceVertical = true
         return scroll
     }()
@@ -193,7 +193,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         homeView.addSubview(imagesShadowCard)
         homeView.addSubview(tapWatchFilm)
         
-        homeView.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        homeView.backgroundColor = .black
         
         filmWitchYouWatched.backgroundColor = .green
         

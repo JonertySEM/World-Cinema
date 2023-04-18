@@ -135,7 +135,7 @@ class RegistrationViewController: UIViewController {
             return registrationButton
         }()
         
-        view.backgroundColor = GetHexColorHelper().hexStringToUIColor(hex: "#150D0B")
+        view.backgroundColor = .black
         
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
