@@ -9,8 +9,8 @@ import Combine
 import Foundation
 
 class MovieViewModel: FlowController {
-    var completionHandler: ((String?) -> ())?
-    var completionHandlerButton: ((MovieResponse?) -> ())?
+    var completionHandler: (([EpisodesResponse]?) -> ())?
+    var completionHandlerButton: ((EpisodesResponse?) -> ())?
     
     @Published var film = MovieResponse()
     @Published var episodes = [EpisodesResponse]()
@@ -40,16 +40,17 @@ class MovieViewModel: FlowController {
             switch result {
                 case .success(let token):
                     self?.getEpisodesUseCase.execute(
-                        token: token, filmId: self!.film.movieId) { [weak self] result in
-                            switch result {
-                                case .success(let episodes):
-                                    self?.episodes = episodes
-                                    LoaderView.endLoading()
-                                    self?.isProgressProfileShowing = true
+                        token: token, filmId: self!.film.movieId
+                    ) { [weak self] result in
+                        switch result {
+                            case .success(let episodes):
+                                self?.episodes = episodes
+                                LoaderView.endLoading()
+                                self?.isProgressProfileShowing = true
                                    
-                                case .failure(let error):
-                                    print(error)
-                            }
+                            case .failure(let error):
+                                print(error)
+                        }
                     }
                 case .failure(let error):
                     print(error)

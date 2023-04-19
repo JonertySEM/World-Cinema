@@ -37,4 +37,8 @@ class ModuleFactory {
     func createMovieModule() -> MovieComponent {
         mainComponent.movieComponent
     }
+    
+    func createEpisodeModule() -> EpisodeComponent {
+        mainComponent.episodeComponent
+    }
 }

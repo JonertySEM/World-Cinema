@@ -76,6 +76,13 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var timeEpisodesRepository: TimeEpisodesRepository {
+        shared {
+            TimeEpisodeRepositoryImpl(jsonDecoder: jsonDecoder,
+                                      jsonEncoder: jsonEncoder)
+        }
+    }
+    
     var getEpisodesRepository: GetEpisodesRepository {
         shared {
             GetEpisodesRepositoryImpl(jsonDecoder: jsonDecoder,
@@ -178,6 +185,18 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var getTimeEpisodeUseCase: GetTimeEpisodeUseCase {
+        shared {
+            GetTimeEpisodeUseCase(timeEpisodesRepository: timeEpisodesRepository)
+        }
+    }
+    
+    var saveTimeEpisodeUseCase: SaveTimeEpisodeUseCase {
+        shared {
+            SaveTimeEpisodeUseCase(timeEpisodesRepository: timeEpisodesRepository)
+        }
+    }
+    
     var uploadProfileDataUseCase: UploadProfileDataUseCase {
         shared {
             UploadProfileDataUseCase(profileRepository: profileRepository)
@@ -193,6 +212,12 @@ final class MainComponent: BootstrapComponent {
     var registrationComponent: RegistrationComponent {
         shared {
             RegistrationComponent(parent: self)
+        }
+    }
+    
+    var episodeComponent: EpisodeComponent {
+        shared {
+            EpisodeComponent(parent: self)
         }
     }
     

@@ -24,12 +24,17 @@ class EpisodePreviewCollectionView: UIView, UICollectionViewDataSource, UICollec
     }()
 
     private let episodeList: [EpisodesResponse]
+    private let episodeTapClosure: ((EpisodesResponse) -> Void)?
+    private let episodeCountClosure: (([EpisodesResponse]) -> Void)?
 
     init(
-        episodeList: [EpisodesResponse]
-
+        episodeList: [EpisodesResponse],
+        episodeTapClosure: ((EpisodesResponse) -> Void)? = nil,
+        episodeCountClosure: (([EpisodesResponse]) -> Void)? = nil
     ) {
         self.episodeList = episodeList
+        self.episodeTapClosure = episodeTapClosure
+        self.episodeCountClosure = episodeCountClosure
         super.init(frame: .zero)
 
         addSubview(episodePreviewCollectionView)
@@ -76,6 +81,8 @@ extension EpisodePreviewCollectionView: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // movieTapClosure?(movieList[indexPath.item])
+        episodeTapClosure?(episodeList[indexPath.item])
+        episodeCountClosure?(episodeList)
+        
     }
 }

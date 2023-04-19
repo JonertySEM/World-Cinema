@@ -39,6 +39,18 @@
 
 // MARK: ProfileView
 
+"changeAvatar" = "Change";
+"messageText" = "Discuss";
+"storyText" = "History";
+"settingsText" = "Settings";
+"exitButton" = "Exit";
+
+// MARK: MovieView
+
+"textInfo" = "Description";
+"Cadrs" = "Cadrs";
+"Episodes" = "Episodes";
+
 
 // MARK: CollectionView
 

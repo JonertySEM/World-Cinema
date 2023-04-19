@@ -10,10 +10,12 @@
 		<dict>
 			<key>yourdomain.com</key>
 			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
+				<true/>
 			</dict>
 		</dict>
 	</dict>

@@ -119,7 +119,7 @@ class ProfileViewController: UIViewController {
     
     let changeAvatar: UILabel = {
         let label = UILabel()
-        label.text = "Изменить"
+        label.text = R.string.localizable.changeAvatar()
         
         label.font = R.font.sfProTextBold(size: 15)
         label.adjustsFontSizeToFitWidth = true
@@ -130,7 +130,7 @@ class ProfileViewController: UIViewController {
     
     let messageText: UILabel = {
         let label = UILabel()
-        label.text = "Обсуждение"
+        label.text = R.string.localizable.messageText()
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.font = R.font.sfProTextBold(size: 15)
@@ -140,7 +140,7 @@ class ProfileViewController: UIViewController {
     
     let storyText: UILabel = {
         let label = UILabel()
-        label.text = "История"
+        label.text = R.string.localizable.storyText()
         label.font = R.font.sfProTextBold(size: 15)
         label.textColor = .white
         return label
@@ -148,7 +148,7 @@ class ProfileViewController: UIViewController {
     
     let settingText: UILabel = {
         let label = UILabel()
-        label.text = "Настройки"
+        label.text = R.string.localizable.settingsText()
         label.font = R.font.sfProTextBold(size: 15)
         label.textColor = .white
         return label
@@ -156,7 +156,7 @@ class ProfileViewController: UIViewController {
     
     let buttonExit: CustomButton = {
         let button = CustomButton()
-        button.setTitle("Выйти", for: .normal)
+        button.setTitle(R.string.localizable.exitButton(), for: .normal)
         button.setTitleColor(GetHexColorHelper().hexStringToUIColor(hex: "#EF3A01"), for: .normal)
         button.titleLabel?.font = R.font.sfProTextBold(size: 15)
         button.layer.borderColor = UIColor.lightGray.cgColor

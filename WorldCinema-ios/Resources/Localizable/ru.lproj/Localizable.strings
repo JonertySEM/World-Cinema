@@ -40,6 +40,17 @@
 "forYou" = "Для вас";
 
 // MARK: ProfileView
+"changeAvatar" = "Изменить";
+"messageText" = "Обсуждение";
+"storyText" = "История";
+"settingsText" = "Настройки";
+"exitButton" = "Выйти";
+
+// MARK: MovieView
+
+"textInfo" = "Описание";
+"Cadrs" = "Кадры";
+"Episodes" = "Эпизоды";
 
 
 // MARK: CollectionView

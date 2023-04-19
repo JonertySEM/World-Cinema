@@ -64,9 +64,23 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 25 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 33 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: Cadrs
+      ///
+      /// Key: Cadrs
+      ///
+      /// Locales: en, ru
+      var cadrs: RswiftResources.StringResource { .init(key: "Cadrs", tableName: "Localizable", source: source, developmentValue: "Cadrs", comment: nil) }
+
+      /// en translation: Episodes
+      ///
+      /// Key: Episodes
+      ///
+      /// Locales: en, ru
+      var episodes: RswiftResources.StringResource { .init(key: "Episodes", tableName: "Localizable", source: source, developmentValue: "Episodes", comment: nil) }
 
       /// en translation: Add prefers
       ///
@@ -74,6 +88,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var addPrefers: RswiftResources.StringResource { .init(key: "addPrefers", tableName: "Localizable", source: source, developmentValue: "Add prefers", comment: nil) }
+
+      /// en translation: Change
+      ///
+      /// Key: changeAvatar
+      ///
+      /// Locales: en, ru
+      var changeAvatar: RswiftResources.StringResource { .init(key: "changeAvatar", tableName: "Localizable", source: source, developmentValue: "Change", comment: nil) }
 
       /// en translation: Collection
       ///
@@ -102,6 +123,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var email: RswiftResources.StringResource { .init(key: "email", tableName: "Localizable", source: source, developmentValue: "E-mail", comment: nil) }
+
+      /// en translation: Exit
+      ///
+      /// Key: exitButton
+      ///
+      /// Locales: en, ru
+      var exitButton: RswiftResources.StringResource { .init(key: "exitButton", tableName: "Localizable", source: source, developmentValue: "Exit", comment: nil) }
 
       /// en translation: First name
       ///
@@ -159,6 +187,13 @@ struct _R {
       /// Locales: en, ru
       var loading: RswiftResources.StringResource { .init(key: "loading", tableName: "Localizable", source: source, developmentValue: "Loading", comment: nil) }
 
+      /// en translation: Discuss
+      ///
+      /// Key: messageText
+      ///
+      /// Locales: en, ru
+      var messageText: RswiftResources.StringResource { .init(key: "messageText", tableName: "Localizable", source: source, developmentValue: "Discuss", comment: nil) }
+
       /// en translation: New films
       ///
       /// Key: newFilms
@@ -201,12 +236,33 @@ struct _R {
       /// Locales: en, ru
       var secondName: RswiftResources.StringResource { .init(key: "secondName", tableName: "Localizable", source: source, developmentValue: "Second name", comment: nil) }
 
+      /// en translation: Settings
+      ///
+      /// Key: settingsText
+      ///
+      /// Locales: en, ru
+      var settingsText: RswiftResources.StringResource { .init(key: "settingsText", tableName: "Localizable", source: source, developmentValue: "Settings", comment: nil) }
+
       /// en translation: Sign In
       ///
       /// Key: signIn
       ///
       /// Locales: en, ru
       var signIn: RswiftResources.StringResource { .init(key: "signIn", tableName: "Localizable", source: source, developmentValue: "Sign In", comment: nil) }
+
+      /// en translation: History
+      ///
+      /// Key: storyText
+      ///
+      /// Locales: en, ru
+      var storyText: RswiftResources.StringResource { .init(key: "storyText", tableName: "Localizable", source: source, developmentValue: "History", comment: nil) }
+
+      /// en translation: Description
+      ///
+      /// Key: textInfo
+      ///
+      /// Locales: en, ru
+      var textInfo: RswiftResources.StringResource { .init(key: "textInfo", tableName: "Localizable", source: source, developmentValue: "Description", comment: nil) }
 
       /// en translation: Unable to get data
       ///
@@ -256,18 +312,21 @@ struct _R {
     var lauchScreenBackground: RswiftResources.ColorResource { .init(name: "LauchScreenBackground", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 9 images.
+  /// This `_R.image` struct is generated, and contains static references to 11 images.
   struct image {
     let bundle: Foundation.Bundle
 
     /// Image `LauchScreenLogo`.
     var lauchScreenLogo: RswiftResources.ImageResource { .init(name: "LauchScreenLogo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `cover`.
-    var cover: RswiftResources.ImageResource { .init(name: "cover", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `heartMovie`.
+    var heartMovie: RswiftResources.ImageResource { .init(name: "heartMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `messageMovieProfile`.
     var messageMovieProfile: RswiftResources.ImageResource { .init(name: "messageMovieProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `plusMovie`.
+    var plusMovie: RswiftResources.ImageResource { .init(name: "plusMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `sadTV`.
     var sadTV: RswiftResources.ImageResource { .init(name: "sadTV", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -286,6 +345,9 @@ struct _R {
 
     /// Image `tiviMovie`.
     var tiviMovie: RswiftResources.ImageResource { .init(name: "tiviMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `videoStartButton`.
+    var videoStartButton: RswiftResources.ImageResource { .init(name: "videoStartButton", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.font` struct is generated, and contains static references to 2 fonts.

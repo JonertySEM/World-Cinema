@@ -145,7 +145,7 @@ class HomeCoordinator: NSObject, Coordinator {
         
        
         childCoordinators.append(movieCoordinator)
-        movieCoordinator.film = movie
+        movieCoordinator.filmData = movie
         movieCoordinator.start()
     }
 }

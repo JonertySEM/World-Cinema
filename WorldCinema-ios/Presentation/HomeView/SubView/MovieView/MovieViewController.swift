@@ -38,7 +38,6 @@ class MovieViewController: UIViewController {
             filmData = movie
         }.store(in: &subscribers)
         
-        
         viewModel.$film.sink { [self] url in
             guard let imageUrl = URL(string: url.poster) else { return }
             LoadFileHelper.loadImge(withUrl: imageUrl, view: imagesCoverCard)
@@ -65,7 +64,7 @@ class MovieViewController: UIViewController {
         let scroll = UIScrollView()
         scroll.isScrollEnabled = true
         scroll.contentInsetAdjustmentBehavior = .never
-        scroll.backgroundColor = .black 
+        scroll.backgroundColor = .black
         scroll.alwaysBounceVertical = true
         return scroll
     }()
@@ -121,10 +120,11 @@ class MovieViewController: UIViewController {
         return image
     }()
     
-    
     lazy var tagCollectionView = TagCollectionView(tagList: filmData.tags)
     lazy var filmCadrCollectionView = CadrPreviewCollectionView(filmPreview: filmData.imageUrls)
-    lazy var episodePreviewCollectionView = EpisodePreviewCollectionView(episodeList: episodesData)
+    lazy var episodePreviewCollectionView = EpisodePreviewCollectionView(episodeList: episodesData,
+                                                                         episodeTapClosure: viewModel.completionHandlerButton,
+                                                                         episodeCountClosure: viewModel.completionHandler)
     
     let aboutFilmInfoStack: UIStackView = {
         let stack = UIStackView()
@@ -138,7 +138,7 @@ class MovieViewController: UIViewController {
     
     let titleInfo: UILabel = {
         let label = UILabel()
-        label.text = "Описание"
+        label.text = R.string.localizable.textInfo()
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.font = R.font.sfProTextBold(size: 24)
@@ -156,7 +156,7 @@ class MovieViewController: UIViewController {
     
     let cadrsInfo: UILabel = {
         let label = UILabel()
-        label.text = "Кадры"
+        label.text = R.string.localizable.cadrs()
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.font = R.font.sfProTextBold(size: 24)
@@ -166,7 +166,7 @@ class MovieViewController: UIViewController {
     
     let episodeInfo: UILabel = {
         let label = UILabel()
-        label.text = "Эпизоды"
+        label.text = R.string.localizable.episodes()
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.font = R.font.sfProTextBold(size: 24)
@@ -177,9 +177,6 @@ class MovieViewController: UIViewController {
     private func createFilmData() {
         view.addSubview(scrollView)
        
-        print("-------------Episode")
-        print(episodesData)
-        
         scrollView.addSubview(homeView)
         
         homeView.backgroundColor = .black
@@ -204,10 +201,6 @@ class MovieViewController: UIViewController {
         
         homeView.addSubview(episodeInfo)
         homeView.addSubview(episodePreviewCollectionView)
-        
-        
-        
-        
         
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -293,7 +286,5 @@ class MovieViewController: UIViewController {
                 make.bottom.equalTo(homeView.snp.bottom).inset(32)
             }
         }
-        
-        
     }
 }

@@ -116,6 +116,22 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
 private func factory9bc7b43729f663f093120ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return HomeComponentDependency887e91671f4424758155Provider(mainComponent: parent1(component) as! MainComponent)
 }
+private class EpisodeComponentProvidera76b271ddb3f0a03ed73Provider: EpisodeComponentProvider {
+    var getTimeEpisodeUseCase: GetTimeEpisodeUseCase {
+        return mainComponent.getTimeEpisodeUseCase
+    }
+    var saveTimeEpisodeUseCase: SaveTimeEpisodeUseCase {
+        return mainComponent.saveTimeEpisodeUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->EpisodeComponent
+private func factory7c52d030d19659ed72f40ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return EpisodeComponentProvidera76b271ddb3f0a03ed73Provider(mainComponent: parent1(component) as! MainComponent)
+}
 private class MovieComponentProvidera7033cbb13a1a098180aProvider: MovieComponentProvider {
     var getEpisodesUseCase: GetEpisodesUseCase {
         return mainComponent.getEpisodesUseCase
@@ -172,6 +188,12 @@ extension HomeComponent: Registration {
         keyPathToName[\HomeComponentDependency.getForMeMovieUseCase] = "getForMeMovieUseCase-GetForMeMovieUseCase"
     }
 }
+extension EpisodeComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\EpisodeComponentProvider.getTimeEpisodeUseCase] = "getTimeEpisodeUseCase-GetTimeEpisodeUseCase"
+        keyPathToName[\EpisodeComponentProvider.saveTimeEpisodeUseCase] = "saveTimeEpisodeUseCase-SaveTimeEpisodeUseCase"
+    }
+}
 extension MovieComponent: Registration {
     public func registerItems() {
         keyPathToName[\MovieComponentProvider.getEpisodesUseCase] = "getEpisodesUseCase-GetEpisodesUseCase"
@@ -206,6 +228,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->CompilationComponent", factorya1836deb0193bacd38b4e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->EpisodeComponent", factory7c52d030d19659ed72f40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->MovieComponent", factory6debacc94202b56166650ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
 }
