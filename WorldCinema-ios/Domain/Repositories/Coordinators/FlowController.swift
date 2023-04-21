@@ -13,3 +13,8 @@ protocol FlowController {
     var completionHandler: ((T) -> ())? { get set }
     var completionHandlerButton: ((B) -> ())? { get set }
 }
+
+protocol AddEpisode {
+    associatedtype C
+    var tapEpisode: ((C) -> ())? { get set }
+}

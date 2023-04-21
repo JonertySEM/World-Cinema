@@ -91,6 +91,14 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var getHistoryFilmRepository: GetHistoryFilmRepository {
+        shared {
+            GetHistoryFilmRepositoryImpl(jsonDecoder: jsonDecoder,
+                                         jsonEncoder: jsonEncoder,
+                                         requestInterceptor: requestInterceptor)
+        }
+    }
+    
     var getInTrendMovieUseCase: GetInTrendMovieUseCase {
         shared {
             GetInTrendMovieUseCase(movieRepository: movieRepository)
@@ -112,6 +120,12 @@ final class MainComponent: BootstrapComponent {
     var getForMeMovieUseCase: GetForMeMovieUseCase {
         shared {
             GetForMeMovieUseCase(movieRepository: movieRepository)
+        }
+    }
+    
+    var getHistoryUseCase: GetHistoryUseCase {
+        shared {
+            GetHistoryUseCase(getHistoryFilmRepository: getHistoryFilmRepository)
         }
     }
     

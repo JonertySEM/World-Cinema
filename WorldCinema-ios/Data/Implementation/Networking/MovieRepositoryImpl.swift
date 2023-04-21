@@ -72,7 +72,7 @@ class MovieRepositoryImpl: MovieRepository {
             }
     }
     
-    func getLastViewMovie(token: String, completion: ((Result<MovieResponse, Error>) -> Void)?) {
+    func getLastViewMovie(token: String, completion: ((Result<[MovieResponse?], Error>) -> Void)?) {
         AF.request(
             Self.url + NetworkingModel.movieLine + "?filter=lastView",
             method: .get,

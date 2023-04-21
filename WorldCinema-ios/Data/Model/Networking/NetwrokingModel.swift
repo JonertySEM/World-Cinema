@@ -21,6 +21,7 @@ class NetworkingModel {
     static let avatar = "/avatar"
     static let episodes = "/episodes"
     static let time = "/time"
+    static let history = "/history"
 
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",

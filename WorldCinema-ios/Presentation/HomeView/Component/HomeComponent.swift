@@ -16,6 +16,7 @@ protocol HomeComponentDependency: Dependency {
     var getNewMovieUseCase: GetNewMovieUseCase { get }
     var getLastViewMovieUseCase: GetLastViewMovieUseCase { get }
     var getForMeMovieUseCase: GetForMeMovieUseCase { get }
+    var getHistoryUseCase: GetHistoryUseCase { get }
 }
 
 final class HomeComponent: Component<HomeComponentDependency> {
@@ -26,7 +27,7 @@ final class HomeComponent: Component<HomeComponentDependency> {
                           getInTrendMovieUseCase: dependency.getInTrendMovieUseCase,
                           getNewMovieUseCase: dependency.getNewMovieUseCase,
                           getLastViewMovieUseCase: dependency.getLastViewMovieUseCase,
-                          getForMeMovieUseCase: dependency.getForMeMovieUseCase)
+                          getForMeMovieUseCase: dependency.getForMeMovieUseCase, getHistoryUseCase: dependency.getHistoryUseCase)
         }
     }
 

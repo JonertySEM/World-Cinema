@@ -20,6 +20,10 @@
 		4F21928D29D32DF7001AEB5F /* NSErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21928C29D32DF7001AEB5F /* NSErrorExtension.swift */; };
 		4F38328E29C976B3000A660D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4F38328D29C976B3000A660D /* Alamofire */; };
 		4F38329729C9B6B7000A660D /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4F38329629C9B6B7000A660D /* NeedleFoundation */; };
+		4F3C099829F23D4C00597A0E /* GetHistoryFilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C099729F23D4B00597A0E /* GetHistoryFilmRepository.swift */; };
+		4F3C099A29F23D9A00597A0E /* HistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C099929F23D9A00597A0E /* HistoryResponse.swift */; };
+		4F3C099C29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C099B29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift */; };
+		4F3C099E29F23F1C00597A0E /* GetHistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C099D29F23F1C00597A0E /* GetHistoryUseCase.swift */; };
 		4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42708929DEC5F600A1FC80 /* UIImageView.swift */; };
 		4F42708D29DEE1B700A1FC80 /* CompilationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42708C29DEE1B700A1FC80 /* CompilationViewController.swift */; };
 		4F42709029DEE1EC00A1FC80 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42708F29DEE1EC00A1FC80 /* CollectionViewController.swift */; };
@@ -163,6 +167,10 @@
 		4F21928829D32CC5001AEB5F /* NetworkingEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
 		4F21928A29D32D80001AEB5F /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
 		4F21928C29D32DF7001AEB5F /* NSErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExtension.swift; sourceTree = "<group>"; };
+		4F3C099729F23D4B00597A0E /* GetHistoryFilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHistoryFilmRepository.swift; sourceTree = "<group>"; };
+		4F3C099929F23D9A00597A0E /* HistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryResponse.swift; sourceTree = "<group>"; };
+		4F3C099B29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHistoryFilmRepositoryImpl.swift; sourceTree = "<group>"; };
+		4F3C099D29F23F1C00597A0E /* GetHistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHistoryUseCase.swift; sourceTree = "<group>"; };
 		4F42708929DEC5F600A1FC80 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		4F42708C29DEE1B700A1FC80 /* CompilationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationViewController.swift; sourceTree = "<group>"; };
 		4F42708F29DEE1EC00A1FC80 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +361,7 @@
 				4F4270A329E300E500A1FC80 /* ProfileRepository.swift */,
 				4FE93FF729EBDFA800F21F4B /* GetEpisodesRepository.swift */,
 				4FE9405229EE8B5C00F21F4B /* TimeEpisodesRepository.swift */,
+				4F3C099729F23D4B00597A0E /* GetHistoryFilmRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -385,6 +394,7 @@
 				4F4270A829E3026200A1FC80 /* ProfileRepositoryImpl.swift */,
 				4FE93FF929EBDFFC00F21F4B /* GetEpisodesRepositoryImpl.swift */,
 				4FE9405629EFB8F700F21F4B /* TimeEpisodeRepositoryImpl.swift */,
+				4F3C099B29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -475,6 +485,13 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		4F3C099F29F26B1200597A0E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4F42708829DEA6F300A1FC80 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +505,7 @@
 		4F42708B29DEE18700A1FC80 /* CompilationView */ = {
 			isa = PBXGroup;
 			children = (
+				4F3C099F29F26B1200597A0E /* ViewModel */,
 				4F42709229DEE20600A1FC80 /* Component */,
 				4F42708C29DEE1B700A1FC80 /* CompilationViewController.swift */,
 			);
@@ -807,6 +825,7 @@
 				4FD9280929DC81F4007EA8FE /* ChatInfoResponse.swift */,
 				4FE93FF529EBDD2C00F21F4B /* EpisodesResponse.swift */,
 				4FE9405429EE8BF700F21F4B /* EpisodesTime.swift */,
+				4F3C099929F23D9A00597A0E /* HistoryResponse.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -828,6 +847,7 @@
 				4FE93FC429E6C56B00F21F4B /* GetForMeMovieUseCase.swift */,
 				4FE93FC629E6C5C500F21F4B /* GetLastViewMovieUseCase.swift */,
 				4FE93FC829E6C60700F21F4B /* GetCompilationMovieUseCase.swift */,
+				4F3C099D29F23F1C00597A0E /* GetHistoryUseCase.swift */,
 			);
 			path = HomeViewRepository;
 			sourceTree = "<group>";
@@ -1311,6 +1331,7 @@
 				4FE9405B29EFBBBE00F21F4B /* SaveTimeEpisodeUseCase.swift in Sources */,
 				4FD9281429DD1EFD007EA8FE /* GetCoverHomeViewUseCase.swift in Sources */,
 				4F63C88229D8213F00B06D35 /* StringExtension.swift in Sources */,
+				4F3C099C29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift in Sources */,
 				4F21928229D32B48001AEB5F /* AuthRepositoryImpl.swift in Sources */,
 				4F63C87429D80F9800B06D35 /* KeyChainRepositoryImpl.swift in Sources */,
 				4FB1FF1A29C9716100BD7141 /* AppDelegate.swift in Sources */,
@@ -1323,6 +1344,7 @@
 				4F42709629DEE2A800A1FC80 /* CollectionComponent.swift in Sources */,
 				4FE9405529EE8BF700F21F4B /* EpisodesTime.swift in Sources */,
 				4FE8521429DB2ED2002CCD6A /* AppCoordinator.swift in Sources */,
+				4F3C099A29F23D9A00597A0E /* HistoryResponse.swift in Sources */,
 				4FE93FC729E6C5C500F21F4B /* GetLastViewMovieUseCase.swift in Sources */,
 				4FE93FE929EBAAA700F21F4B /* YearEnums.swift in Sources */,
 				4F63C8A829D9977500B06D35 /* LoaderView.swift in Sources */,
@@ -1379,6 +1401,7 @@
 				4F6B725D29DAB91D00F48DE0 /* R.generated.swift in Sources */,
 				4F4270A029E05AD500A1FC80 /* CollectionResponse.swift in Sources */,
 				4FF0B30129CD8C3800A82AFA /* MainViewModel.swift in Sources */,
+				4F3C099E29F23F1C00597A0E /* GetHistoryUseCase.swift in Sources */,
 				4FE9404B29EE88D800F21F4B /* EpisodeViewController.swift in Sources */,
 				4FD9280C29DC8280007EA8FE /* MovieRepository.swift in Sources */,
 				4F4270AF29E3058700A1FC80 /* ProfileViewModel.swift in Sources */,
@@ -1405,6 +1428,7 @@
 				4F63C86B29D80B7300B06D35 /* UIButtonExtension.swift in Sources */,
 				4FD9281629DD20B2007EA8FE /* LogOutUseCase.swift in Sources */,
 				4FD9280E29DC8364007EA8FE /* MovieRepositoryImpl.swift in Sources */,
+				4F3C099829F23D4C00597A0E /* GetHistoryFilmRepository.swift in Sources */,
 				4F21928029D3287E001AEB5F /* AuthResponse.swift in Sources */,
 				4F63C86629D7E63800B06D35 /* RegistrationViewModel.swift in Sources */,
 				4F63C82229D4218300B06D35 /* LoginUseCase.swift in Sources */,

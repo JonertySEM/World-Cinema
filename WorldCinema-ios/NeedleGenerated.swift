@@ -107,6 +107,9 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
     var getForMeMovieUseCase: GetForMeMovieUseCase {
         return mainComponent.getForMeMovieUseCase
     }
+    var getHistoryUseCase: GetHistoryUseCase {
+        return mainComponent.getHistoryUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -122,6 +125,9 @@ private class EpisodeComponentProvidera76b271ddb3f0a03ed73Provider: EpisodeCompo
     }
     var saveTimeEpisodeUseCase: SaveTimeEpisodeUseCase {
         return mainComponent.saveTimeEpisodeUseCase
+    }
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
@@ -186,12 +192,14 @@ extension HomeComponent: Registration {
         keyPathToName[\HomeComponentDependency.getNewMovieUseCase] = "getNewMovieUseCase-GetNewMovieUseCase"
         keyPathToName[\HomeComponentDependency.getLastViewMovieUseCase] = "getLastViewMovieUseCase-GetLastViewMovieUseCase"
         keyPathToName[\HomeComponentDependency.getForMeMovieUseCase] = "getForMeMovieUseCase-GetForMeMovieUseCase"
+        keyPathToName[\HomeComponentDependency.getHistoryUseCase] = "getHistoryUseCase-GetHistoryUseCase"
     }
 }
 extension EpisodeComponent: Registration {
     public func registerItems() {
         keyPathToName[\EpisodeComponentProvider.getTimeEpisodeUseCase] = "getTimeEpisodeUseCase-GetTimeEpisodeUseCase"
         keyPathToName[\EpisodeComponentProvider.saveTimeEpisodeUseCase] = "saveTimeEpisodeUseCase-SaveTimeEpisodeUseCase"
+        keyPathToName[\EpisodeComponentProvider.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
     }
 }
 extension MovieComponent: Registration {

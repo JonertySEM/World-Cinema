@@ -21,7 +21,7 @@ class GetLastViewMovieUseCase {
     }
     
     func execute(token: String,
-                 completion: ((Result<MovieResponse, Error>) -> Void)? = nil) {
+                 completion: ((Result<[MovieResponse?], Error>) -> Void)? = nil) {
         movieRepository.getLastViewMovie(token: token, completion: completion)
     }
 }

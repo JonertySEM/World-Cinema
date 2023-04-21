@@ -37,7 +37,7 @@ class TimeEpisodeRepositoryImpl: TimeEpisodesRepository {
             }
     }
 
-    func saveTimePosition(token: String, episodeId: String, timeRequest: EpisodesTime, completion: ((Result<VoidResponse, Error>) -> Void)?) {
+    func saveTimePosition(token: String, episodeId: String, timeRequest: Int?, completion: ((Result<VoidResponse, Error>) -> Void)?) {
         do {
             let encodedParametrs = try jsonEncoder.encode(timeRequest)
             let parametrs = try JSONSerialization.jsonObject(

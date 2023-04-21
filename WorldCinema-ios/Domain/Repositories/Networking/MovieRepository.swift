@@ -24,7 +24,7 @@ protocol MovieRepository {
 
     func getLastViewMovie(
         token: String,
-        completion: ((Result<MovieResponse, Error>) -> Void)?
+        completion: ((Result<[MovieResponse?], Error>) -> Void)?
     )
 
     func getCompilationMovie(

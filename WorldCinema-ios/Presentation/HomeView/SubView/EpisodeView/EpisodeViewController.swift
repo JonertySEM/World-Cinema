@@ -5,22 +5,18 @@
 //  Created by Семён Алимпиев on 18.04.2023.
 //
 
+import AVFoundation
+import AVKit
 import Combine
 import SnapKit
 import UIKit
-import AVFoundation
-import AVKit
 
 class EpisodeViewController: UIViewController {
     private var subscribers: Set<AnyCancellable> = []
     
     let avPlayerController = AVPlayerViewController()
 
-    
     var viewModel: EpisodeViewModel
-//    private var filmData = MovieResponse()
-//    private var episodesData = EpisodesResponse()
-    
     
     init(viewModel: EpisodeViewModel) {
         self.viewModel = viewModel
@@ -36,7 +32,6 @@ class EpisodeViewController: UIViewController {
         super.viewDidLoad()
         super.view.backgroundColor = .black
         createUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,49 +44,34 @@ class EpisodeViewController: UIViewController {
         labelOfNameMovie.text = viewModel.film.name
         labelOfCountSeasons.text = "\(viewModel.countEpisode) Серий"
         
-        guard let year = viewModel.episode.year else { return }
-        labelOfYearData.text = String(year)
+        if viewModel.episode.year == nil {
+            labelOfYearData.text = "2003"
+        } else {
+            guard let year = viewModel.episode.year else { return }
+            labelOfYearData.text = String(year)
+        }
         
-        descriptionText.text = viewModel.episode.description
-        
-       
-        
-        
-//        viewModel.$isPlaying.sink { [self] flag in
-//           isPlayingVideo = flag
-//        }.store(in: &subscribers)
-        
-     
-        
-        
-    }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        sender.view?.showAnimation { [self] in
-
+        if viewModel.episode.description.isEmpty {
+            descriptionText.text = viewModel.film.description
+        } else {
+            descriptionText.text = viewModel.episode.description
         }
     }
     
-    let startVideoButton: UIImageView = {
-        let viewButton = UIImageView()
-        viewButton.image = R.image.videoStartButton()
-        viewButton.contentMode = .scaleToFill
-        return viewButton
-    }()
-    
-    private func addCustomStopStartVideoButton() {
-       
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        startVideoButton.addGestureRecognizer(tapGesture)
-        
-        
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            videoView.player.pause()
+            let curTime = videoView.player.currentTime().seconds
+            guard !(curTime.isNaN || curTime.isInfinite) else { return }
+            viewModel.saveTimeEpisode(timeRequest: Int(curTime))
+        }
     }
+
+    lazy var videoView = VideoPlayerView(fileUrl: viewModel.episode.filePath, avpController: avPlayerController)
     
     let testVideoView: UIView = {
         let view = UIView()
-       
         return view
     }()
     
@@ -211,9 +191,6 @@ class EpisodeViewController: UIViewController {
     }()
     
     private func createUI() {
-        
-        let videoView = VideoPlayerView(fileUrl: viewModel.episode.filePath, avpController: avPlayerController)
-        
         view.addSubview(testVideoView)
         view.addSubview(episodeTitle)
         
@@ -244,17 +221,10 @@ class EpisodeViewController: UIViewController {
             make.edges.equalTo(testVideoView)
         }
         
-        
         episodeTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
             make.trailing.equalToSuperview().inset(72)
             make.top.equalTo(testVideoView.snp.bottom).inset(-16)
-        }
-        
-        dataOfMovie.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(16)
-            make.height.equalTo(super.view.snp.height).multipliedBy(0.08)
-            make.top.equalTo(episodeTitle.snp.bottom).inset(-16)
         }
         
         pictureMovieInStack.snp.makeConstraints { make in
@@ -264,7 +234,7 @@ class EpisodeViewController: UIViewController {
         dataOfMovie.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
             make.height.equalTo(super.view.snp.height).multipliedBy(0.08)
-            make.trailing.greaterThanOrEqualTo(stackOfButtons.snp.leading).inset(-20)
+            make.trailing.equalTo(stackOfButtons.snp.leading).inset(-20)
             make.top.equalTo(episodeTitle.snp.bottom).inset(-16)
         }
         

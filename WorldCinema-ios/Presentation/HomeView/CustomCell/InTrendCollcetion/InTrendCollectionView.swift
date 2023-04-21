@@ -10,19 +10,6 @@ import UIKit
 
 class InTrendCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    lazy var trendCollectionView: UICollectionView = { [unowned self] in
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionFilmsView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionFilmsView.backgroundColor = .black
-        collectionFilmsView.delegate = self
-        collectionFilmsView.dataSource = self
-        collectionFilmsView.translatesAutoresizingMaskIntoConstraints = false
-        collectionFilmsView.register(CustomCellView.self, forCellWithReuseIdentifier: "cell")
-
-        return collectionFilmsView
-    }()
-    
     lazy var movieNewCollectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

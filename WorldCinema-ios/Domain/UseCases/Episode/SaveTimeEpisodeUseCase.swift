@@ -21,8 +21,8 @@ class SaveTimeEpisodeUseCase {
 
     func execute(token: String,
                  episodeId: String,
-                 timeRequest: EpisodesTime,
-                 completion: ((Result<VoidResponse, Error>) -> Void)?)
+                 timeRequest: Int?,
+                 completion: ((Result<VoidResponse, Error>) -> Void)? = nil)
     {
         timeEpisodesRepository.saveTimePosition(token: token, episodeId: episodeId, timeRequest: timeRequest, completion: completion)
     }

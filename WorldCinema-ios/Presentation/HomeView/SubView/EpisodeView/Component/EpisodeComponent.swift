@@ -12,13 +12,16 @@ import UIKit
 protocol EpisodeComponentProvider: Dependency {
     var getTimeEpisodeUseCase: GetTimeEpisodeUseCase { get }
     var saveTimeEpisodeUseCase: SaveTimeEpisodeUseCase { get }
+    var getTokensUseCase: GetTokensUseCase { get }
 }
 
 final class EpisodeComponent: Component<EpisodeComponentProvider> {
     var episodeViewModel: EpisodeViewModel {
         shared {
             EpisodeViewModel(
-                getTimeEpisodeUseCase: dependency.getTimeEpisodeUseCase, saveTimeEpisodeUseCase: dependency.saveTimeEpisodeUseCase
+                getTimeEpisodeUseCase: dependency.getTimeEpisodeUseCase,
+                saveTimeEpisodeUseCase: dependency.saveTimeEpisodeUseCase,
+                getTokensUseCase: dependency.getTokensUseCase
             )
         }
     }

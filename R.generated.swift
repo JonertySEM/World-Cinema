@@ -312,7 +312,7 @@ struct _R {
     var lauchScreenBackground: RswiftResources.ColorResource { .init(name: "LauchScreenBackground", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 11 images.
+  /// This `_R.image` struct is generated, and contains static references to 13 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -337,8 +337,14 @@ struct _R {
     /// Image `shadow`.
     var shadow: RswiftResources.ImageResource { .init(name: "shadow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `sliderBall`.
+    var sliderBall: RswiftResources.ImageResource { .init(name: "sliderBall", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `stackMovie`.
     var stackMovie: RswiftResources.ImageResource { .init(name: "stackMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `startLastFilmWatch`.
+    var startLastFilmWatch: RswiftResources.ImageResource { .init(name: "startLastFilmWatch", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `timeMovieProfile`.
     var timeMovieProfile: RswiftResources.ImageResource { .init(name: "timeMovieProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

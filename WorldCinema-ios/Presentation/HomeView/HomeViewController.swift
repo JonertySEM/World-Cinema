@@ -17,8 +17,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     private var newMovieList = [MovieResponse]()
     private var inTrendMovieList = [MovieResponse]()
-    private var lastWatchFilm = MovieResponse()
+    private var lastWatchFilm = [HistoryRepsonse?]()
     private var forYouMovieList = [MovieResponse]()
+    private var filmLastWatch = MovieResponse()
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -37,21 +38,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func loadAllMovie() {
-        viewModel.getNewMovie()
-        viewModel.getCoverInView()
-        viewModel.getMovieInTrend()
         viewModel.getFilmForMe()
+        viewModel.getNewMovie()
+        viewModel.getHistoryMovie()
+        viewModel.getCoverInView()
+        viewModel.getFilmYouWatched()
+        viewModel.getMovieInTrend()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setGradientBackground()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        viewModel.$isProgressProfileShowing.sink { [self] result in
+        viewModel.$isProgressShowing.sink { [self] result in
             if result {
                 createView()
                 clearVoidCollections()
-                viewModel.isProgressProfileShowing = false
             }
         }.store(in: &subscribers)
         
@@ -68,8 +71,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             inTrendMovieList = list
         }.store(in: &subscribers)
         
-        viewModel.$lastWatchedMovie.sink { [self] movie in
+        viewModel.$historyMovie.sink { [self] movie in
             lastWatchFilm = movie
+        }.store(in: &subscribers)
+        
+        viewModel.$lastWatchMovieInHome.sink { [self] movie in
+            filmLastWatch = movie
+            
         }.store(in: &subscribers)
         
         viewModel.$movieForMeList.sink { [self] list in
@@ -85,7 +93,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     lazy var inTrendCollection = InTrendCollectionView(movieList: inTrendMovieList)
     lazy var newFilmsCollectionView = MovieCollectionView(movieList: newMovieList, movieTapClosure: viewModel.completionHandlerButton)
-    lazy var filmsForYouCollectionView = ForYouMovieCollectionView(movieList: forYouMovieList)
+    lazy var filmsForYouCollectionView = ForYouMovieCollectionView(movieList: forYouMovieList, movieTapClosure: viewModel.completionHandlerButton)
     
     let imagesCoverCard: UIImageView = {
         let image = UIImageView()
@@ -94,6 +102,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         return image
     }()
     
+
     let shadowSceneCard = R.image.shadow()
     
     let imagesShadowCard: UIImageView = {
@@ -157,7 +166,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     let filmWitchYouWatched: UIImageView = {
         let viewFilm = UIImageView()
+        viewFilm.contentMode = .scaleAspectFill
+        viewFilm.layer.masksToBounds = true
         return viewFilm
+    }()
+    
+    lazy var tapWatchLastFilm: CustomButton = {
+        let button = CustomButton()
+        button.setImage(R.image.startLastFilmWatch(), for: .normal)
+        button.addTarget(self, action: #selector(tapToNewEpisode), for: .touchUpInside)
+        return button
     }()
     
     let scrollView: UIScrollView = {
@@ -174,12 +192,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     private func createView() {
         view.addSubview(scrollView)
        
+        print(forYouMovieList)
+        
         scrollView.addSubview(homeView)
         
-        imagesShadowCard.image = shadowSceneCard
         homeView.addSubview(labelNewFilms)
+        
         homeView.addSubview(newFilmsCollectionView)
+        
         homeView.addSubview(labelInTrend)
+        
         homeView.addSubview(inTrendCollection)
         
         homeView.addSubview(labelYouWatched)
@@ -192,9 +214,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         homeView.addSubview(imagesCoverCard)
         homeView.addSubview(imagesShadowCard)
         homeView.addSubview(tapWatchFilm)
+        homeView.addSubview(tapWatchLastFilm)
         
         homeView.backgroundColor = .black
-        
+    
         filmWitchYouWatched.backgroundColor = .green
         
         scrollView.snp.makeConstraints { make in
@@ -246,19 +269,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         labelYouWatched.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
-            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(300)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(1000)
             make.top.equalTo(inTrendCollection.snp.bottom).inset(-32)
         }
         
         filmWitchYouWatched.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(labelYouWatched.snp.bottom).inset(-16)
-            make.height.equalTo(super.view.snp.height).multipliedBy(0.20)
+            make.height.equalTo(super.view.snp.height).multipliedBy(0.23)
+        }
+        
+        tapWatchLastFilm.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(filmWitchYouWatched)
         }
         
         labelNewFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
-            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(300)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(500)
             make.top.equalTo(filmWitchYouWatched.snp.bottom).inset(-32)
         }
         
@@ -270,14 +297,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         labelForYouFilms.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
-            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(300)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(50)
             make.top.equalTo(newFilmsCollectionView.snp.bottom).inset(-32)
         }
         
         filmsForYouCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(labelForYouFilms.snp.bottom).inset(-16)
-            make.height.equalTo(super.view.snp.height).multipliedBy(0.22)
+            make.height.equalTo(super.view.snp.height).multipliedBy(0.225)
         }
         
         tapYourFavorites.snp.makeConstraints { make in
@@ -288,6 +315,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             make.top.equalTo(filmsForYouCollectionView.snp.bottom).inset(-44)
             make.height.equalTo(super.view.snp.height).multipliedBy(0.05)
         }
+    }
+    
+    func setGradientBackground() {
+        let colorTop = UIColor.clear.cgColor
+        let colorBottom = UIColor.black.cgColor
+                    
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 0.52]
+        gradientLayer.frame = self.view.bounds
+                
+        self.imagesShadowCard.layer.insertSublayer(gradientLayer, at:0)
     }
     
     private func clearVoidCollections() {
@@ -315,25 +354,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             homeView.addSubview(filmsForYouCollectionView)
         }
         
-        print(lastWatchFilm.poster)
-        
-        if lastWatchFilm.poster == "" {
+        if lastWatchFilm.isEmpty {
             labelYouWatched.removeFromSuperview()
             filmWitchYouWatched.removeFromSuperview()
+            tapWatchLastFilm.removeFromSuperview()
+        } else {
+            guard let url = URL(string: lastWatchFilm[0]?.preview ?? "") else { return }
+            LoadFileHelper.loadImge(withUrl: url, view: filmWitchYouWatched)
         }
+    }
+    
+    @objc func tapToNewEpisode() {
+        viewModel.tapEpisode!((filmLastWatch,lastWatchFilm[0] ?? HistoryRepsonse()))
     }
      
     @objc func refresh() {
         loadAllMovie()
         
-        viewModel.$isProgressProfileShowing.sink { [self] flag in
+        viewModel.$isProgressNewFilmShowing.sink { [self] flag in
             if flag {
                 inTrendCollection.movieNewCollectionView.reloadData()
                 newFilmsCollectionView.movieNewCollectionView.reloadData()
-                filmsForYouCollectionView.trendCollectionView.reloadData()
+                filmsForYouCollectionView.movieNewCollectionView.reloadData()
                 clearVoidCollections()
                 refreshControl.endRefreshing()
-                viewModel.isProgressProfileShowing = false
+                viewModel.isProgressNewFilmShowing = false
             }
         }.store(in: &subscribers)
     }

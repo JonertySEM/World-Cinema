@@ -17,7 +17,7 @@ protocol TimeEpisodesRepository {
     func saveTimePosition(
         token: String,
         episodeId: String,
-        timeRequest: EpisodesTime,
+        timeRequest: Int?,
         completion: ((Result<VoidResponse, Error>) -> Void)?
     )
 }

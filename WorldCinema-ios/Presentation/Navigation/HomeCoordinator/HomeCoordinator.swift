@@ -97,6 +97,14 @@ class HomeCoordinator: NSObject, Coordinator {
                 self?.showMovieFlow(movie: film)
             }
             
+            component.homeViewModel.tapEpisode = { [weak self] dataFilms in
+                
+                let episode = EpisodesResponse(runtime: dataFilms.1.time, filePath: dataFilms.1.filePath)
+                self?.navigationController.navigationController?.setNavigationBarHidden(false, animated: true)
+                self?.showEpisodeModule(episode: episode, film: dataFilms.0)
+                
+            }
+            
             navController.pushViewController(component.homeViewController, animated: true)
            
         case .compilationView:
@@ -147,6 +155,24 @@ class HomeCoordinator: NSObject, Coordinator {
         childCoordinators.append(movieCoordinator)
         movieCoordinator.filmData = movie
         movieCoordinator.start()
+    }
+    
+    private func showEpisodeModule(episode: EpisodesResponse, film: MovieResponse) {
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
+                    
+        navigationController.navigationBar.standardAppearance = navBarAppearance
+        navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
+        
+        let component = moduleFactory.createEpisodeModule()
+        
+        component.episodeViewModel.episode = episode
+        component.episodeViewModel.film = film
+        //component.episodeViewModel.countEpisode = episodesList.count
+        
+        navigationController.pushViewController(component.episodeViewController, animated: true)
     }
 }
 
