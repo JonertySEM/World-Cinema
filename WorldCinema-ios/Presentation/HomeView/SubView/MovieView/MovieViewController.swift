@@ -27,6 +27,7 @@ class MovieViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradientBackground()
         
         viewModel.getEpisodes()
     }
@@ -174,6 +175,18 @@ class MovieViewController: UIViewController {
         return label
     }()
     
+    func setGradientBackground() {
+        let colorTop = UIColor.clear.cgColor
+        let colorBottom = UIColor.black.cgColor
+                    
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 0.53]
+        gradientLayer.frame = self.view.bounds
+                
+        self.imagesShadowCard.layer.insertSublayer(gradientLayer, at:0)
+    }
+    
     private func createFilmData() {
         view.addSubview(scrollView)
        
@@ -181,7 +194,6 @@ class MovieViewController: UIViewController {
         
         homeView.backgroundColor = .black
         
-        imagesShadowCard.image = shadowSceneCard
         
         homeView.addSubview(imagesCoverCard)
         homeView.addSubview(imagesShadowCard)

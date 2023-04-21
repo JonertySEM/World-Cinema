@@ -16,15 +16,18 @@ class RegistrationUseCase {
     private let authorizationRepository: AuthorizationRepository
     private let saveTokensUseCase: SaveTokensUseCase
     private let saveAuthStatusUseCase: SaveAuthStatusUseCase
+    private let createCollectionUseCase: CreateCollectionUseCase
 
     init(
         authorizationRepository: AuthorizationRepository,
         saveTokensUseCase: SaveTokensUseCase,
-        saveAuthStatusUseCase: SaveAuthStatusUseCase
+        saveAuthStatusUseCase: SaveAuthStatusUseCase,
+        createCollectionUseCase: CreateCollectionUseCase
     ) {
         self.authorizationRepository = authorizationRepository
         self.saveTokensUseCase = saveTokensUseCase
         self.saveAuthStatusUseCase = saveAuthStatusUseCase
+        self.createCollectionUseCase = createCollectionUseCase
     }
 
     func execute(
@@ -41,6 +44,7 @@ class RegistrationUseCase {
                                                          refreshToken: loginResponse.refreshToken,
                                                          completion: { [weak self] result in
                                                              if case .success = result {
+                                                                 self?.createCollectionUseCase.execute(token: loginResponse.accessToken, name: "Избранное")
                                                                  self?.saveAuthStatusUseCase.execute(isAuthorized: true)
                                                              }
                                                          }

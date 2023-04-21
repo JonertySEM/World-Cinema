@@ -78,15 +78,20 @@ private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: Needle
     return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class CompilationComponentDependency373fbd2b277d76ee0a2bProvider: CompilationComponentDependency {
-
-
-    init() {
-
+    var getCompilationMovieUseCase: GetCompilationMovieUseCase {
+        return mainComponent.getCompilationMovieUseCase
+    }
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->CompilationComponent
-private func factorya1836deb0193bacd38b4e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return CompilationComponentDependency373fbd2b277d76ee0a2bProvider()
+private func factorya1836deb0193bacd38b40ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return CompilationComponentDependency373fbd2b277d76ee0a2bProvider(mainComponent: parent1(component) as! MainComponent)
 }
 private class HomeComponentDependency887e91671f4424758155Provider: HomeComponentDependency {
     var getCoverHomeViewUseCase: GetCoverHomeViewUseCase {
@@ -181,7 +186,8 @@ extension ProfileComponent: Registration {
 }
 extension CompilationComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\CompilationComponentDependency.getCompilationMovieUseCase] = "getCompilationMovieUseCase-GetCompilationMovieUseCase"
+        keyPathToName[\CompilationComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
     }
 }
 extension HomeComponent: Registration {
@@ -234,7 +240,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->CollectionComponent", factoryfc00ae1c9aa628ca4995e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->CompilationComponent", factorya1836deb0193bacd38b4e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->CompilationComponent", factorya1836deb0193bacd38b40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->EpisodeComponent", factory7c52d030d19659ed72f40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->MovieComponent", factory6debacc94202b56166650ae93e637f014511a119)

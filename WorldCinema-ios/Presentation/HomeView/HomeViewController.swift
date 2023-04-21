@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setGradientBackground()
         loadAllMovie()
     }
     
@@ -48,7 +48,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setGradientBackground()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         viewModel.$isProgressShowing.sink { [self] result in
@@ -323,7 +322,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                     
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 0.52]
+        gradientLayer.locations = [0.0, 0.45]
         gradientLayer.frame = self.view.bounds
                 
         self.imagesShadowCard.layer.insertSublayer(gradientLayer, at:0)

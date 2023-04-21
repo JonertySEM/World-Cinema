@@ -8,10 +8,19 @@
 import Foundation
 import NeedleFoundation
 
-protocol CompilationComponentDependency: Dependency {}
+protocol CompilationComponentDependency: Dependency {
+    var getCompilationMovieUseCase: GetCompilationMovieUseCase { get }
+    var getTokensUseCase: GetTokensUseCase { get }
+}
 
 final class CompilationComponent: Component<CompilationComponentDependency> {
+    var compilationViewModel: CompilationViewModel {
+        shared {
+            CompilationViewModel(getCompilationMovieUseCase: dependency.getCompilationMovieUseCase, getTokensUseCase: dependency.getTokensUseCase)
+        }
+    }
+    
     var compilationViewController: CompilationViewController {
-        return CompilationViewController()
+        return CompilationViewController(viewModel: compilationViewModel)
     }
 }

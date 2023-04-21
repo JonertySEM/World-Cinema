@@ -312,24 +312,45 @@ struct _R {
     var lauchScreenBackground: RswiftResources.ColorResource { .init(name: "LauchScreenBackground", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 13 images.
+  /// This `_R.image` struct is generated, and contains static references to 21 images.
   struct image {
     let bundle: Foundation.Bundle
 
     /// Image `LauchScreenLogo`.
     var lauchScreenLogo: RswiftResources.ImageResource { .init(name: "LauchScreenLogo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `dislikeCompilation`.
+    var dislikeCompilation: RswiftResources.ImageResource { .init(name: "dislikeCompilation", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `dislikeInCard`.
+    var dislikeInCard: RswiftResources.ImageResource { .init(name: "dislikeInCard", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `heartMovie`.
     var heartMovie: RswiftResources.ImageResource { .init(name: "heartMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `likeButton`.
+    var likeButton: RswiftResources.ImageResource { .init(name: "likeButton", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `likeInCard`.
+    var likeInCard: RswiftResources.ImageResource { .init(name: "likeInCard", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `messageMovieProfile`.
     var messageMovieProfile: RswiftResources.ImageResource { .init(name: "messageMovieProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `playCompilation`.
+    var playCompilation: RswiftResources.ImageResource { .init(name: "playCompilation", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `plusMovie`.
     var plusMovie: RswiftResources.ImageResource { .init(name: "plusMovie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `redButton`.
+    var redButton: RswiftResources.ImageResource { .init(name: "redButton", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `sadTV`.
     var sadTV: RswiftResources.ImageResource { .init(name: "sadTV", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `sadTVCompilation`.
+    var sadTVCompilation: RswiftResources.ImageResource { .init(name: "sadTVCompilation", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `settingMovieProfile`.
     var settingMovieProfile: RswiftResources.ImageResource { .init(name: "settingMovieProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -354,6 +375,9 @@ struct _R {
 
     /// Image `videoStartButton`.
     var videoStartButton: RswiftResources.ImageResource { .init(name: "videoStartButton", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `whitButton`.
+    var whitButton: RswiftResources.ImageResource { .init(name: "whitButton", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.font` struct is generated, and contains static references to 2 fonts.

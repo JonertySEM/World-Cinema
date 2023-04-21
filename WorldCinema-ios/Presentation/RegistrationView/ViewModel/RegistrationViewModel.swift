@@ -36,9 +36,10 @@ class RegistrationViewModel: ObservableObject, FlowController {
 
     private let registrationUseCase: RegistrationUseCase
 
-    init(registrationUseCase: RegistrationUseCase) {
+    init(
+        registrationUseCase: RegistrationUseCase
+    ) {
         self.registrationUseCase = registrationUseCase
-
         initFieldsObserving()
     }
 
@@ -190,6 +191,8 @@ class RegistrationViewModel: ObservableObject, FlowController {
                     lastName: secondNameFieldText
                 )) { [weak self] result in
                     LoaderView.endLoading()
+                    
+                    
 
                     if case .failure(let error) = result {
                         // Error

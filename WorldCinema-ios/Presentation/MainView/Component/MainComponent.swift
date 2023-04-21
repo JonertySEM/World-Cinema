@@ -83,6 +83,14 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var collectionRepository: CollectionRepository {
+        shared {
+            CollectionRepositoryImpl(jsonDecoder: jsonDecoder,
+                                     jsonEncoder: jsonEncoder,
+                                     requestInterceptor: requestInterceptor)
+        }
+    }
+    
     var getEpisodesRepository: GetEpisodesRepository {
         shared {
             GetEpisodesRepositoryImpl(jsonDecoder: jsonDecoder,
@@ -111,6 +119,12 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var getCompilationMovieUseCase: GetCompilationMovieUseCase {
+        shared {
+            GetCompilationMovieUseCase(movieRepository: movieRepository)
+        }
+    }
+    
     var getLastViewMovieUseCase: GetLastViewMovieUseCase {
         shared {
             GetLastViewMovieUseCase(movieRepository: movieRepository)
@@ -126,6 +140,12 @@ final class MainComponent: BootstrapComponent {
     var getHistoryUseCase: GetHistoryUseCase {
         shared {
             GetHistoryUseCase(getHistoryFilmRepository: getHistoryFilmRepository)
+        }
+    }
+    
+    var createCollectionUseCase: CreateCollectionUseCase {
+        shared {
+            CreateCollectionUseCase(collectionRepository: collectionRepository)
         }
     }
     
@@ -157,7 +177,8 @@ final class MainComponent: BootstrapComponent {
         shared {
             RegistrationUseCase(authorizationRepository: authRepository,
                                 saveTokensUseCase: saveTokensUseCase,
-                                saveAuthStatusUseCase: saveAuthStatusUseCase)
+                                saveAuthStatusUseCase: saveAuthStatusUseCase,
+                                createCollectionUseCase: createCollectionUseCase)
         }
     }
     

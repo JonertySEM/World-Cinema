@@ -24,6 +24,8 @@
 		4F3C099A29F23D9A00597A0E /* HistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C099929F23D9A00597A0E /* HistoryResponse.swift */; };
 		4F3C099C29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C099B29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift */; };
 		4F3C099E29F23F1C00597A0E /* GetHistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C099D29F23F1C00597A0E /* GetHistoryUseCase.swift */; };
+		4F3C09A129F2704A00597A0E /* CompilationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C09A029F2704A00597A0E /* CompilationViewModel.swift */; };
+		4F3C09A429F292CD00597A0E /* CreateCollectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C09A329F292CD00597A0E /* CreateCollectionUseCase.swift */; };
 		4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42708929DEC5F600A1FC80 /* UIImageView.swift */; };
 		4F42708D29DEE1B700A1FC80 /* CompilationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42708C29DEE1B700A1FC80 /* CompilationViewController.swift */; };
 		4F42709029DEE1EC00A1FC80 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F42708F29DEE1EC00A1FC80 /* CollectionViewController.swift */; };
@@ -171,6 +173,8 @@
 		4F3C099929F23D9A00597A0E /* HistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryResponse.swift; sourceTree = "<group>"; };
 		4F3C099B29F23E8100597A0E /* GetHistoryFilmRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHistoryFilmRepositoryImpl.swift; sourceTree = "<group>"; };
 		4F3C099D29F23F1C00597A0E /* GetHistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHistoryUseCase.swift; sourceTree = "<group>"; };
+		4F3C09A029F2704A00597A0E /* CompilationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationViewModel.swift; sourceTree = "<group>"; };
+		4F3C09A329F292CD00597A0E /* CreateCollectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCollectionUseCase.swift; sourceTree = "<group>"; };
 		4F42708929DEC5F600A1FC80 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		4F42708C29DEE1B700A1FC80 /* CompilationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationViewController.swift; sourceTree = "<group>"; };
 		4F42708F29DEE1EC00A1FC80 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 		4F21926729D1E42D001AEB5F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				4F3C09A229F292AF00597A0E /* Collection */,
 				4FE93FFB29EBE0FC00F21F4B /* Episode */,
 				4F4270AA29E302D300A1FC80 /* Profile */,
 				4FD9281229DD1EE5007EA8FE /* HomeViewRepository */,
@@ -488,8 +493,17 @@
 		4F3C099F29F26B1200597A0E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4F3C09A029F2704A00597A0E /* CompilationViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F3C09A229F292AF00597A0E /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				4F3C09A329F292CD00597A0E /* CreateCollectionUseCase.swift */,
+			);
+			path = Collection;
 			sourceTree = "<group>";
 		};
 		4F42708829DEA6F300A1FC80 /* CustomCell */ = {
@@ -1357,6 +1371,7 @@
 				4FE93FC529E6C56B00F21F4B /* GetForMeMovieUseCase.swift in Sources */,
 				4FE8520529DAEBD0002CCD6A /* ProfileViewController.swift in Sources */,
 				4FE93FF829EBDFA800F21F4B /* GetEpisodesRepository.swift in Sources */,
+				4F3C09A429F292CD00597A0E /* CreateCollectionUseCase.swift in Sources */,
 				4F21928929D32CC5001AEB5F /* NetworkingEnums.swift in Sources */,
 				4FE93FC329E6C52100F21F4B /* GetNewMovieUseCase.swift in Sources */,
 				4FD9280629DC80AA007EA8FE /* MovieResponse.swift in Sources */,
@@ -1422,6 +1437,7 @@
 				4F42708A29DEC5F600A1FC80 /* UIImageView.swift in Sources */,
 				4F42709029DEE1EC00A1FC80 /* CollectionViewController.swift in Sources */,
 				4F4270A729E301FE00A1FC80 /* ProfileResponse.swift in Sources */,
+				4F3C09A129F2704A00597A0E /* CompilationViewModel.swift in Sources */,
 				4FE93FDA29E969DA00F21F4B /* MovieComponent.swift in Sources */,
 				4FE93FF629EBDD2C00F21F4B /* EpisodesResponse.swift in Sources */,
 				4F63C89829D965EE00B06D35 /* SwiftyUserDefaultsExtansion.swift in Sources */,
