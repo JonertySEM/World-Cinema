@@ -91,6 +91,14 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var chatRepository: ChatRepository {
+        shared {
+            ChatRepositoryImpl(jsonDecoder: jsonDecoder,
+                               jsonEncoder: jsonEncoder,
+                               requestInterceptor: requestInterceptor)
+        }
+    }
+    
     var getEpisodesRepository: GetEpisodesRepository {
         shared {
             GetEpisodesRepositoryImpl(jsonDecoder: jsonDecoder,
@@ -128,6 +136,12 @@ final class MainComponent: BootstrapComponent {
     var getLastViewMovieUseCase: GetLastViewMovieUseCase {
         shared {
             GetLastViewMovieUseCase(movieRepository: movieRepository)
+        }
+    }
+    
+    var likeFilmInCollectionUseCase: LikeFilmInCollectionUseCase {
+        shared {
+            LikeFilmInCollectionUseCase(collectionRepository: collectionRepository)
         }
     }
     
@@ -226,6 +240,12 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var getChatListUseCase: GetChatListUseCase {
+        shared {
+            GetChatListUseCase(chatRepository: chatRepository)
+        }
+    }
+    
     var saveTimeEpisodeUseCase: SaveTimeEpisodeUseCase {
         shared {
             SaveTimeEpisodeUseCase(timeEpisodesRepository: timeEpisodesRepository)
@@ -262,9 +282,21 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var chatComponent: ChatComponent {
+        shared {
+            ChatComponent(parent: self)
+        }
+    }
+    
     var collectionComponent: CollectionComponent {
         shared {
             CollectionComponent(parent: self)
+        }
+    }
+    
+    var chatListComponent: ChatListComponent {
+        shared {
+            ChatListComponent(parent: self)
         }
     }
     

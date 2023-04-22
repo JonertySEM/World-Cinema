@@ -257,6 +257,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         labelInTrend.snp.makeConstraints { make in
             make.leading.equalTo(homeView.snp.leading).inset(16)
+            make.top.equalTo(imagesCoverCard.snp.bottom).inset(-32).priority(1000)
             make.top.equalTo(imagesShadowCard.snp.bottom).inset(-32)
         }
         
@@ -343,6 +344,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         } else {
             homeView.addSubview(labelInTrend)
             homeView.addSubview(inTrendCollection)
+            labelInTrend.removeFromSuperview()
+            inTrendCollection.removeFromSuperview()
         }
         
         if forYouMovieList.count == 0 {

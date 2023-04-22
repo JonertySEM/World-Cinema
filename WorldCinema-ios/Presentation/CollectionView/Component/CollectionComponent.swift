@@ -15,7 +15,13 @@ protocol CollectionComponentDependency: Dependency {
 
 final class CollectionComponent: Component <CollectionComponentDependency> {
     
+    var collectionViewModel: CollectionViewModel {
+        shared {
+            CollectionViewModel()
+        }
+    }
+    
     var collectionViewController: CollectionViewController {
-        return CollectionViewController()
+        return CollectionViewController(viewModel: collectionViewModel)
     }
 }

@@ -15,14 +15,29 @@ class CompilationViewModel {
     
     private let getCompilationMovieUseCase: GetCompilationMovieUseCase
     private let getTokensUseCase: GetTokensUseCase
+    private let likeFilmInCollectionUseCase: LikeFilmInCollectionUseCase
     
     init(
         getCompilationMovieUseCase: GetCompilationMovieUseCase,
-        getTokensUseCase: GetTokensUseCase
+        getTokensUseCase: GetTokensUseCase,
+        likeFilmInCollectionUseCase: LikeFilmInCollectionUseCase
     ) {
         self.getCompilationMovieUseCase = getCompilationMovieUseCase
         self.getTokensUseCase = getTokensUseCase
+        self.likeFilmInCollectionUseCase = likeFilmInCollectionUseCase
     }
+    
+//    func likeFilm(movieId: String) {
+//        getTokensUseCase.execute(tokenType: .auth) { [weak self] result in
+//            switch result {
+//                case .success(let token):
+//                self?.likeFilmInCollectionUseCase.execute(token: token, collectionId: <#T##String#>, movieId: movieId)
+//                case .failure(let error):
+//                    print(error)
+//            }
+//
+//        }
+//    }
     
     func getCardsMovie() {
         getTokensUseCase.execute(tokenType: .auth) { [weak self] result in

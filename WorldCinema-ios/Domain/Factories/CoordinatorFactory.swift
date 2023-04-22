@@ -24,4 +24,6 @@ class CoordinatorFactory {
     func createMovieCoordinator(navigationController: UINavigationController) -> MovieCoordinator {
         MovieCoordinator(navigationController)
     }
+    
+    
 }

@@ -41,4 +41,8 @@ class ModuleFactory {
     func createEpisodeModule() -> EpisodeComponent {
         mainComponent.episodeComponent
     }
+    
+    func createListMessageModule() -> ChatListComponent {
+        mainComponent.chatListComponent
+    }
 }

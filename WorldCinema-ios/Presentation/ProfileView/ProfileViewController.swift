@@ -12,6 +12,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     var viewModel: ProfileViewModel
     private let avatarAllert = CustomAlert()
+    private var chatArray = [ChatResponse?]()
     var subscribers: Set<AnyCancellable> = []
     
     init(viewModel: ProfileViewModel) {
@@ -28,14 +29,17 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         LoaderView.startLoading()
+        viewModel.getChatList()
         viewModel.getProfileData()
         
         viewModel.$isProgressProfileShowing.sink { [self] result in
             if result {
                 LoaderView.endLoading()
                 createProfile()
+                
             }
         }.store(in: &subscribers)
+        
         
         viewModel.$avatar.sink { [self] url in
             guard let imageUrl = URL(string: url) else { return }
@@ -91,6 +95,13 @@ class ProfileViewController: UIViewController {
             let tapGestureCamera = UITapGestureRecognizer(target: self, action: #selector(self.uploadImageInCamera))
             self.avatarAllert.addAvatarInCamera.isUserInteractionEnabled = true
             self.avatarAllert.addAvatarInCamera.addGestureRecognizer(tapGestureCamera)
+        }
+    }
+    
+    @objc func handleMessage(_ sender: UITapGestureRecognizer) {
+        sender.view?.showAnimation {
+            
+            self.viewModel.completionHandlerButton?("")
         }
     }
     
@@ -400,6 +411,11 @@ class ProfileViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         changeAvatar.isUserInteractionEnabled = true
         changeAvatar.addGestureRecognizer(tapGesture)
+        
+        let tapMessage = UITapGestureRecognizer(target: self, action: #selector(handleMessage))
+        messageStack.isUserInteractionEnabled = true
+        messageStack.addGestureRecognizer(tapMessage)
+        
         
         buttonExit.addTarget(self, action: #selector(pressExitButton), for: .touchUpInside)
     }

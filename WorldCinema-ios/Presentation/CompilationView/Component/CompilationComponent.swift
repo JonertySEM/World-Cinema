@@ -11,12 +11,13 @@ import NeedleFoundation
 protocol CompilationComponentDependency: Dependency {
     var getCompilationMovieUseCase: GetCompilationMovieUseCase { get }
     var getTokensUseCase: GetTokensUseCase { get }
+    var likeFilmInCollectionUseCase: LikeFilmInCollectionUseCase { get }
 }
 
 final class CompilationComponent: Component<CompilationComponentDependency> {
     var compilationViewModel: CompilationViewModel {
         shared {
-            CompilationViewModel(getCompilationMovieUseCase: dependency.getCompilationMovieUseCase, getTokensUseCase: dependency.getTokensUseCase)
+            CompilationViewModel(getCompilationMovieUseCase: dependency.getCompilationMovieUseCase, getTokensUseCase: dependency.getTokensUseCase, likeFilmInCollectionUseCase: dependency.likeFilmInCollectionUseCase)
         }
     }
     

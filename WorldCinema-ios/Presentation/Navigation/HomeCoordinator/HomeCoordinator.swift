@@ -114,6 +114,7 @@ class HomeCoordinator: NSObject, Coordinator {
         case .collectionView:
             let component = moduleFactory.createColectionModule()
             
+            
             navController.pushViewController(component.collectionViewController, animated: true)
         case .profileView:
             let component = moduleFactory.createProfileModule()
@@ -121,6 +122,11 @@ class HomeCoordinator: NSObject, Coordinator {
             component.profileViewModel.completionHandler = { [weak self] _ in
                 self?.finish()
                 self?.showLoginFlow()
+            }
+            
+            component.profileViewModel.completionHandlerButton = { [weak self] _ in
+                
+                self?.showMessageModule()
             }
             
             navController.pushViewController(component.profileViewController, animated: true)
@@ -147,6 +153,22 @@ class HomeCoordinator: NSObject, Coordinator {
         authCoordinator.start()
     }
     
+    
+    private func showMessageModule(){
+        navigationController.setNavigationBarHidden(false, animated: true)
+        navigationController.navigationBar.tintColor = .white
+        
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
+
+        navigationController.navigationBar.standardAppearance = navBarAppearance
+        navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
+        let component = moduleFactory.createListMessageModule()
+        
+        
+        navigationController.pushViewController(component.chatListViewController, animated: true)
+    }
     
     private func showMovieFlow(movie: MovieResponse) {
         let movieCoordinator = CoordinatorFactory().createMovieCoordinator(navigationController: navigationController)

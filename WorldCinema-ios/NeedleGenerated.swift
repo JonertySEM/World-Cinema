@@ -18,6 +18,31 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 #if !NEEDLE_DYNAMIC
 
+private class ChatComponentDependency45bea354d287788a2331Provider: ChatComponentDependency {
+    var getProfileDataUseCase: GetProfileDataUseCase {
+        return mainComponent.getProfileDataUseCase
+    }
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
+    }
+    var logOutUseCase: LogOutUseCase {
+        return mainComponent.logOutUseCase
+    }
+    var uploadProfileDataUseCase: UploadProfileDataUseCase {
+        return mainComponent.uploadProfileDataUseCase
+    }
+    var getChatListUseCase: GetChatListUseCase {
+        return mainComponent.getChatListUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->ChatComponent
+private func factoryc2ef35ef9d676290350b0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ChatComponentDependency45bea354d287788a2331Provider(mainComponent: parent1(component) as! MainComponent)
+}
 private class RegistrationComponentDependency45ce06ac0365c929bb6bProvider: RegistrationComponentDependency {
     var registrationUseCase: RegistrationUseCase {
         return mainComponent.registrationUseCase
@@ -68,6 +93,9 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
     var uploadProfileDataUseCase: UploadProfileDataUseCase {
         return mainComponent.uploadProfileDataUseCase
     }
+    var getChatListUseCase: GetChatListUseCase {
+        return mainComponent.getChatListUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -83,6 +111,9 @@ private class CompilationComponentDependency373fbd2b277d76ee0a2bProvider: Compil
     }
     var getTokensUseCase: GetTokensUseCase {
         return mainComponent.getTokensUseCase
+    }
+    var likeFilmInCollectionUseCase: LikeFilmInCollectionUseCase {
+        return mainComponent.likeFilmInCollectionUseCase
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
@@ -159,8 +190,42 @@ private class MovieComponentProvidera7033cbb13a1a098180aProvider: MovieComponent
 private func factory6debacc94202b56166650ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return MovieComponentProvidera7033cbb13a1a098180aProvider(mainComponent: parent1(component) as! MainComponent)
 }
+private class ChatListComponentDependencyee230b5d8c0f532110f2Provider: ChatListComponentDependency {
+    var getProfileDataUseCase: GetProfileDataUseCase {
+        return mainComponent.getProfileDataUseCase
+    }
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
+    }
+    var logOutUseCase: LogOutUseCase {
+        return mainComponent.logOutUseCase
+    }
+    var uploadProfileDataUseCase: UploadProfileDataUseCase {
+        return mainComponent.uploadProfileDataUseCase
+    }
+    var getChatListUseCase: GetChatListUseCase {
+        return mainComponent.getChatListUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->ChatListComponent
+private func factory7aeb986ab70339358b6a0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ChatListComponentDependencyee230b5d8c0f532110f2Provider(mainComponent: parent1(component) as! MainComponent)
+}
 
 #else
+extension ChatComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\ChatComponentDependency.getProfileDataUseCase] = "getProfileDataUseCase-GetProfileDataUseCase"
+        keyPathToName[\ChatComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
+        keyPathToName[\ChatComponentDependency.logOutUseCase] = "logOutUseCase-LogOutUseCase"
+        keyPathToName[\ChatComponentDependency.uploadProfileDataUseCase] = "uploadProfileDataUseCase-UploadProfileDataUseCase"
+        keyPathToName[\ChatComponentDependency.getChatListUseCase] = "getChatListUseCase-GetChatListUseCase"
+    }
+}
 extension RegistrationComponent: Registration {
     public func registerItems() {
         keyPathToName[\RegistrationComponentDependency.registrationUseCase] = "registrationUseCase-RegistrationUseCase"
@@ -182,12 +247,14 @@ extension ProfileComponent: Registration {
         keyPathToName[\ProfileComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
         keyPathToName[\ProfileComponentDependency.logOutUseCase] = "logOutUseCase-LogOutUseCase"
         keyPathToName[\ProfileComponentDependency.uploadProfileDataUseCase] = "uploadProfileDataUseCase-UploadProfileDataUseCase"
+        keyPathToName[\ProfileComponentDependency.getChatListUseCase] = "getChatListUseCase-GetChatListUseCase"
     }
 }
 extension CompilationComponent: Registration {
     public func registerItems() {
         keyPathToName[\CompilationComponentDependency.getCompilationMovieUseCase] = "getCompilationMovieUseCase-GetCompilationMovieUseCase"
         keyPathToName[\CompilationComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
+        keyPathToName[\CompilationComponentDependency.likeFilmInCollectionUseCase] = "likeFilmInCollectionUseCase-LikeFilmInCollectionUseCase"
     }
 }
 extension HomeComponent: Registration {
@@ -214,6 +281,15 @@ extension MovieComponent: Registration {
         keyPathToName[\MovieComponentProvider.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
     }
 }
+extension ChatListComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\ChatListComponentDependency.getProfileDataUseCase] = "getProfileDataUseCase-GetProfileDataUseCase"
+        keyPathToName[\ChatListComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
+        keyPathToName[\ChatListComponentDependency.logOutUseCase] = "logOutUseCase-LogOutUseCase"
+        keyPathToName[\ChatListComponentDependency.uploadProfileDataUseCase] = "uploadProfileDataUseCase-UploadProfileDataUseCase"
+        keyPathToName[\ChatListComponentDependency.getChatListUseCase] = "getChatListUseCase-GetChatListUseCase"
+    }
+}
 extension MainComponent: Registration {
     public func registerItems() {
 
@@ -236,6 +312,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
+    registerProviderFactory("^->MainComponent->ChatComponent", factoryc2ef35ef9d676290350b0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a8800ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->CollectionComponent", factoryfc00ae1c9aa628ca4995e3b0c44298fc1c149afb)
@@ -244,6 +321,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->EpisodeComponent", factory7c52d030d19659ed72f40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->MovieComponent", factory6debacc94202b56166650ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->ChatListComponent", factory7aeb986ab70339358b6a0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
 }
 #endif

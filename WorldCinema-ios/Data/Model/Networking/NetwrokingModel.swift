@@ -10,6 +10,7 @@ import Foundation
 
 class NetworkingModel {
     static let baseUrl = "http://107684.web.hosting-russia.ru:8000/api"
+    static let baseWebSocket = "ws://107684.web.hosting-russia.ru:8000/api"
 
     static let login = "/auth/login"
     static let registration = "/auth/register"
@@ -22,6 +23,8 @@ class NetworkingModel {
     static let episodes = "/episodes"
     static let time = "/time"
     static let history = "/history"
+    static let chats = "/chats"
+    static let messages = "/messages"
 
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",

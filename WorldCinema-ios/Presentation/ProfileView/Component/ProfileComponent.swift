@@ -13,6 +13,7 @@ protocol ProfileComponentDependency: Dependency {
     var getTokensUseCase: GetTokensUseCase { get }
     var logOutUseCase: LogOutUseCase { get }
     var uploadProfileDataUseCase: UploadProfileDataUseCase { get }
+    var getChatListUseCase: GetChatListUseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {
@@ -20,7 +21,8 @@ final class ProfileComponent: Component<ProfileComponentDependency> {
         shared {
             ProfileViewModel(getProfileDataUseCase: dependency.getProfileDataUseCase,
                              getTokensUseCase: dependency.getTokensUseCase, logOutUseCase: dependency.logOutUseCase,
-                             uploadProfileDataUseCase: dependency.uploadProfileDataUseCase)
+                             uploadProfileDataUseCase: dependency.uploadProfileDataUseCase,
+                             getChatListUseCase: dependency.getChatListUseCase)
         }
     }
 

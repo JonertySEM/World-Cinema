@@ -41,7 +41,7 @@
 
 // MARK: ProfileView
 "changeAvatar" = "Изменить";
-"messageText" = "Обсуждение";
+"messageText" = "Обсуждения";
 "storyText" = "История";
 "settingsText" = "Настройки";
 "exitButton" = "Выйти";
